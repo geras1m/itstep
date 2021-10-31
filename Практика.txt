@@ -1,8 +1,8 @@
 itstep 
 
 
-git
 
+git
 г
 о
 л
@@ -14,3 +14,4 @@ git
 и
 й
 
+hello world
