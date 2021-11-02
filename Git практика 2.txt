@@ -1,5 +1,2 @@
-Hello Step
-
-Hello, how are you?
-
-Good and you?
+<h1>Заголовок</h1>
+<p>Какой-то текст</p>
