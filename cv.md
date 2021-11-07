@@ -1,6 +1,6 @@
 <h1 align="center"> Hi!  I'm Anton.</h1>
 
-<div align="center"><img src="img/1.jpg" width=40%></div>
+<img align="center" src="./img/1.jpg" width="40%">
 
 <h2 align="center"> About me </h2>
 
