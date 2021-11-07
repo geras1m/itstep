@@ -29,5 +29,5 @@ I am motivated to improve my skills and get a job.
 <a href="https://vk.com/id197265682"><img src="img/7.jpg"></a>
   <p> <b>Email</b>: anton94-94@list.ru</p>
   <p> <b>Phone number</b>: +375(29) 740 64 32.</p>
-</div></div>
+</div>
 
