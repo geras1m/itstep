@@ -2,7 +2,7 @@
 <h1 align="center"> Hi!  I'm Anton.</h1>
 <div align="center">
 
-![photo](./img/1_1.jpg)
+![photo]("./img/1_1.jpg")
 
 </div>
 
