@@ -1,10 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
 </head>
 <body>
-$END$
+
+<p><b>Меню</b></p>
+<ul>
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="Katalog.html">Каталог</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+</ul>
+
+<hr>
+
+<h1>Контакты</h1>
+
+<form>
+    <fieldset>
+        <legend><h3>Напишите нам:</h3></legend>
+        <label>Имя <input type="text" placeholder="Введите имя" required></label>
+        <!--placeholder="Введите имя" - Определяет короткую текстовую подсказку, которая описывает ожидаемое вводимое значение -->
+        <!--required - Выводит сообщение о том, что данное поле является обязательным для заполнения. -->
+        <br>
+        <br>
+        <label>Email <input type="email" placeholder="Введите e-mail" required></label>
+        <!--placeholder="Введите имя" - Определяет короткую текстовую подсказку, которая описывает ожидаемое вводимое значение -->
+        <!--required - Выводит сообщение о том, что данное поле является обязательным для заполнения. -->
+        <br>
+        <br>
+        <fieldset><legend>Пол</legend>
+            <label>Муж <input type="radio" name="gender" checked></label>
+            <label>Жен <input type="radio" name="gender"></label>
+        </fieldset>
+        <!--<fieldset></fieldset> - предназначен для группировки элементов, связанных друг с другом, разделяя таким образом форму на логические фрагменты. -->
+        <!-- checked - трибут проверяет, установлен ли флажок по умолчанию при загрузке страницы для полей типа type="checkbox" и type="radio" -->
+        <br>
+        <br>
+        <label>Укажите дату рождения <input type="date"></label>
+        <br>
+        <br>
+        <label>Тема сообщения<input type="text" placeholder="Введите тему сообщения" required></label>
+        <!--placeholder="Введите имя" - Определяет короткую текстовую подсказку, которая описывает ожидаемое вводимое значение -->
+        <!--required - Выводит сообщение о том, что данное поле является обязательным для заполнения. -->
+        <br>
+        <br>
+        <textarea>Комментарий</textarea>
+        <!--<textarea>...</textarea> - используется когда нужно создать большие текстовые поля -->
+        <br>
+        <br>
+        <label>Согласие на обработку данных <input type="checkbox"></label>
+        <!--checkbox - Галочка -->
+        <br>
+        <br>
+        <input type="submit" value="Отправить">
+        <!--submit - кнопка для отправки данных формы-->
+        <!--value - Задает значение по умолчанию, отправляемое при нажатии на кнопку.-->
+        <input type="reset" value="Очистить">
+        <!--reset - кнопка сброса, возвращает первоначальное значение-->
+        <!--value - Задает значение по умолчанию, отправляемое при нажатии на кнопку.-->
+    </fieldset>
+</form>
+
+<h2>Адрес</h2>
+<p><b>Телефон:</b> <a href="tel:+375297654321"> +375(29) 765 43 21 </a></p>
+<p><b>Адрес:</b> г.Могилев, ул. </a></p>
+<p><b>E-mail:</b> <a href="mailto:technoworld@mail.ru"> technoworld@mail.ru </a></p>
+<!--
+<a href="mailto:ponk@tut.by">My email</a>
+<a href="tel:+375294444444">My phone</a>
+<a href="skype:jshinoby">My skype</a>
+My test data
+<a href="../index.html">Back</a>
+тоже ссылки, только !!!с открытием приложения!!! -->
+
+<h2>Мы в соц.сетях:</h2>
+<p><a href="https://www.instagram.com/?hl=ru" target="_blank">Instagram</a></p>
+<p><a href="https://vk.com/" target="_blank">VK</a></p>
+
+<p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1175.4135383632608!2d30.334139783584174!3d53.89927741500669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d051e5f5ffe891%3A0x5158fe712fff98cd!2z0JjQnyDQm9C40L_QuNC90YHQutCw0Y8g0JAu0JIu!5e0!3m2!1sru!2sby!4v1636740978104!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+
+<hr>
+
+<footer>
+    <p>&copy; Все права защищены </p>
+</footer>
 </body>
 </html>
