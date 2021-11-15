@@ -1,0 +1,81 @@
+body {
+    background-color: #f8f8f8;
+}
+
+.linkCap {
+    color: goldenrod;
+    font-size: 18px;
+    font-family: "Times New Roman", serif, "Verdana";
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+.LiCap {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    color:#000000;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+
+.TexhoWorld{
+    text-align: center;
+}
+
+.otherText{
+    text-align: center;
+    color: darkslategray;
+    font-size: 16px;
+    font-weight: 400;
+    }
+
+.product {
+    text-align: left;
+}
+
+.shortDescrip {
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.detailedDescrip {
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.specif {
+    color:royalblue;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    }
+
+.phone {
+    list-style-image: url("img_project/Phone16x16.jpg");
+}
+
+.watch {
+    list-style-image: url("img_project/Watch16x16.jpg");
+}
+
+.Content {
+    border: 3px solid #707070;
+
+}
+
+input {
+    width: ;
+    height: ;
+}
