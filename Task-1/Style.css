@@ -22,6 +22,7 @@ h1, h2, h3 {
     font-size: 18px;
     font-weight: 400;
     background-color: #eaeaea;
+    text-align: center;
 }
 
 .TexhoWorld{
@@ -70,12 +71,39 @@ h1, h2, h3 {
     list-style-image: url("img_project/Watch16x16.jpg");
 }
 
-.Content {
-    border: 3px solid #707070;
+form {
+    text-align:center;
+    }
 
+fieldset {
+    display:unset;
+    width: 450px;
+    }
+
+.enter {
+    width: 150px;
+    height: 16px;
 }
 
-input {
-    width: ;
-    height: ;
+input[placeholder] {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+    
+    }
+
+
+.borderGender {
+    width: 300px;
+    height: 35px;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+}
+
+.imgBorder {
+    border: 3px solid #707070;
+    width: fit-content;
 }
