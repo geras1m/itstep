@@ -87,6 +87,12 @@ fieldset {
     border-radius: 10px;
 }
 
+.enterText {
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+}
+
 input[placeholder] {
     font-style: italic;
     font-size: 10px;
