@@ -3,7 +3,7 @@ body {
 }
 
 .linkCap {
-    color: goldenrod;
+    color: #098842;
     font-size: 18px;
     font-family: "Times New Roman", serif, "Verdana";
     font-weight: 600;
@@ -13,8 +13,13 @@ a {
     text-decoration: none;
 }
 
-.LiCap {
-    list-style: none;
+.LiCap:hover {
+    list-style-type: unset;
+    background-color: #d1d8e1;
+}
+
+.divCap {
+    width: 125px;
 }
 
 h1, h2, h3 {
@@ -40,6 +45,12 @@ h1, h2, h3 {
     text-align: left;
 }
 
+.CapP:first-letter {
+    font-size: 25px;
+    font-style: italic;
+    color: #098842;
+}
+
 .shortDescrip {
     color: #707070;
     font-size: 14px;
@@ -55,21 +66,13 @@ h1, h2, h3 {
     text-align: left;
 }
 
-.specif {
+table {
     color:royalblue;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
     text-align: left;
     }
-
-.phone {
-    list-style-image: url("img_project/Phone16x16.jpg");
-}
-
-.watch {
-    list-style-image: url("img_project/Watch16x16.jpg");
-}
 
 form {
     text-align:center;
@@ -83,14 +86,19 @@ fieldset {
 
 .enter {
     width: 150px;
-    height: 16px;
-    border-radius: 10px;
+    height: 20px;
+
 }
 
 .enterText {
     color: red;
     font-style: italic;
     font-size: 12px;
+}
+
+.enterText[type="email"]{
+    background-color: burlywood;
+    color: darkgreen;
 }
 
 input[placeholder] {
@@ -112,7 +120,29 @@ textarea {
     border-radius: 5px;
 }
 
+input{
+    text-transform: capitalize;
+}
+
 .imgBorder {
     border: 3px solid #707070;
     width: fit-content;
+}
+
+.imgBorder:hover {
+    border: none;
+    padding: 3px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    border: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
 }
