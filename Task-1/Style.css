@@ -2,7 +2,11 @@ body {
     background-color: #f8f8f8;
 }
 
-.linkCap {
+.menu {
+    font-weight: 800;
+}
+
+.link-cap{
     color: #098842;
     font-size: 18px;
     font-family: "Times New Roman", serif, "Verdana";
@@ -13,52 +17,44 @@ a {
     text-decoration: none;
 }
 
-.LiCap:hover {
+.li-cap:hover {
     list-style-type: unset;
     background-color: #d1d8e1;
 }
 
-.divCap {
+.div-cap {
     width: 125px;
 }
 
-h1, h2, h3 {
+.heading {
     color:#000000;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     background-color: #eaeaea;
     text-align: center;
 }
 
-.TexhoWorld{
-    text-align: center;
-}
-
-.otherText{
+.other-text{
     text-align: center;
     color: darkslategray;
     font-size: 16px;
     font-weight: 400;
     }
 
-.product {
-    text-align: left;
-}
-
-.CapP:first-letter {
+.cap-p:first-letter {
     font-size: 25px;
     font-style: italic;
     color: #098842;
 }
 
-.shortDescrip {
+.short-descrip {
     color: #707070;
     font-size: 14px;
     font-style: italic;
     line-height: 16px;
 }
 
-.detailedDescrip {
+.detailed-descrip {
     color: #484343;
     font-size: 16px;
     font-weight: 400;
@@ -79,7 +75,7 @@ form {
 }
 
 fieldset {
-    display:unset;
+    display:inline-block;
     width: 450px;
     border-radius: 25px;
 }
@@ -90,13 +86,13 @@ fieldset {
 
 }
 
-.enterText {
+.enter-text {
     color: red;
     font-style: italic;
     font-size: 12px;
 }
 
-.enterText[type="email"]{
+.enter-text[type="email"]{
     background-color: burlywood;
     color: darkgreen;
 }
@@ -108,7 +104,7 @@ input[placeholder] {
 
 ::-webkit-input-placeholder{color: seagreen}
 
-.borderGender {
+.border-gender {
     width: 300px;
     height: 35px;
     border-radius: 25px;
@@ -124,12 +120,11 @@ input{
     text-transform: capitalize;
 }
 
-.imgBorder {
+.img-border {
     border: 3px solid #707070;
-    width: fit-content;
 }
 
-.imgBorder:hover {
+.img-border:hover {
     border: none;
     padding: 3px;
 }
@@ -145,4 +140,8 @@ th{
 
 td{
     border: 1px solid black;
+}
+
+.inform {
+    font-weight: 800;
 }
