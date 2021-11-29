@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.container{
+    width: 1366px;
+}
+
+.header{
+    width: 100%;
+    min-height: 768px;
+    /*left: 0;*/
+    /*top: 0;*/
+    /*position: fixed;*/
+    background: linear-gradient(0deg, #EBF3FB 8.84%, rgba(152, 195, 232, 0) 31.12%);
+}
+
+.logo-note{
+    display: flex;
+    justify-content:space-between;
+}
+
+.logo{
+    margin: 42px 0 0 113px;
+}
+
+.note{
+    margin: 39px 113px 0 1060px;
+}
+
+.box-slogan-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.slogan{
+    width: 504px;
+    height: 148px;
+    box-sizing: border-box;
+    margin: 107px 0 32px 113px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 64px;
+    line-height: 74px;
+    /* or 116% */
+    letter-spacing: 0.03em;
+    color: #1F3F68;
+}
+
+.slogan-text{
+    width: 425px;
+    height: 82px;
+    box-sizing: border-box;
+    margin: 0 0 71px 114px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    /* or 162% */
+    letter-spacing: 0.05em;
+    /* Blue_01 */
+    color: #1F3F68;
+    opacity: 0.6;
+}
+
+.button{
+    background: #5A98D0;
+    box-shadow: 5px 10px 20px rgba(53, 110, 173, 0.2);
+    border-radius: 10px;
+    padding: 15px 50px;
+    width: 220px;
+    height: 56px;
+    box-sizing: border-box;
+    margin: 0 0 190px 114px;
+}
+
+.link1{
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    /* identical to box height, or 162% */
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+
+.box-slogan-img{
+    display: flex;
+}
+
+.img-header{
+    margin: 102px 113px 0 82px;
+}
+
+.main{
+    margin: 50px;
+}
