@@ -1,22 +1,56 @@
-body {
+.container {
     background-color: #f8f8f8;
+    width: 1000px;
+    margin: auto;
 }
 
-.menu {
-    font-weight: 800;
+.menu-logo{
+    background-image: url("img_project/header1.jpg") ;
+    background-size: contain;
+    background-position: center;
+    height: 120px;
+    display: flex;
+    justify-content : space-between ;
+}
+
+.logo-name{
+    display: flex;
+}
+
+.logo{
+    margin: 20px;
+}
+
+.name-shop{
+    margin: 50px 5px;
+    font-weight: 700;
+    color: white;
 }
 
 .div-cap {
-    width: 125px;
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    flex-direction:row;
+
+}
+
+.li-cap{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 6px;
+    height: 26px;
 }
 
 .li-cap:hover {
-    list-style-type: unset;
-    background-color: #d1d8e1;
+    border: 1px solid white;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: seagreen;
 }
 
 .link-cap{
-    color: #098842;
+    color: white;
     font-size: 18px;
     font-family: "Times New Roman", serif, "Verdana";
     font-weight: 600;
@@ -30,6 +64,18 @@ body {
     text-align: center;
 }
 
+.katalog-block {
+    display: flex;
+}
+
+.block-tovar {
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 5px 10px;
+    width: 270px;
+}
+
 .other-text{
     text-align: center;
     color: darkslategray;
@@ -41,19 +87,60 @@ a {
     text-decoration: none;
 }
 
+.img-text-right{
+    display: flex;
+}
+
+.description-end-button{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-buy{
+    color: white;
+}
+
+.button{
+    font-weight: 700;
+    text-align: center;
+    height: 40px;
+    width: 90px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #424141;
+    padding: 10px ;
+    margin-left: auto;
+}
+
+.button:hover{
+    background-color: #098842;
+}
+
+.button:active {
+    background-color: gold;
+}
+
 .cap-p:first-letter {
     font-size: 25px;
     font-style: italic;
     color: #098842;
 }
 
+
 .img-border {
-    border: 3px solid #707070;
+    border: 3px solid #424141;
+    margin: 15px;
+    float: left;
 }
 
 .img-border:hover {
     border: none;
     padding: 3px;
+}
+
+.short-descrip-right{
+
 }
 
 .short-descrip {
@@ -124,6 +211,7 @@ input[placeholder] {
 .enter {
     width: 150px;
     height: 20px;
+    margin: 10px;
 }
 
 .enter-text {
@@ -132,6 +220,7 @@ input[placeholder] {
     color: red;
     font-style: italic;
     font-size: 12px;
+    margin: 10px;
 }
 
 .enter-text[type="email"]{
@@ -147,4 +236,32 @@ input[placeholder] {
 
 .inform {
     font-weight: 800;
+}
+
+.footer{
+    color: white;
+    display: flex;
+    height: 100px;
+    background-color: #424141;
+    justify-content: flex-end;
+}
+
+.footer-text{
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.submit-reset{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.button-form{
+    margin: 5px;
+}
+
+.map{
+    width: 100%;
+    height: 374px;
 }
