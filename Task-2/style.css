@@ -670,6 +670,7 @@ li {
 
 .main-p2 {
     display: flex;
+    flex-direction: column;
 }
 
 .container2{
@@ -919,6 +920,8 @@ li {
 }
 
 .map {
+    margin: 0 auto 112px;
+    
     width: 940px;
     height: 480px;
     /*margin: 96px 213px 112px 213px;*/
