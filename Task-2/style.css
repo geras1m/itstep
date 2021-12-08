@@ -16,17 +16,18 @@ p {
 
 .header {
     padding: 0 32px;
-    min-height: 768px;
+    max-height: 768px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background: linear-gradient(0deg, #EBF3FB 8.84%, rgba(152, 195, 232, 0) 31.12%);
 
 }
 
 .img-header {
-    min-height: 768px;
+    height: 768px;
     background-image: url(imgfigma/illustration1.svg);
     background-repeat: no-repeat;
     background-position: 100% 70%;
+    background-size: 50%;
 }
 
 .logo-note {
@@ -129,7 +130,7 @@ p {
     margin-top: 64px;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 32px;
     /*flex-wrap: wrap;*/
 }
 
@@ -248,7 +249,7 @@ p {
 
 .box-img-center {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     flex-wrap: wrap;
     gap: 32px;
 }
@@ -270,13 +271,19 @@ p {
 
 }
 
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
 .background{
-    left: 0;
+    left: 0;/*left и top прижали фон к верхнему левому углу */
     top: 0;
-    width: 100%;
+    width: 100%;/*задали значения по всему размеру родителя */
     height: 100%;
     position: absolute;
-    z-index: 1;
+    z-index: 1;/*переместили по оси-z перед картинкой*/
     background: url("imgfigma/Group.svg") no-repeat, linear-gradient(308.85deg, rgba(66, 165, 245, 0.4) -1.71%, rgba(21, 101, 192, 0.6) 74.54%);;
     background-size: contain;
 }
@@ -297,6 +304,10 @@ p {
     letter-spacing: 0.05em;
     color: #FFFFFF;
 }
+
+/*.box-2-img{*/
+/*    width: 100%;*/
+/*}*/
 
 .img-half{
     width: 48%;
@@ -366,7 +377,6 @@ p {
 .footer-h1 {
     margin: 0;
     max-width: 340.96px;
-    max-height: 92px;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -382,7 +392,6 @@ p {
     margin-top: 32px;
     margin-bottom: 96px;
     max-width: 485px;
-    max-height: 80px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -402,7 +411,7 @@ p {
 
 .footer-button {
     /*margin: 165px 114.37px 170px 0;*/
-    margin-top: 33%;
+    margin-top: 74px;
     box-sizing: border-box;
     border: 0;
     width: 236px;
@@ -807,4 +816,100 @@ p {
     margin: 0 auto ;
     width: 100%;
     height: 480px;
+}
+
+@media (max-width: 768px) {
+    .img-header {
+        background: url(imgfigma/illustration1.svg) no-repeat 100% 80%;
+        background-size: 50%;
+    }
+
+    .general-blok {
+        align-items: center;
+        flex-direction: column;
+        gap: 32px;
+        /*flex-wrap: wrap;*/
+    }
+
+    .text-3 {
+        max-width: 520px;
+    }
+
+    .text-on-img-2 {
+        left: 19px;
+        top: 19px;
+    }
+
+    .spisok {
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 30px
+    }
+    .footer {
+        padding-left: 124px;
+        padding-right: 124px;
+    }
+
+    .footer-box-2 {
+        max-width: 30%;
+    }
+
+    .footer-text {
+        max-width: 336px;
+        margin-bottom: 64px;
+    }
+
+    .footer-button {
+        margin-top: 128px;
+        width: 133px;
+        height: 31px;
+    }
+
+    .spisok li {
+        width: 100%;
+    }
+    .li-1 {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 376px) {
+    .header{
+        padding: 0 17px;
+        max-height: 376px;
+    }
+
+    .container{
+        padding-top: 24px;
+    }
+
+    .img-header {
+        background: none;
+        /*height:376px;*/
+    }
+
+    .slogan {
+        width: 324px;
+        margin: 36px auto 0;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 37px;
+        text-align: center;
+    }
+
+    .slogan-text {
+        margin-top: 12px;
+        width: 343px;
+        height: 96px;
+        text-align: center;
+    }
+    .link1-button {
+        margin: 32px auto;
+        width: 108px;
+        height: 27px;
+        font-size: 12px;
+        line-height: 26px;
+    }
 }
