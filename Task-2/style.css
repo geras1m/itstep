@@ -356,6 +356,8 @@ p {
     box-sizing: border-box;
 }
 
+
+
 .footer-box {
     display: flex;
     justify-content: space-between;
@@ -873,10 +875,16 @@ p {
     }
 }
 
+@media  (max-width: 570px){
+    .img-header {
+        background: none;
+    }
+}
+
 @media (max-width: 376px) {
     .header{
         padding: 0 17px;
-        max-height: 376px;
+        height: 376px;
     }
 
     .container{
@@ -912,4 +920,99 @@ p {
         font-size: 12px;
         line-height: 26px;
     }
+    .main{
+        padding: 0 17px;
+    }
+
+    .slogan2{
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .general-blok{
+        margin-top: 32px;
+    }
+    .blok-1{
+        padding: 41px 30px 21px;
+    }
+    .slogan3{
+        line-height:28px;
+        font-size: 24px;
+    }
+    .text-3{
+        min-height: 104px;
+        margin-bottom: 82px;
+    }
+    .text-on-img{
+        font-size: 16px;
+        line-height: 19px;
+        right: 16px;
+        top: 16px;
+    }
+    .wrapper{
+        flex-direction: column;
+        gap: 16px;
+    }
+    .box-img-center{
+        gap: 16px;
+    }
+    .img-half{
+        width: 100%;
+    }
+    .text-on-img-2{
+        right: 16px;
+        left: 16px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .footer{
+        margin-top: 64px;
+        padding: 18px 16px 32px;
+        height: 100%;
+        min-height: 571px;
+    }
+    .footer-box{
+        flex-direction: column;
+    }
+    .footer-box-1 {
+        max-width: 100%;
+    }
+    .footer-h1 {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 258px;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .footer .container{
+        padding-top: 0;
+    }
+    .footer-text {
+        max-width: 100%;
+        line-height: 26px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .footer-box-2 {
+         max-width: 100%;
+     }
+    .footer-button{
+        margin: 0 auto 41px;
+    }
+    .spisok li{
+        line-height: 19px;
+        padding-left: 23px;
+    }
+    .spisok{
+        margin-bottom: 0;
+        gap: 17px;
+    }
+    .li-1 {
+        max-width: 300px;
+    }
+    .rights {
+        margin-top: 37px;
+        text-align: center;
+        max-width: 100%;
+    }
+
 }
