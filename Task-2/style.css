@@ -917,13 +917,66 @@ p {
     }
 }
 
-@media  (max-width: 570px){
-    .img-header {
-        background: none;
+@media (max-width: 730px) {
+    .footer-box {
+        flex-direction: column;
+    }
+    .footer-box-2 {
+        max-width: 100%;
+    }
+    .footer-button{
+        margin: 0 auto 41px;
+    }
+    .footer{
+        margin-top: 64px;
+        padding: 18px 16px 32px;
+        height: 100%;
+        min-height: 571px;
+    }
+
+    .footer-box-1 {
+        max-width: 100%;
+    }
+    .footer-h1 {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 258px;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .footer .container{
+        padding-top: 0;
+    }
+    .footer-text {
+        max-width: 100%;
+        line-height: 26px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .spisok li{
+        line-height: 19px;
+        padding-left: 23px;
+    }
+    .spisok{
+        margin-bottom: 0;
+        gap: 17px;
+    }
+    .li-1 {
+        max-width: 300px;
+    }
+    .rights {
+        margin-top: 37px;
+        text-align: center;
+        max-width: 100%;
     }
 }
 
-@media (max-width: 376px) {
+@media  (max-width: 570px){
+    /***************index******************/
+    .img-header {
+        background: none;
+    }
     .header{
         padding: 0 17px;
         height: 376px;
@@ -950,7 +1003,7 @@ p {
     }
 
     .slogan-text {
-        margin-top: 12px;
+        margin: 12px auto 0;
         width: 343px;
         height: 96px;
         text-align: center;
@@ -961,20 +1014,6 @@ p {
         height: 27px;
         font-size: 12px;
         line-height: 26px;
-    }
-    .main{
-        padding: 0 17px;
-    }
-
-    .slogan2{
-        font-size: 24px;
-        line-height: 28px;
-    }
-    .general-blok{
-        margin-top: 32px;
-    }
-    .blok-1{
-        padding: 41px 30px 21px;
     }
     .slogan3{
         line-height:28px;
@@ -1006,56 +1045,25 @@ p {
         font-size: 16px;
         line-height: 18px;
     }
-    .footer{
-        margin-top: 64px;
-        padding: 18px 16px 32px;
-        height: 100%;
-        min-height: 571px;
+}
+
+@media (max-width: 376px) {
+
+    .main{
+        padding: 0 17px;
     }
-    .footer-box{
-        flex-direction: column;
-    }
-    .footer-box-1 {
-        max-width: 100%;
-    }
-    .footer-h1 {
-        text-align: center;
-        margin: 0 auto;
-        max-width: 258px;
+
+    .slogan2{
         font-size: 24px;
         line-height: 28px;
     }
-    .footer .container{
-        padding-top: 0;
+    .general-blok{
+        margin-top: 32px;
     }
-    .footer-text {
-        max-width: 100%;
-        line-height: 26px;
-        text-align: center;
-        margin-bottom: 40px;
+    .blok-1{
+        padding: 41px 30px 21px;
     }
-    .footer-box-2 {
-         max-width: 100%;
-     }
-    .footer-button{
-        margin: 0 auto 41px;
-    }
-    .spisok li{
-        line-height: 19px;
-        padding-left: 23px;
-    }
-    .spisok{
-        margin-bottom: 0;
-        gap: 17px;
-    }
-    .li-1 {
-        max-width: 300px;
-    }
-    .rights {
-        margin-top: 37px;
-        text-align: center;
-        max-width: 100%;
-    }
+
 /***********************contact********************/
     .header-p2{
         padding: 0 17px;
