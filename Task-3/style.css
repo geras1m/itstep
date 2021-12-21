@@ -1,3 +1,24 @@
+.header-box {
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 720px;
+  background: url("img/header-background.jpg") no-repeat center;
+  background-size: cover; }
 
+.container {
+  margin: 0 auto;
+  max-width: 1240px; }
+
+.header-wrapper__box-logo {
+  display: flex; }
+.header-wrapper__logo-name {
+  font-family: DM Serif Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 44px;
+  color: #1D1B1B; }
+  .header-wrapper__logo-name .orange-text {
+    color: #FF492F; }
 
 /*# sourceMappingURL=style.css.map */
