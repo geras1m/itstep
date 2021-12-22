@@ -1,36 +1,110 @@
-
 $orange-color: #FF492F;
 
-@mixin logo-style{
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+@mixin font-DM-Serif {
   font-family: DM Serif Display;
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
-  line-height: 44px;
   color: #1D1B1B;
 }
 
-.header-box{
+@mixin font-Logo{
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  color: #1D1B1B;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-box {
+  display: flex;
   padding: 0 20px;
-  box-sizing: border-box;
   height: 720px;
   background: url("img/header-background.jpg") no-repeat center;
   background-size: cover;
 }
 
-.container{
+.container {
   margin: 0 auto;
   max-width: 1240px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.header-wrapper{
-  &__box-logo{
+.header-wrapper {
+  margin-top: 0;
+
+  &__box-logo {
+    display: flex;
+    margin-top: 63px;
+    height: 44px;
+    box-sizing: border-box;
+  }
+
+  &__logo {
+    display: block;
+    height: 44px;
+  }
+
+  &__logo-name {
+    @include font-DM-Serif;
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 0 18px;
+
+    .orange-text {
+      color: $orange-color;
+    }
+  }
+
+  &__title-text-button {
+
+  }
+
+  &__title {
+    margin-top: 150px;
+    width: 519px;
+    height: 176px;
+    @include font-DM-Serif;
+    font-size: 64px;
+    line-height: 88px;
+    .orange-text {
+      color: $orange-color;
+    }
+  }
+
+  &__text {
+    @include font-Logo;
+    font-size: 16px;
+    line-height: 146%;
+    width: 499px;
+    height: 69px;
+    margin-top: 17px;
+  }
+  &__box-button{
+    margin-top: 49px;
     display: flex;
   }
-  &__logo-name{
-    @include logo-style;
-    .orange-text{
-      color: $orange-color;
+  &__button{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: green;
+    & img{
+      margin: auto;
+    }
+    &-text{
+      @include font-Logo;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      margin-left: 13px;
     }
   }
 }

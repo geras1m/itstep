@@ -1,24 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+a {
+  text-decoration: none; }
+
 .header-box {
+  display: flex;
   padding: 0 20px;
-  box-sizing: border-box;
   height: 720px;
   background: url("img/header-background.jpg") no-repeat center;
   background-size: cover; }
 
 .container {
   margin: 0 auto;
-  max-width: 1240px; }
+  max-width: 1240px;
+  width: 100%;
+  box-sizing: border-box; }
 
-.header-wrapper__box-logo {
-  display: flex; }
-.header-wrapper__logo-name {
-  font-family: DM Serif Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 32px;
-  line-height: 44px;
-  color: #1D1B1B; }
-  .header-wrapper__logo-name .orange-text {
-    color: #FF492F; }
+.header-wrapper {
+  margin-top: 0; }
+  .header-wrapper__box-logo {
+    display: flex;
+    margin-top: 63px;
+    height: 44px;
+    box-sizing: border-box; }
+  .header-wrapper__logo {
+    display: block;
+    height: 44px; }
+  .header-wrapper__logo-name {
+    font-family: DM Serif Display;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 0 18px; }
+    .header-wrapper__logo-name .orange-text {
+      color: #FF492F; }
+  .header-wrapper__title {
+    margin-top: 150px;
+    width: 519px;
+    height: 176px;
+    font-family: DM Serif Display;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-size: 64px;
+    line-height: 88px; }
+    .header-wrapper__title .orange-text {
+      color: #FF492F; }
+  .header-wrapper__text {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-size: 16px;
+    line-height: 146%;
+    width: 499px;
+    height: 69px;
+    margin-top: 17px; }
+  .header-wrapper__box-button {
+    margin-top: 49px;
+    display: flex; }
+  .header-wrapper__button {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: green; }
+    .header-wrapper__button img {
+      margin: auto; }
+    .header-wrapper__button-text {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      color: #1D1B1B;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      margin-left: 13px; }
 
 /*# sourceMappingURL=style.css.map */
