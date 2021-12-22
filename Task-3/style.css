@@ -60,7 +60,8 @@ a {
     margin-top: 17px; }
   .header-wrapper__box-button {
     margin-top: 49px;
-    display: flex; }
+    display: flex;
+    align-items: center; }
   .header-wrapper__button {
     display: flex;
     width: 40px;
