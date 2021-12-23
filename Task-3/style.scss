@@ -10,11 +10,18 @@ $orange-color: #FF492F;
   color: #1D1B1B;
 }
 
-@mixin font-Logo{
+@mixin font-Lato {
   font-family: Lato;
   font-style: normal;
   font-weight: normal;
   color: #1D1B1B;
+}
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FF492F;
 }
 
 a {
@@ -24,7 +31,7 @@ a {
 .header-box {
   display: flex;
   padding: 0 20px;
-  height: 720px;
+  min-height: 720px;
   background: url("img/header-background.jpg") no-repeat center;
   background-size: cover;
 }
@@ -37,12 +44,57 @@ a {
 }
 
 .header-wrapper {
-  margin-top: 0;
+  height: 100%;
+  overflow: hidden;
+
+   .menu-button {
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+    float: right;
+    max-width: 592px;
+    width: 100%;
+    align-items: center;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      max-width: 377px;
+      width: 100%;
+      height: 19px;
+
+      .item {
+        @include font-Lato;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+
+        &:hover{
+          color: gold;
+        }
+      }
+    }
+
+    .button {
+      width: 95px;
+      height: 39px;
+      @include font-Lato;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #FFFFFF;
+      @include button;
+
+
+    }
+  }
 
   &__box-logo {
     display: flex;
+    align-items: center;
     margin-top: 63px;
     height: 44px;
+    max-width: 181px;
     box-sizing: border-box;
   }
 
@@ -62,10 +114,6 @@ a {
     }
   }
 
-  &__title-text-button {
-
-  }
-
   &__title {
     margin-top: 150px;
     width: 519px;
@@ -73,35 +121,42 @@ a {
     @include font-DM-Serif;
     font-size: 64px;
     line-height: 88px;
+
     .orange-text {
       color: $orange-color;
     }
   }
 
   &__text {
-    @include font-Logo;
+    @include font-Lato;
     font-size: 16px;
     line-height: 146%;
     width: 499px;
     height: 69px;
     margin-top: 17px;
   }
-  &__box-button{
+
+  &__box-button {
     margin-top: 49px;
     display: flex;
     align-items: center;
+    max-width: 144px;
   }
-  &__button{
+
+  &__button {
     display: flex;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: green;
-    & img{
+
+
+    & img {
       margin: auto;
     }
-    &-text{
-      @include font-Logo;
+
+    &-text {
+      @include font-Lato;
       font-weight: 500;
       font-size: 16px;
       line-height: 19px;
@@ -109,3 +164,4 @@ a {
     }
   }
 }
+
