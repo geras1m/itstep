@@ -42,7 +42,7 @@ a {
         font-size: 16px;
         line-height: 19px; }
         .header-wrapper .menu-button .nav .item:hover {
-          color: gold; }
+          color: #FF492F; }
     .header-wrapper .menu-button .button {
       width: 95px;
       height: 39px;
@@ -58,6 +58,9 @@ a {
       justify-content: center;
       align-items: center;
       background: #FF492F; }
+      .header-wrapper .menu-button .button:hover {
+        opacity: 0.8;
+        color: #1D1B1B; }
   .header-wrapper__box-logo {
     display: flex;
     align-items: center;
@@ -122,5 +125,148 @@ a {
       font-size: 16px;
       line-height: 19px;
       margin-left: 13px; }
+
+.main-box {
+  padding: 0 20px; }
+
+.popular-tour-place {
+  overflow: hidden;
+  margin-top: 50px;
+  background-color: #FFFFFF; }
+  .popular-tour-place__title-text-button {
+    margin-top: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .popular-tour-place__box-title-text {
+    width: 679px;
+    height: 104px; }
+  .popular-tour-place__title {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px; }
+  .popular-tour-place__text {
+    margin-top: 20px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-size: 16px;
+    line-height: 146%; }
+  .popular-tour-place .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF492F;
+    width: 133px;
+    height: 63px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 146%;
+    color: #FFFFFF; }
+    .popular-tour-place .button:hover {
+      opacity: 0.8;
+      color: #1D1B1B; }
+  .popular-tour-place .wrapper-box-price {
+    margin-top: 40px;
+    display: flex;
+    gap: 29px; }
+    .popular-tour-place .wrapper-box-price__content {
+      display: flex;
+      flex-direction: column;
+      max-width: 394px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden; }
+    .popular-tour-place .wrapper-box-price__img {
+      max-height: 504px;
+      display: flex;
+      justify-content: center;
+      position: relative; }
+      .popular-tour-place .wrapper-box-price__img img {
+        height: 100%; }
+    .popular-tour-place .wrapper-box-price__box-on-img {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FF492F;
+      width: 70px;
+      height: 72px;
+      z-index: 5;
+      background-color: #FFFFFF;
+      bottom: 30px;
+      right: 32px; }
+    .popular-tour-place .wrapper-box-price__title {
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      color: #1D1B1B;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px; }
+    .popular-tour-place .wrapper-box-price__text {
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      color: #1D1B1B;
+      font-size: 16px;
+      line-height: 146%; }
+    .popular-tour-place .wrapper-box-price__link {
+      max-width: 154px;
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      color: #1D1B1B;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 146%;
+      color: #FF492F; }
+      .popular-tour-place .wrapper-box-price__link img {
+        margin-left: 12px; }
+  .popular-tour-place .wrapper-statistics {
+    display: flex;
+    justify-content: space-between;
+    min-height: 235px;
+    height: 100%;
+    align-items: center; }
+    .popular-tour-place .wrapper-statistics__box {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center; }
+    .popular-tour-place .wrapper-statistics__title {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      color: #1D1B1B;
+      font-weight: 800;
+      font-size: 56px;
+      line-height: 146%; }
+    .popular-tour-place .wrapper-statistics__text {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      color: #1D1B1B;
+      font-size: 32px;
+      line-height: 146%;
+      text-align: justify;
+      color: #1D1B1B; }
+    .popular-tour-place .wrapper-statistics .green-text {
+      color: #078E14; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,5 @@
 $orange-color: #FF492F;
+$green-text:#078E14;
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
@@ -10,7 +11,7 @@ $orange-color: #FF492F;
   color: #1D1B1B;
 }
 
-@mixin font-Lato {
+@mixin font-lato {
   font-family: Lato;
   font-style: normal;
   font-weight: normal;
@@ -47,7 +48,7 @@ a {
   height: 100%;
   overflow: hidden;
 
-   .menu-button {
+  .menu-button {
     margin-top: 33px;
     display: flex;
     justify-content: space-between;
@@ -64,13 +65,13 @@ a {
       height: 19px;
 
       .item {
-        @include font-Lato;
+        @include font-lato;
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
 
-        &:hover{
-          color: gold;
+        &:hover {
+          color: $orange-color;
         }
       }
     }
@@ -78,14 +79,17 @@ a {
     .button {
       width: 95px;
       height: 39px;
-      @include font-Lato;
+      @include font-lato;
       font-weight: 500;
       font-size: 16px;
       line-height: 19px;
       color: #FFFFFF;
       @include button;
 
-
+      &:hover {
+        opacity: 0.8;
+        color: #1D1B1B;
+      }
     }
   }
 
@@ -128,7 +132,7 @@ a {
   }
 
   &__text {
-    @include font-Lato;
+    @include font-lato;
     font-size: 16px;
     line-height: 146%;
     width: 499px;
@@ -156,7 +160,7 @@ a {
     }
 
     &-text {
-      @include font-Lato;
+      @include font-lato;
       font-weight: 500;
       font-size: 16px;
       line-height: 19px;
@@ -165,3 +169,160 @@ a {
   }
 }
 
+//**********************(main popular-tour-place)***********************
+.main-box {
+  padding: 0 20px;
+}
+
+.popular-tour-place {
+  overflow: hidden;
+  margin-top: 50px;
+  background-color: #FFFFFF;
+
+  &__title-text-button {
+    margin-top: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__box-title-text {
+    width: 679px;
+    height: 104px;
+  }
+
+  &__title {
+    @include font-lato;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  &__text {
+    margin-top: 20px;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+  }
+
+  .button {
+    @include button;
+    width: 133px;
+    height: 63px;
+    @include font-lato;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 146%;
+    color: #FFFFFF;
+
+    &:hover {
+      opacity: 0.8;
+      color: #1D1B1B;
+    }
+  }
+
+
+  //**************(main wrapper-box-price)************
+
+
+  .wrapper-box-price {
+    margin-top: 40px;
+    display: flex;
+    gap: 29px;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      max-width: 394px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    &__img {
+      max-height: 504px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      & img {
+        height: 100%;
+      }
+    }
+
+    &__box-on-img {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $orange-color;
+      width: 70px;
+      height: 72px;
+      z-index: 5;
+      background-color: #FFFFFF;
+      bottom: 30px;
+      right: 32px;
+    }
+
+    &__title {
+      margin-top: 20px;
+      margin-bottom: 0;
+      @include font-lato;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    &__text {
+      margin-top: 20px;
+      margin-bottom: 0;
+      @include font-lato;
+      font-size: 16px;
+      line-height: 146%;
+    }
+
+    &__link {
+      max-width: 154px;
+      margin-top: 20px;
+      margin-bottom: 0;
+      @include font-lato;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 146%;
+      color: $orange-color;
+
+      & img {
+        margin-left: 12px;
+      }
+    }
+  }
+  .wrapper-statistics{
+    display: flex;
+    justify-content: space-between;
+    min-height: 235px;
+    height: 100%;
+    align-items: center;
+    &__box{
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__title{
+      @include font-lato;
+      font-weight: 800;
+      font-size: 56px;
+      line-height: 146%;
+    }
+    &__text{
+      @include font-lato;
+      font-size: 32px;
+      line-height: 146%;
+      text-align: justify;
+      color: #1D1B1B;
+    }
+    .green-text{
+      color: $green-text;
+    }
+  }
+}
