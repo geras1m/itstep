@@ -1,5 +1,5 @@
 $orange-color: #FF492F;
-$green-text:#078E14;
+$green-text: #078E14;
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
@@ -169,8 +169,8 @@ a {
   }
 }
 
-//**********************(main popular-tour-place)***********************
-.main-box {
+//**********************(main POPULAR TOUR PLACE)***********************
+.page-padding {
   padding: 0 20px;
 }
 
@@ -296,33 +296,197 @@ a {
       }
     }
   }
-  .wrapper-statistics{
+
+  .wrapper-statistics {
     display: flex;
     justify-content: space-between;
     min-height: 235px;
     height: 100%;
     align-items: center;
-    &__box{
+
+    &__box {
       display: flex;
       text-align: center;
       flex-direction: column;
       justify-content: center;
     }
-    &__title{
+
+    &__title {
       @include font-lato;
       font-weight: 800;
       font-size: 56px;
       line-height: 146%;
     }
-    &__text{
+
+    &__text {
       @include font-lato;
       font-size: 32px;
       line-height: 146%;
       text-align: justify;
       color: #1D1B1B;
     }
-    .green-text{
+
+    .green-text {
       color: $green-text;
     }
+  }
+}
+
+//*************(main We are a Travel exparts)***************
+.travel-exparts {
+  display: flex;
+  justify-content: space-between;
+
+
+  &__title-text-button {
+
+  }
+
+  &__question {
+    margin-top: 128px;
+    display: flex;
+    align-items: center;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+    color: $orange-color;
+
+    & img {
+      margin-right: 30px;
+    }
+  }
+
+  &__title {
+    margin-top: 40px;
+    max-width: 305px;
+
+    @include font-lato;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 120%;
+  }
+
+  &__text {
+    margin-top: 20px;
+    max-width: 500px;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+    color: #4A4949
+  }
+
+  .button {
+    margin-top: 40px;
+    width: 141px;
+    height: 63px;
+    @include button;
+    color: #FFFFFF;
+  }
+
+  &__box-img {
+    margin-top: 121px;
+    max-width: 604px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 207px 137px 374px;
+    grid-gap: 30px;
+  }
+
+  &__img1 {
+    text-align: end;
+  }
+
+  &__img4 {
+    grid-row: 3/4;
+    grid-column: 2/3;
+  }
+}
+
+//**************(main WE  PROVIDE  THE  BEST  TRIP & TREKKING  TO YOUR  JOURNEY)****************
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.provide-best-trip {
+  position: relative;
+  height: 789px;
+  background-color: #1B1B1B;
+  padding-bottom: 21px;
+
+  &__title-img {
+    margin-top: 128px;
+    position: relative;
+
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 480px;
+    height: 76px;
+    @include font-lato;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 120%;
+    color: #FFFFFF;
+  }
+
+  &__img {
+    margin-top: 110px;
+    position: absolute;
+    right: -124px;
+
+  }
+
+  &__text-blocks{
+    max-width: 566px;
+    margin-top: 128px;
+  }
+
+  &__text{
+    margin: 0;
+    max-width: 450px;
+    height: 92px;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+    color: #FFFFFF;
+  }
+
+  &__wrapper-blocks{
+    margin-top: 98px;
+    display: flex;
+    gap: 72px 71px;
+    flex-wrap: wrap;
+  }
+
+  &__block{
+
+  }
+
+  &__block-logo{
+
+  }
+
+  &__block-title{
+    margin-bottom: 0;
+    margin-top: 20px;
+    @include font-lato;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 146%;
+    color: #FFFFFF;
+  }
+
+  &__block-text{
+    margin-bottom: 0;
+    margin-top: 20px;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+    color: #F3F3F3;
+    max-width: 247px;
+    width: 100%;
   }
 }
