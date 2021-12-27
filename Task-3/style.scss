@@ -1,37 +1,19 @@
-$orange-color: #FF492F;
-$green-text: #078E14;
+@import "variables";
+@import "font-style";
+@import "mixin";
+@import "media";
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-
-@mixin font-DM-Serif {
-  font-family: DM Serif Display;
-  font-style: normal;
-  font-weight: normal;
-  color: #1D1B1B;
-}
-
-@mixin font-lato {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  color: #1D1B1B;
-}
-
-@mixin button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #FF492F;
+.body{
+  background-color: #e4e4e4;
 }
 
 a {
   text-decoration: none;
 }
 
-.header-box {
+.header-padding {
   display: flex;
-  padding: 0 20px;
+  padding: 0 100px;
   min-height: 720px;
   background: url("img/header-background.jpg") no-repeat center;
   background-size: cover;
@@ -170,28 +152,30 @@ a {
 }
 
 //**********************(main POPULAR TOUR PLACE)***********************
-.page-padding {
-  padding: 0 20px;
+
+.main-padding {
+  padding: 0 100px;
 }
 
-.popular-tour-place {
+.section-1 {
   overflow: hidden;
   margin-top: 50px;
   background-color: #FFFFFF;
 
-  &__title-text-button {
+  &__wrapper-popular-place {
     margin-top: 128px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  &__box-title-text {
+  &__wrapper-title-text {
     width: 679px;
-    height: 104px;
+    margin-right: 25px;
   }
 
   &__title {
+    margin: 0;
     @include font-lato;
     font-weight: 600;
     font-size: 32px;
@@ -221,16 +205,12 @@ a {
     }
   }
 
-
-  //**************(main wrapper-box-price)************
-
-
-  .wrapper-box-price {
+  .wrapper-price {
     margin-top: 40px;
     display: flex;
     gap: 29px;
 
-    &__content {
+    &__price-box {
       display: flex;
       flex-direction: column;
       max-width: 394px;
@@ -297,7 +277,7 @@ a {
     }
   }
 
-  .wrapper-statistics {
+  .wrapper-statistic {
     display: flex;
     justify-content: space-between;
     min-height: 235px;
@@ -333,13 +313,16 @@ a {
 }
 
 //*************(main We are a Travel exparts)***************
-.travel-exparts {
-  display: flex;
-  justify-content: space-between;
 
+.section-2 {
+  margin-top: 3px;
+  background-color: #FFFFFF;
 
-  &__title-text-button {
-
+  .line{
+    margin-right: 30px;
+    max-width: 76px;
+    width: 100%;
+    border: 1px solid #FF492F;
   }
 
   &__question {
@@ -367,6 +350,7 @@ a {
   }
 
   &__text {
+    margin-right: 15px;
     margin-top: 20px;
     max-width: 500px;
     @include font-lato;
@@ -409,7 +393,7 @@ a {
   justify-content: space-between;
 }
 
-.provide-best-trip {
+.section-3 {
   position: relative;
   height: 789px;
   background-color: #1B1B1B;
@@ -418,7 +402,6 @@ a {
   &__title-img {
     margin-top: 128px;
     position: relative;
-
   }
 
   &__title {
@@ -433,18 +416,25 @@ a {
   }
 
   &__img {
+    width: 100%;
     margin-top: 110px;
-    position: absolute;
-    right: -124px;
+    position: relative;
+    right: 100px;
 
+    & img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
-  &__text-blocks{
+  &__text-blocks {
     max-width: 566px;
     margin-top: 128px;
   }
 
-  &__text{
+  &__text {
     margin: 0;
     max-width: 450px;
     height: 92px;
@@ -454,22 +444,15 @@ a {
     color: #FFFFFF;
   }
 
-  &__wrapper-blocks{
+  &__wrapper-blocks {
     margin-top: 98px;
-    display: flex;
-    gap: 72px 71px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 72px 71px;
   }
 
-  &__block{
-
-  }
-
-  &__block-logo{
-
-  }
-
-  &__block-title{
+  &__block-title {
     margin-bottom: 0;
     margin-top: 20px;
     @include font-lato;
@@ -479,7 +462,7 @@ a {
     color: #FFFFFF;
   }
 
-  &__block-text{
+  &__block-text {
     margin-bottom: 0;
     margin-top: 20px;
     @include font-lato;
