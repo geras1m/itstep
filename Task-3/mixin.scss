@@ -18,3 +18,58 @@
   align-items: center;
   background: #FF492F;
 }
+
+@mixin logotip-black {
+  .wrapper-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 63px;
+    height: 44px;
+    max-width: 181px;
+    box-sizing: border-box;
+  }
+
+  .logo {
+    display: block;
+    height: 44px;
+  }
+
+  .logo-name {
+    @include font-DM-Serif;
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 0 18px;
+
+    .orange-text {
+      color: $orange-color;
+    }
+  }
+}
+
+@mixin logotip-white {
+  .wrapper-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    height: 44px;
+    max-width: 181px;
+    box-sizing: border-box;
+  }
+
+  .logo {
+    display: block;
+    height: 44px;
+  }
+
+  .logo-name {
+    @include font-DM-Serif;
+    color: #FFFFFF;
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 0 18px;
+
+    .orange-text {
+      color: $orange-color;
+    }
+  }
+}
