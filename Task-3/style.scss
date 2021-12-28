@@ -3,7 +3,7 @@
 @import "mixin";
 @import "media";
 
-.body{
+.body {
   background-color: #e4e4e4;
 }
 
@@ -13,7 +13,7 @@ a {
 
 .header-padding {
   display: flex;
-  padding: 0 100px;
+  padding: 0 30px;
   min-height: 720px;
   background: url("img/header-background.jpg") no-repeat center;
   background-size: cover;
@@ -75,30 +75,7 @@ a {
     }
   }
 
-  &__box-logo {
-    display: flex;
-    align-items: center;
-    margin-top: 63px;
-    height: 44px;
-    max-width: 181px;
-    box-sizing: border-box;
-  }
-
-  &__logo {
-    display: block;
-    height: 44px;
-  }
-
-  &__logo-name {
-    @include font-DM-Serif;
-    font-size: 32px;
-    line-height: 44px;
-    margin: 0 0 0 18px;
-
-    .orange-text {
-      color: $orange-color;
-    }
-  }
+  @include logotip-black;
 
   &__title {
     margin-top: 150px;
@@ -154,7 +131,7 @@ a {
 //**********************(main POPULAR TOUR PLACE)***********************
 
 .main-padding {
-  padding: 0 100px;
+  padding: 0 30px;
 }
 
 .section-1 {
@@ -318,7 +295,7 @@ a {
   margin-top: 3px;
   background-color: #FFFFFF;
 
-  .line{
+  .line {
     margin-right: 30px;
     max-width: 76px;
     width: 100%;
@@ -368,15 +345,22 @@ a {
   }
 
   &__box-img {
+    flex: 1 1 auto;
     margin-top: 121px;
+    margin-bottom: 3px;
     max-width: 604px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 207px 137px 374px;
+    grid-template-rows: 207px 137px 207px;
     grid-gap: 30px;
   }
 
+
   &__img1 {
+    text-align: end;
+  }
+
+  &__img3 {
     text-align: end;
   }
 
@@ -395,7 +379,7 @@ a {
 
 .section-3 {
   position: relative;
-  height: 789px;
+  min-height: 789px;
   background-color: #1B1B1B;
   padding-bottom: 21px;
 
@@ -416,10 +400,12 @@ a {
   }
 
   &__img {
-    width: 100%;
-    margin-top: 110px;
+
+    //margin-top: 110px;
+    bottom: -110px;
     position: relative;
     right: 100px;
+
 
     & img {
       position: relative;
@@ -472,4 +458,45 @@ a {
     max-width: 247px;
     width: 100%;
   }
+}
+
+//***************(FOOTER)**************
+.footer {
+  margin-top: 125px;
+  background: #1D1B1B;
+  min-height: 494px;
+
+  @include logotip-white;
+
+  .wrapper-left {
+    &__text {
+      max-width: 389px;
+      min-height: 115px;
+      @include font-lato;
+      font-size: 16px;
+      line-height: 146%;
+      color: #F2F2F2;
+    }
+
+    .wrapper-social-networks {
+      max-width: 250px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .circle-box {
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #6C6C6C;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+  }
+
+
 }
