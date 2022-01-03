@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body class="body">
+<body id="top" class="body">
 <header class="header-padding">
     <div class="container">
         <div class="header-wrapper">
@@ -38,13 +38,24 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vestibulum dui. Donec
                 eleifend orci a arcu ornare, id aliquam nunc tempor. Suspendisse potenti.
             </p>
-            <div class="header-wrapper__box-button">
-                <a href="#" class="header-wrapper__button">
-                    <img src="img/triangle.svg" alt="">
-                </a>
-                <a href="#" class="header-wrapper__button-text">
-                    Watch Video
-                </a>
+            <div class="wrapper-popup">
+                <input id="popup-video" type="checkbox">
+                <label for="popup-video" class="header-wrapper__box-button">
+                    <div class="header-wrapper__button">
+                        <img src="img/triangle.svg" alt="">
+                    </div>
+                    <div class="header-wrapper__button-text">
+                        Watch Video
+                    </div>
+                </label>
+                <div class="popup-video">
+                    <video width="100%">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/FAQYye313bY"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </video>
+                </div>
             </div>
         </div>
     </div>
@@ -316,13 +327,13 @@
             <div class="section-6__wrapper-img">
                 <div class="section-6__img1">
                     <img src="img/team-img-1.jpg" alt="">
-<!--                    <div class="hidden-information">-->
-<!--                        <p class="hidden-information__name">Nick Stivenson</p>-->
-<!--                        <p class="hidden-information__profession">Texi driver & Traveller</p>-->
-<!--                        <p class="hidden-information__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-<!--                            Morbi id auctor augue.-->
-<!--                        </p>-->
-<!--                    </div>-->
+                    <!--                    <div class="hidden-information">-->
+                    <!--                        <p class="hidden-information__name">Nick Stivenson</p>-->
+                    <!--                        <p class="hidden-information__profession">Texi driver & Traveller</p>-->
+                    <!--                        <p class="hidden-information__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
+                    <!--                            Morbi id auctor augue.-->
+                    <!--                        </p>-->
+                    <!--                    </div>-->
                 </div>
                 <div class="section-6__img2">
                     <img src="img/team-img-2.jpg" alt="">
@@ -351,7 +362,11 @@
 
     <section class="section-7 main-padding background-white">
         <div class="container">
-
+            <h2 class="section-7__title">Are you still interested to our tour</h2>
+            <p class="section-7__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id auctor augue.
+                Nulla facilisi. Curabitur gravida ligula a est mollis cursus. Suspendisse commodo massa eu aliquam
+                egestas. Fusce consequat convallis lorem, ac tincidunt orci.</p>
+            <a href="#" class="button">Book Now</a>
         </div>
     </section>
 
@@ -419,6 +434,10 @@
             <div class="line"></div>
         </div>
     </footer>
+
+    <a href="#top" class="button-scroll">
+        <img src="img/Strelka.svg" alt="">
+    </a>
 </main>
 </body>
 </html>
