@@ -3,12 +3,53 @@
 @import "mixin";
 @import "media";
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 .body {
   background-color: #e4e4e4;
 }
 
 a {
   text-decoration: none;
+}
+
+.button-scroll {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  width: 174px;
+  height: 178px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF492F;
+  cursor: pointer;
+  transition: 1s ease;
+
+
+  &:hover {
+    background-color: #bd250d;
+  }
+}
+
+.wrapper-popup {
+
+
+  .popup-video {
+    max-width: 100%;
+    background-color: #1B1B1B;
+    opacity: 0.3;
+    display: none;
+    position: absolute;
+  }
+
+  #popup-video:checked ~ .popup-video {
+    display: block;
+    
+  }
 }
 
 .header-padding {
@@ -104,6 +145,7 @@ a {
     display: flex;
     align-items: center;
     max-width: 144px;
+    cursor: pointer;
   }
 
   &__button {
@@ -681,39 +723,45 @@ a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //***************(Are you still interested to our tour)**************
 
-.section-7{
+.section-7 {
   display: flex;
   min-height: 435px;
   background: url("img/under-footer-background.jpg") no-repeat center;
   background-size: cover;
+
+  &__title {
+    margin: 63px 0 0 0;
+    @include font-lato;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 146%;
+    color: #FFFFFF;
+  }
+
+  &__text {
+    margin: 20px 0 0 0;
+    max-width: 688px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+    color: #F2F2F2;
+  }
+
+  .button {
+    margin: 40px 0 0 0;
+    @include button;
+    width: 135px;
+    height: 63px;
+    background: #FFFFFF;
+    @include font-lato;
+    font-size: 16px;
+    line-height: 146%;
+  }
 }
-
-
 
 
 //***************(FOOTER)**************
@@ -870,3 +918,4 @@ a {
     width: 100%;
   }
 }
+

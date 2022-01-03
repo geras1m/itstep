@@ -2,11 +2,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 @import url(style.css);
 @import url(mixin.css);
+html, body {
+  scroll-behavior: smooth; }
+
 .body {
   background-color: #e4e4e4; }
 
 a {
   text-decoration: none; }
+
+.button-scroll {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  width: 174px;
+  height: 178px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF492F;
+  cursor: pointer;
+  transition: 1s ease; }
+  .button-scroll:hover {
+    background-color: #bd250d; }
+
+.wrapper-popup .popup-video {
+  max-width: 100%;
+  background-color: #1B1B1B;
+  opacity: 0.3;
+  display: none;
+  position: absolute; }
+.wrapper-popup #popup-video:checked ~ .popup-video {
+  display: block; }
 
 .header-padding {
   display: flex;
@@ -112,7 +140,8 @@ a {
     margin-top: 49px;
     display: flex;
     align-items: center;
-    max-width: 144px; }
+    max-width: 144px;
+    cursor: pointer; }
   .header-wrapper__button {
     display: flex;
     width: 40px;
@@ -600,6 +629,43 @@ a {
   min-height: 435px;
   background: url("img/under-footer-background.jpg") no-repeat center;
   background-size: cover; }
+  .section-7__title {
+    margin: 63px 0 0 0;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 146%;
+    color: #FFFFFF; }
+  .section-7__text {
+    margin: 20px 0 0 0;
+    max-width: 688px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-size: 16px;
+    line-height: 146%;
+    color: #F2F2F2; }
+  .section-7 .button {
+    margin: 40px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF492F;
+    width: 135px;
+    height: 63px;
+    background: #FFFFFF;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: #1D1B1B;
+    font-size: 16px;
+    line-height: 146%; }
 
 .footer {
   margin-top: 125px;
