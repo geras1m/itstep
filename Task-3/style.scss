@@ -35,22 +35,40 @@ a {
   }
 }
 
+//***************(POPUP)*********************
 .wrapper-popup {
 
 
   .popup-video {
     max-width: 100%;
     background-color: #1B1B1B;
-    opacity: 0.3;
+    opacity: 0.8;
     display: none;
-    position: absolute;
+    //opacity: 0;
+    //visibility: hidden;
+    //position: absolute;
+
+
   }
 
   #popup-video:checked ~ .popup-video {
     display: block;
-    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 7;
+
+    & iframe {
+      position: absolute;
+      top: 20%;
+      left: 22%;
+      z-index: 9;
+    }
   }
 }
+
 
 .header-padding {
   display: flex;
@@ -720,6 +738,127 @@ a {
   & img {
     width: 100%;
   }
+
+  .hidden-information {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    top: 0;
+    background: rgba(16, 100, 174, 0.6);
+
+    &__name{
+      margin: 93px auto 0;
+      text-align: center;
+      @include font-lato;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 146%;
+      color: #FFFFFF;
+    }
+
+    &__profession{
+      margin: 20px auto 0;
+      text-align: center;
+      @include font-lato;
+      font-size: 16px;
+      line-height: 146%;
+      color: #FFFFFF;
+    }
+
+    &__text{
+      margin: 20px auto 0;
+      max-width: 250px;
+      @include font-lato;
+      font-size: 14px;
+      line-height: 146%;
+      text-align: center;
+      color: #F0EDED;
+    }
+  }
+
+
+  &__img1 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img2 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img3 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img4 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img5 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img6 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img7 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
+  &__img8 {
+    position: relative;
+    max-width: 310px;
+    overflow: hidden;
+
+    &:hover .hidden-information {
+      display: block;
+    }
+  }
+
 }
 
 
@@ -781,6 +920,7 @@ a {
   }
 
   .wrapper-left {
+
     &__text {
       margin-top: 45px;
       max-width: 389px;
@@ -809,6 +949,12 @@ a {
       border: 1px solid #6C6C6C;
       border-radius: 50%;
       box-sizing: border-box;
+
+      &:hover{
+        background: #FF492F;
+        transition: 0.5s;
+      }
+
     }
   }
 
