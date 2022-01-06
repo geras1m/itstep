@@ -75,10 +75,13 @@
 }
 
 @mixin background-hover {
-    position: absolute;
-    text-align: center;
-    background: rgba(16, 100, 174, 0.6);
-    z-index: 5;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  text-align: center;
+  background: rgba(16, 100, 174, 0.6);
+  z-index: 5;
+  height: 100%;
+  width: 100%;
 }
+
+
+

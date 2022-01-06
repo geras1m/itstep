@@ -99,6 +99,7 @@ a {
     align-items: center;
 
     .nav {
+      position: relative;
       display: flex;
       justify-content: space-between;
       max-width: 377px;
@@ -112,7 +113,9 @@ a {
         line-height: 19px;
 
         &:hover {
+          font-weight: 800;
           color: $orange-color;
+          transition: 0.2s ease-in-out;
         }
       }
     }
@@ -128,8 +131,17 @@ a {
       @include button;
 
       &:hover {
-        opacity: 0.8;
+        font-weight: 700;
+        box-shadow: -3px -3px 5px rgba(210, 48, 24, 0.5);
         color: #1D1B1B;
+        transition: 0.5s ease-in-out;
+      }
+
+      &:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+        transition: 0.5s ease-in-out;
       }
     }
   }
@@ -237,8 +249,17 @@ a {
     color: #FFFFFF;
 
     &:hover {
-      opacity: 0.8;
+      font-weight: 800;
+      box-shadow: -3px -3px 5px rgba(210, 48, 24, 0.5);
       color: #1D1B1B;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+      transition: 0.5s ease-in-out;
     }
   }
 
@@ -254,6 +275,12 @@ a {
       width: 100%;
       box-sizing: border-box;
       overflow: hidden;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        transform: scale(1.03);
+        transition: 0.5s ease-in-out;
+      }
     }
 
     &__img {
@@ -299,7 +326,7 @@ a {
     }
 
     &__link {
-      max-width: 154px;
+      max-width: 156px;
       margin-top: 20px;
       margin-bottom: 0;
       @include font-lato;
@@ -310,6 +337,19 @@ a {
 
       & img {
         margin-left: 12px;
+      }
+
+      &:hover {
+        font-weight: 800;
+        color: $orange-color;
+        transition: 0.2s ease-in-out;
+      }
+
+      &:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+        transition: 0.5s ease-in-out;
       }
     }
   }
@@ -401,6 +441,20 @@ a {
     height: 63px;
     @include button;
     color: #FFFFFF;
+
+    &:hover {
+      font-weight: 800;
+      box-shadow: 3px 3px 5px rgba(210, 48, 24, 0.5);
+      color: #1D1B1B;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+      transition: 0.5s ease-in-out;
+    }
   }
 
   &__box-img {
@@ -578,36 +632,66 @@ a {
     max-width: 100%;
     grid-column: 1/2;
     grid-row: 1/3;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__img2 {
     max-width: 100%;
     grid-column: 2/3;
     grid-row: 1/2;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__img3 {
     max-width: 100%;
     grid-column: 3/4;
     grid-row: 1/3;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__img4 {
     max-width: 100%;
     grid-column: 1/2;
     grid-row: 3/4;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__img5 {
     max-width: 100%;
     grid-column: 2/3;
     grid-row: 2/4;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__img6 {
     max-width: 100%;
     grid-column: 3/4;
     grid-row: 3/4;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -653,6 +737,11 @@ a {
       box-shadow: 0 4px 19px 0 rgba(34, 60, 80, 0.3);
       background-color: #FFFFFF;
       max-width: 393px;
+
+      &:hover {
+        box-shadow: 0 4px 19px 0 rgb(210, 48, 24);
+        transition: 0.5s ease-in-out;
+      }
     }
 
     .feedback__text {
@@ -740,15 +829,18 @@ a {
   }
 
   .hidden-information {
-    display: none;
+    //display: none;
+    visibility: hidden;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 5;
     top: 0;
     background: rgba(16, 100, 174, 0.6);
+    //transition: 0.2s ease-in-out ;
 
-    &__name{
+
+    &__name {
       margin: 93px auto 0;
       text-align: center;
       @include font-lato;
@@ -758,7 +850,7 @@ a {
       color: #FFFFFF;
     }
 
-    &__profession{
+    &__profession {
       margin: 20px auto 0;
       text-align: center;
       @include font-lato;
@@ -767,7 +859,7 @@ a {
       color: #FFFFFF;
     }
 
-    &__text{
+    &__text {
       margin: 20px auto 0;
       max-width: 250px;
       @include font-lato;
@@ -785,7 +877,9 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
+      transition: 1s ease-in-out;
+      transform: rotateY(180deg);
     }
   }
 
@@ -795,7 +889,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -805,7 +899,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -815,7 +909,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -825,7 +919,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -835,7 +929,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -845,7 +939,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -855,7 +949,7 @@ a {
     overflow: hidden;
 
     &:hover .hidden-information {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -899,11 +993,26 @@ a {
     @include font-lato;
     font-size: 16px;
     line-height: 146%;
+
+    &:hover {
+      font-weight: 800;
+      box-shadow: 0 4px 19px 0 rgb(38, 38, 38);
+      color: #1D1B1B;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+      transition: 0.5s ease-in-out;
+    }
   }
 }
 
 
 //***************(FOOTER)**************
+
 .footer {
   margin-top: 125px;
   background: #1D1B1B;
@@ -940,7 +1049,6 @@ a {
     }
 
     .circle-box {
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -950,7 +1058,7 @@ a {
       border-radius: 50%;
       box-sizing: border-box;
 
-      &:hover{
+      &:hover {
         background: #FF492F;
         transition: 0.5s;
       }
@@ -959,6 +1067,8 @@ a {
   }
 
   .wrapper-center {
+    max-width: 86px;
+    width: 100%;
 
     .service-title {
       margin-top: 49px;
@@ -986,6 +1096,12 @@ a {
       line-height: 146%;
       color: #F2F2F2;
       text-decoration: none;
+
+      &:hover {
+        font-weight: 700;
+        color: $orange-color;
+        transition: 0.2s ease-in-out;
+      }
     }
   }
 
