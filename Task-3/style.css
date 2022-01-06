@@ -27,10 +27,12 @@ a {
   .button-scroll:hover {
     background-color: #bd250d; }
 
+.wrapper-popup #popup-video {
+  display: none; }
 .wrapper-popup .popup-video {
   max-width: 100%;
-  background-color: #1B1B1B;
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 1;
   display: none; }
 .wrapper-popup #popup-video:checked ~ .popup-video {
   display: block;
@@ -43,8 +45,14 @@ a {
   .wrapper-popup #popup-video:checked ~ .popup-video iframe {
     position: absolute;
     top: 20%;
-    left: 22%;
-    z-index: 9; }
+    left: 50%;
+    margin-left: -500px;
+    z-index: 9;
+    opacity: 1; }
+  .wrapper-popup #popup-video:checked ~ .popup-video .background-close-for-popup {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
 
 .header-padding {
   display: flex;
@@ -696,12 +704,17 @@ a {
     width: 100%; }
   .section-6 .hidden-information {
     visibility: hidden;
+    display: block;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 5;
     top: 0;
-    background: rgba(16, 100, 174, 0.6); }
+    background: rgba(16, 100, 174, 0.6);
+    transform: rotateY(-90deg);
+    transition: 0.2s ease-in-out; }
     .section-6 .hidden-information__name {
       margin: 93px auto 0;
       text-align: center;
@@ -740,56 +753,74 @@ a {
     overflow: hidden; }
     .section-6__img1:hover .hidden-information {
       visibility: visible;
-      transition: 1s ease-in-out;
-      transform: rotateY(180deg); }
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img2 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img2:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img3 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img3:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img4 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img4:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img5 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img5:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img6 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img6:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img7 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img7:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
   .section-6__img8 {
     position: relative;
     max-width: 310px;
     overflow: hidden; }
     .section-6__img8:hover .hidden-information {
-      visibility: visible; }
+      visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg); }
 
 .section-7 {
   display: flex;
   min-height: 435px;
   background: url("img/under-footer-background.jpg") no-repeat center;
-  background-size: cover; }
+  background-size: cover;
+  transition: 1s ease-in-out; }
+  .section-7:hover {
+    background-size: 110%;
+    transition: 1s ease-in-out; }
   .section-7__title {
     margin: 63px 0 0 0;
     font-family: Lato;

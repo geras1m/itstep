@@ -38,17 +38,15 @@ a {
 //***************(POPUP)*********************
 .wrapper-popup {
 
+#popup-video{
+  display: none;
+}
 
   .popup-video {
     max-width: 100%;
-    background-color: #1B1B1B;
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 1;
     display: none;
-    //opacity: 0;
-    //visibility: hidden;
-    //position: absolute;
-
-
   }
 
   #popup-video:checked ~ .popup-video {
@@ -60,15 +58,24 @@ a {
     left: 0;
     z-index: 7;
 
-    & iframe {
+    iframe {
       position: absolute;
       top: 20%;
-      left: 22%;
+      left: 50%;
+      margin-left: -500px;
       z-index: 9;
+      opacity: 1;
+    }
+
+    .background-close-for-popup{
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
   }
 }
 
+//***************(Header)*********************
 
 .header-padding {
   display: flex;
@@ -831,13 +838,17 @@ a {
   .hidden-information {
     //display: none;
     visibility: hidden;
+    display: block;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 5;
     top: 0;
     background: rgba(16, 100, 174, 0.6);
-    //transition: 0.2s ease-in-out ;
+    transform: rotateY(-90deg);
+    transition: 0.2s ease-in-out ;
 
 
     &__name {
@@ -878,8 +889,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
-      transition: 1s ease-in-out;
-      transform: rotateY(180deg);
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -890,6 +901,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -900,6 +913,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -910,6 +925,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -920,6 +937,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -930,6 +949,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -940,6 +961,8 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
 
@@ -950,9 +973,10 @@ a {
 
     &:hover .hidden-information {
       visibility: visible;
+      transition: .7s ease-in-out;
+      transform: rotateY(0deg);
     }
   }
-
 }
 
 
@@ -963,6 +987,12 @@ a {
   min-height: 435px;
   background: url("img/under-footer-background.jpg") no-repeat center;
   background-size: cover;
+  transition: 1s ease-in-out;
+
+  &:hover{
+    background-size: 110%;
+    transition: 1s ease-in-out;
+  }
 
   &__title {
     margin: 63px 0 0 0;
