@@ -59,7 +59,11 @@ a {
   padding: 0 30px;
   min-height: 720px;
   background: url("img/header-background.jpg") no-repeat center;
-  background-size: cover; }
+  background-size: 100%;
+  transition: 0.5s ease-in-out; }
+  .header-padding:hover {
+    background-size: 104%;
+    transition: 0.5s ease-in-out; }
 
 .container {
   margin: 0 auto;
@@ -92,11 +96,11 @@ a {
         color: #1D1B1B;
         font-weight: 500;
         font-size: 16px;
-        line-height: 19px; }
+        line-height: 19px;
+        transition: 0.2s ease-in-out; }
         .header-wrapper .menu-button .nav .item:hover {
           font-weight: 800;
-          color: #FF492F;
-          transition: 0.2s ease-in-out; }
+          color: #FF492F; }
     .header-wrapper .menu-button .button {
       width: 95px;
       height: 39px;
@@ -111,12 +115,12 @@ a {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #FF492F; }
+      background: #FF492F;
+      transition: 0.5s ease-in-out; }
       .header-wrapper .menu-button .button:hover {
         font-weight: 700;
         box-shadow: -3px -3px 5px rgba(210, 48, 24, 0.5);
-        color: #1D1B1B;
-        transition: 0.5s ease-in-out; }
+        color: #1D1B1B; }
       .header-wrapper .menu-button .button:active {
         position: relative;
         top: 2px;
@@ -129,9 +133,13 @@ a {
     height: 44px;
     max-width: 181px;
     box-sizing: border-box; }
+    .header-wrapper .wrapper-logo:hover .logo {
+      transform: rotateZ(360deg);
+      transition: 0.5s ease-in-out; }
   .header-wrapper .logo {
     display: block;
-    height: 44px; }
+    height: 44px;
+    transition: 0.5s ease-in-out; }
   .header-wrapper .logo-name {
     font-family: DM Serif Display;
     font-style: normal;
@@ -170,12 +178,19 @@ a {
     align-items: center;
     max-width: 144px;
     cursor: pointer; }
+    .header-wrapper__box-button:hover .header-wrapper__button-text {
+      color: #d23018;
+      transition: 0.5s ease-in-out; }
+    .header-wrapper__box-button:hover .header-wrapper__button {
+      background-color: #d23018;
+      transition: 0.5s ease-in-out; }
   .header-wrapper__button {
     display: flex;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: green; }
+    background-color: green;
+    transition: 0.5s ease-in-out; }
     .header-wrapper__button img {
       margin: auto; }
     .header-wrapper__button-text {
@@ -186,7 +201,8 @@ a {
       font-weight: 500;
       font-size: 16px;
       line-height: 19px;
-      margin-left: 13px; }
+      margin-left: 13px;
+      transition: 0.5s ease-in-out; }
 
 .main-padding {
   padding: 0 30px; }
@@ -234,12 +250,12 @@ a {
     font-weight: 500;
     font-size: 16px;
     line-height: 146%;
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    transition: 0.5s ease-in-out; }
     .section-1 .button:hover {
       font-weight: 800;
       box-shadow: -3px -3px 5px rgba(210, 48, 24, 0.5);
-      color: #1D1B1B;
-      transition: 0.5s ease-in-out; }
+      color: #1D1B1B; }
     .section-1 .button:active {
       position: relative;
       top: 2px;
@@ -309,13 +325,13 @@ a {
       font-weight: 500;
       font-size: 16px;
       line-height: 146%;
-      color: #FF492F; }
+      color: #FF492F;
+      transition: 0.2s ease-in-out; }
       .section-1 .wrapper-price__link img {
         margin-left: 12px; }
       .section-1 .wrapper-price__link:hover {
         font-weight: 800;
-        color: #FF492F;
-        transition: 0.2s ease-in-out; }
+        color: #d23018; }
       .section-1 .wrapper-price__link:active {
         position: relative;
         top: 2px;
@@ -402,12 +418,12 @@ a {
     justify-content: center;
     align-items: center;
     background: #FF492F;
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    transition: 0.5s ease-in-out; }
     .section-2 .button:hover {
       font-weight: 800;
       box-shadow: 3px 3px 5px rgba(210, 48, 24, 0.5);
-      color: #1D1B1B;
-      transition: 0.5s ease-in-out; }
+      color: #1D1B1B; }
     .section-2 .button:active {
       position: relative;
       top: 2px;
@@ -631,7 +647,8 @@ a {
       margin-top: 42px;
       box-shadow: 0 4px 19px 0 rgba(34, 60, 80, 0.3);
       background-color: #FFFFFF;
-      max-width: 393px; }
+      max-width: 393px;
+      transition: 0.5s ease-in-out; }
       .section-5 .wrapper-feedback .feedback__box:hover {
         box-shadow: 0 4px 19px 0 #d23018;
         transition: 0.5s ease-in-out; }
@@ -816,7 +833,7 @@ a {
   display: flex;
   min-height: 435px;
   background: url("img/under-footer-background.jpg") no-repeat center;
-  background-size: cover;
+  background-size: 100%;
   transition: 1s ease-in-out; }
   .section-7:hover {
     background-size: 110%;
@@ -880,9 +897,13 @@ a {
     height: 44px;
     max-width: 181px;
     box-sizing: border-box; }
+    .footer .wrapper-logo:hover .logo {
+      transform: rotateZ(360deg);
+      transition: 0.5s ease-in-out; }
   .footer .logo {
     display: block;
-    height: 44px; }
+    height: 44px;
+    transition: 0.5s ease-in-out; }
   .footer .logo-name {
     font-family: DM Serif Display;
     font-style: normal;
@@ -992,6 +1013,9 @@ a {
       line-height: 146%;
       color: #F2F2F2;
       text-decoration: none; }
+      .footer .wrapper-contact .place:hover {
+        color: #FF492F;
+        transition: 0.2s ease-in-out; }
     .footer .wrapper-contact .place::before {
       content: url("img/place.svg");
       padding-right: 19px; }
@@ -1007,6 +1031,9 @@ a {
       line-height: 146%;
       color: #F2F2F2;
       text-decoration: none; }
+      .footer .wrapper-contact .phone:hover {
+        color: #FF492F;
+        transition: 0.2s ease-in-out; }
     .footer .wrapper-contact .phone::before {
       content: url("img/phone.svg");
       padding-right: 19px; }
@@ -1022,6 +1049,9 @@ a {
       line-height: 146%;
       color: #F2F2F2;
       text-decoration: none; }
+      .footer .wrapper-contact .email:hover {
+        color: #FF492F;
+        transition: 0.2s ease-in-out; }
     .footer .wrapper-contact .email::before {
       content: url("img/email.svg");
       padding-right: 19px; }
