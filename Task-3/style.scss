@@ -1,7 +1,7 @@
 @import "variables";
 @import "font-style";
 @import "mixin";
-@import "media";
+@import "media.css";
 
 html, body {
   scroll-behavior: smooth;
@@ -33,6 +33,13 @@ a {
   &:hover {
     background-color: #bd250d;
   }
+}
+
+////***************(Hamburger)*********************
+//
+.hamburger-menu {
+  position: absolute;
+  visibility: hidden;
 }
 
 //***************(POPUP)*********************
@@ -85,13 +92,14 @@ a {
   background-size: 100%;
   transition: 0.5s ease-in-out;
 
-  &:hover{
+  &:hover {
     background-size: 104%;
     transition: 0.5s ease-in-out;
   }
 }
 
 .container {
+  position: relative;
   margin: 0 auto;
   max-width: 1240px;
   width: 100%;
@@ -146,14 +154,14 @@ a {
 
       &:hover {
         font-weight: 700;
-        box-shadow: -3px -3px 5px rgba(210, 48, 24, 0.5);
+        box-shadow: -3px 3px 5px rgba(210, 48, 24, 0.5);
         color: #1D1B1B;
       }
 
       &:active {
         position: relative;
         top: 2px;
-        left: 2px;
+        right: 2px;
         transition: 0.5s ease-in-out;
       }
     }
@@ -190,12 +198,12 @@ a {
     max-width: 144px;
     cursor: pointer;
 
-    &:hover  .header-wrapper__button-text{
+    &:hover .header-wrapper__button-text {
       color: #d23018;
       transition: 0.5s ease-in-out;
     }
 
-    &:hover  .header-wrapper__button{
+    &:hover .header-wrapper__button {
       background-color: #d23018;
       transition: 0.5s ease-in-out;
     }
@@ -276,14 +284,14 @@ a {
 
     &:hover {
       font-weight: 800;
-      box-shadow: -3px -3px 5px rgba(210, 48, 24, 0.5);
+      box-shadow: -3px 3px 5px rgba(210, 48, 24, 0.5);
       color: #1D1B1B;
     }
 
     &:active {
       position: relative;
       top: 2px;
-      left: 2px;
+      right: 2px;
       transition: 0.5s ease-in-out;
     }
   }
@@ -1060,7 +1068,6 @@ a {
   }
 }
 
-
 //***************(FOOTER)**************
 
 .footer {
@@ -1107,10 +1114,11 @@ a {
       border: 1px solid #6C6C6C;
       border-radius: 50%;
       box-sizing: border-box;
+      transition: 0.5s ease-in;
 
       &:hover {
         background: #FF492F;
-        transition: 0.5s;
+        transition: 0.5s ease-in;
       }
 
     }
@@ -1246,3 +1254,191 @@ a {
   }
 }
 
+
+//******************************(media 1400PX)*******************************
+
+@media (max-width: 1399.98px) {
+
+  .button-scroll {
+    width: 130px;
+    height: 140px;
+
+    &:hover {
+      background-color: #bd250d;
+    }
+  }
+
+  .header-padding {
+    background-size: cover;
+    transition: none;
+
+    &:hover {
+      background-size: cover;
+      transition: none;
+    }
+  }
+
+  .section-7 {
+    background-size: cover;
+    transition: none;
+
+    &:hover {
+      background-size: cover;
+      transition: none;
+    }
+  }
+}
+
+//******************************(media 1200PX)*******************************
+
+@media (max-width: 1199.98px) {
+
+}
+
+//******************************(media 992PX)*******************************
+
+@media (max-width: 991.98px) {
+
+  .menu-button {
+    visibility: hidden;
+  }
+
+  //*****(Hamburger)*****
+
+  #menu__hamburger {
+    display: none;
+  }
+
+  .hamburger-menu {
+    position: relative;
+    visibility: visible;
+  }
+  .menu__hamburger-button {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .menu__hamburger-button > span,
+  .menu__hamburger-button > span::before,
+  .menu__hamburger-button > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #d23018;
+    transition: .5s ease-in-out;
+  }
+
+  .menu__hamburger-button > span::before {
+    content: '';
+    top: -11px;
+  }
+
+  .menu__hamburger-button > span::after {
+    content: '';
+    top: 11px;
+  }
+
+  .menu__box {
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    height: 120px;
+    margin: 0;
+    padding: 60px 0;
+    list-style: none;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  }
+
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    @include font-lato;
+    font-weight: 700;
+    color: #FF492F;
+
+    &:first-letter {
+      color: #FFFFFF;
+    }
+  }
+  .menu__item:hover {
+    background-color: #CFD8DC;
+  }
+
+  #menu__hamburger:checked ~ .menu__hamburger-button > span {
+    transform: rotate(45deg);
+    transition: .5s ease-in-out;
+  }
+  #menu__hamburger:checked ~ .menu__hamburger-button > span::before {
+    top: 0;
+    transform: rotate(0);
+    transition: .5s ease-in-out;
+  }
+  #menu__hamburger:checked ~ .menu__hamburger-button > span::after {
+    top: 0;
+    transform: rotate(90deg);
+    transition: .5s ease-in-out;
+  }
+  #menu__hamburger:checked ~ .menu__box {
+    visibility: visible;
+    right: 0;
+  }
+
+}
+
+//******************************(media 768PX)*******************************
+
+@media (max-width: 767.98px) {
+
+  .wrapper-header-inform {
+    display: grid;
+    justify-content: center;
+  }
+
+  .header-wrapper__title {
+    justify-self: center;
+    text-align: center;
+    max-width: 420px;
+    height: 160px;
+    font-size: 48px;
+    line-height: 70px
+  }
+
+  .header-wrapper__text {
+    text-align: center;
+  }
+
+  .wrapper-popup {
+    justify-self: center;
+  }
+}
+
+//******************************(media 576PX)*******************************
+
+@media (max-width: 575.98px) {
+
+  .header-wrapper__title {
+    max-width: 350px;
+    font-size: 40px;
+    line-height: 69px;
+  }
+
+  .header-wrapper__text {
+    font-size: 14px;
+    max-width: 315px;
+    min-height: 69px;
+    justify-self: center;
+  }
+}
