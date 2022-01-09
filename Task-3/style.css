@@ -936,25 +936,6 @@ a {
     font-size: 16px;
     line-height: 146%;
     color: #F2F2F2; }
-  .footer .wrapper-left .wrapper-social-networks {
-    margin-top: 45px;
-    max-width: 250px;
-    height: 50px;
-    display: flex;
-    justify-content: space-between; }
-  .footer .wrapper-left .circle-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #6C6C6C;
-    border-radius: 50%;
-    box-sizing: border-box;
-    transition: 0.5s ease-in; }
-    .footer .wrapper-left .circle-box:hover {
-      background: #FF492F;
-      transition: 0.5s ease-in; }
   .footer .wrapper-center {
     max-width: 86px;
     width: 100%; }
@@ -1064,6 +1045,24 @@ a {
     margin-top: 57px;
     border-top: 1px solid #4A4949;
     width: 100%; }
+  .footer .wrapper-social-networks {
+    max-width: 250px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between; }
+  .footer .circle-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #6C6C6C;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: 0.5s ease-in; }
+    .footer .circle-box:hover {
+      background: #FF492F;
+      transition: 0.5s ease-in; }
 
 @media (max-width: 1399.98px) {
   .button-scroll {
@@ -1085,6 +1084,33 @@ a {
     .section-7:hover {
       background-size: cover;
       transition: none; } }
+@media (max-width: 1199.98px) {
+  .footer > .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+  .wrapper-main-inform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; }
+
+  .wrapper-tourplace-and-service {
+    flex-direction: column; }
+
+  .wrapper-center {
+    max-width: 320px; }
+
+  .wrapper-center ul {
+    display: flex;
+    flex-direction: row; }
+
+  .contact-item {
+    display: flex; }
+
+  .wrapper-social-networks {
+    margin: 20px auto 0; } }
 @media (max-width: 991.98px) {
   .menu-button {
     visibility: hidden; }

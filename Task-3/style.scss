@@ -1075,6 +1075,10 @@ a {
   background: #1D1B1B;
   min-height: 494px;
 
+  .footer > .flex {
+
+  }
+
   @include logotip-white;
 
   .wrapper-tourplace-and-service {
@@ -1095,32 +1099,6 @@ a {
       font-size: 16px;
       line-height: 146%;
       color: #F2F2F2;
-    }
-
-    .wrapper-social-networks {
-      margin-top: 45px;
-      max-width: 250px;
-      height: 50px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .circle-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 50px;
-      height: 50px;
-      border: 1px solid #6C6C6C;
-      border-radius: 50%;
-      box-sizing: border-box;
-      transition: 0.5s ease-in;
-
-      &:hover {
-        background: #FF492F;
-        transition: 0.5s ease-in;
-      }
-
     }
   }
 
@@ -1252,13 +1230,39 @@ a {
     border-top: 1px solid #4A4949;
     width: 100%;
   }
+
+  .wrapper-social-networks {
+    max-width: 250px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .circle-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #6C6C6C;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: 0.5s ease-in;
+
+    &:hover {
+      background: #FF492F;
+      transition: 0.5s ease-in;
+    }
+
+  }
 }
 
 
 //******************************(media 1400PX)*******************************
 
-@media (max-width: 1399.98px) {
 
+@media (max-width: 1399.98px) {
+  //**************(media HEADER)*****************
   .button-scroll {
     width: 130px;
     height: 140px;
@@ -1289,18 +1293,54 @@ a {
   }
 }
 
+
 //******************************(media 1200PX)*******************************
 
-//******************************(media HEADER)*******************************
+
 @media (max-width: 1199.98px) {
 
+
+  //**************(media FOOTER)*****************
+  .footer > .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .wrapper-main-inform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .wrapper-tourplace-and-service {
+    flex-direction: column;
+  }
+
+  .wrapper-center {
+    max-width: 320px;
+  }
+
+  .wrapper-center ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact-item{
+    display: flex;
+  }
+
+  .wrapper-social-networks {
+    margin: 20px auto 0;
+  }
 }
+
 
 //******************************(media 992PX)*******************************
 
-//******************************(media HEADER)*******************************
-@media (max-width: 991.98px) {
 
+@media (max-width: 991.98px) {
+  //**************(media HEADER)*****************
   .menu-button {
     visibility: hidden;
   }
@@ -1408,7 +1448,7 @@ a {
     width: 75px;
     height: 35px;
 
-    &:active{
+    &:active {
       position: relative;
       top: 2px;
       left: 2px;
@@ -1418,9 +1458,9 @@ a {
 
 //******************************(media 768PX)*******************************
 
-//******************************(media HEADER)*******************************
-@media (max-width: 767.98px) {
 
+@media (max-width: 767.98px) {
+  //**************(media HEADER)*****************
   .wrapper-header-inform {
     display: grid;
     justify-content: center;
@@ -1447,9 +1487,8 @@ a {
 //******************************(media 576PX)*******************************
 
 
-//******************************(media HEADER)*******************************
 @media (max-width: 575.98px) {
-
+  //**************(media HEADER)*****************
   .header-wrapper__title {
     max-width: 350px;
     font-size: 40px;
