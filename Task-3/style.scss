@@ -1291,12 +1291,14 @@ a {
 
 //******************************(media 1200PX)*******************************
 
+//******************************(media HEADER)*******************************
 @media (max-width: 1199.98px) {
 
 }
 
 //******************************(media 992PX)*******************************
 
+//******************************(media HEADER)*******************************
 @media (max-width: 991.98px) {
 
   .menu-button {
@@ -1353,13 +1355,13 @@ a {
     top: 50px;
     right: 0;
     width: 200px;
-    height: 120px;
+    height: 160px;
     margin: 0;
     padding: 60px 0;
     list-style: none;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    box-shadow: 1px 0 6px rgba(0, 0, 0, .2);
   }
 
   .menu__item {
@@ -1395,11 +1397,28 @@ a {
     visibility: visible;
     right: 0;
   }
+  .hamburger-button {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF492F;
+    color: #FFFFFF;
+    font-weight: 600;
+    width: 75px;
+    height: 35px;
 
+    &:active{
+      position: relative;
+      top: 2px;
+      left: 2px;
+    }
+  }
 }
 
 //******************************(media 768PX)*******************************
 
+//******************************(media HEADER)*******************************
 @media (max-width: 767.98px) {
 
   .wrapper-header-inform {
@@ -1427,6 +1446,8 @@ a {
 
 //******************************(media 576PX)*******************************
 
+
+//******************************(media HEADER)*******************************
 @media (max-width: 575.98px) {
 
   .header-wrapper__title {

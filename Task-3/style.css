@@ -1132,13 +1132,13 @@ a {
     top: 50px;
     right: 0;
     width: 200px;
-    height: 120px;
+    height: 160px;
     margin: 0;
     padding: 60px 0;
     list-style: none;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2); }
+    box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2); }
 
   .menu__item {
     display: block;
@@ -1171,7 +1171,22 @@ a {
 
   #menu__hamburger:checked ~ .menu__box {
     visibility: visible;
-    right: 0; } }
+    right: 0; }
+
+  .hamburger-button {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF492F;
+    color: #FFFFFF;
+    font-weight: 600;
+    width: 75px;
+    height: 35px; }
+    .hamburger-button:active {
+      position: relative;
+      top: 2px;
+      left: 2px; } }
 @media (max-width: 767.98px) {
   .wrapper-header-inform {
     display: grid;
