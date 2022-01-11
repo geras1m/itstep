@@ -1299,7 +1299,6 @@ a {
 
 @media (max-width: 1199.98px) {
 
-
   //**************(media FOOTER)*****************
   .footer > .flex {
     display: flex;
@@ -1313,6 +1312,7 @@ a {
     align-items: center;
     text-align: center;
   }
+
   .wrapper-tourplace-and-service {
     flex-direction: column;
   }
@@ -1326,15 +1326,45 @@ a {
     flex-direction: row;
   }
 
-  .contact-item{
+  .contact-item {
     display: flex;
   }
 
   .wrapper-social-networks {
     margin: 20px auto 0;
   }
-}
 
+  //**************(media Section-1)*****************
+  .section-1 {
+
+   .wrapper-price {
+     gap: 45px;
+     flex-direction: column;
+     align-items: center;
+    }
+
+    .wrapper-price__price-box {
+      max-width: 500px;
+    }
+
+    .wrapper-price__img img {
+      max-height: 507px;
+    }
+
+    .wrapper-price__title {
+      text-align: center;
+    }
+
+    .wrapper-price__text {
+      text-align: center;
+    }
+
+    .wrapper-price__link {
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+}
 
 //******************************(media 992PX)*******************************
 
@@ -1454,6 +1484,18 @@ a {
       left: 2px;
     }
   }
+
+  //**************(media Section-1)*****************
+  .section-1 {
+
+    .wrapper-statistic__title {
+      font-size: 42px;
+    }
+
+    .wrapper-statistic__text {
+      font-size: 20px;
+    }
+  }
 }
 
 //******************************(media 768PX)*******************************
@@ -1482,6 +1524,34 @@ a {
   .wrapper-popup {
     justify-self: center;
   }
+
+  //**************(media Section-1)*****************
+  .section-1 {
+
+    &__wrapper-popular-place {
+      flex-direction: column;
+    }
+
+    &__title {
+      font-size: 28px;
+      text-align: center;
+    }
+
+    &__text{
+      text-align: center;
+      font-size: 14px;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    .wrapper-statistic__title {
+      font-size: 36px;
+    }
+
+    .wrapper-statistic__text {
+      font-size: 14px;
+    }
+  }
 }
 
 //******************************(media 576PX)*******************************
@@ -1489,6 +1559,7 @@ a {
 
 @media (max-width: 575.98px) {
   //**************(media HEADER)*****************
+
   .header-wrapper__title {
     max-width: 350px;
     font-size: 40px;
@@ -1501,4 +1572,28 @@ a {
     min-height: 69px;
     justify-self: center;
   }
+
+  //**************(media Section-1)*****************
+  .section-1 {
+
+    &__title {
+      font-size: 27px;
+    }
+
+    &__text {
+      max-width: 330px;
+    }
+
+    .wrapper-statistic__title {
+      font-size: 26px;
+    }
+
+    .wrapper-statistic {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      flex-direction: column;
+    }
+  }
 }
+
+

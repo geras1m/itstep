@@ -1110,7 +1110,23 @@ a {
     display: flex; }
 
   .wrapper-social-networks {
-    margin: 20px auto 0; } }
+    margin: 20px auto 0; }
+
+  .section-1 .wrapper-price {
+    gap: 45px;
+    flex-direction: column;
+    align-items: center; }
+  .section-1 .wrapper-price__price-box {
+    max-width: 500px; }
+  .section-1 .wrapper-price__img img {
+    max-height: 507px; }
+  .section-1 .wrapper-price__title {
+    text-align: center; }
+  .section-1 .wrapper-price__text {
+    text-align: center; }
+  .section-1 .wrapper-price__link {
+    text-align: center;
+    max-width: 100%; } }
 @media (max-width: 991.98px) {
   .menu-button {
     visibility: hidden; }
@@ -1212,7 +1228,12 @@ a {
     .hamburger-button:active {
       position: relative;
       top: 2px;
-      left: 2px; } }
+      left: 2px; }
+
+  .section-1 .wrapper-statistic__title {
+    font-size: 42px; }
+  .section-1 .wrapper-statistic__text {
+    font-size: 20px; } }
 @media (max-width: 767.98px) {
   .wrapper-header-inform {
     display: grid;
@@ -1230,7 +1251,22 @@ a {
     text-align: center; }
 
   .wrapper-popup {
-    justify-self: center; } }
+    justify-self: center; }
+
+  .section-1__wrapper-popular-place {
+    flex-direction: column; }
+  .section-1__title {
+    font-size: 28px;
+    text-align: center; }
+  .section-1__text {
+    text-align: center;
+    font-size: 14px;
+    max-width: 500px;
+    margin: 20px auto; }
+  .section-1 .wrapper-statistic__title {
+    font-size: 36px; }
+  .section-1 .wrapper-statistic__text {
+    font-size: 14px; } }
 @media (max-width: 575.98px) {
   .header-wrapper__title {
     max-width: 350px;
@@ -1241,6 +1277,17 @@ a {
     font-size: 14px;
     max-width: 315px;
     min-height: 69px;
-    justify-self: center; } }
+    justify-self: center; }
+
+  .section-1__title {
+    font-size: 27px; }
+  .section-1__text {
+    max-width: 330px; }
+  .section-1 .wrapper-statistic__title {
+    font-size: 26px; }
+  .section-1 .wrapper-statistic {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: column; } }
 
 /*# sourceMappingURL=style.css.map */
