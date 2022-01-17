@@ -1311,6 +1311,8 @@ a {
       top: 2px;
       left: 2px; }
 
+  .section-1 .wrapper-price__price-box:hover {
+    transform: none; }
   .section-1__wrapper-popular-place {
     margin-top: 40px; }
   .section-1 .wrapper-statistic__title {
@@ -1332,26 +1334,38 @@ a {
     justify-self: center;
     grid-column: 1/2;
     grid-row: 1/2; }
+    .section-4__img1:hover {
+      transform: none; }
   .section-4__img2 {
     justify-self: center;
     grid-column: 1/2;
     grid-row: 2/3; }
+    .section-4__img2:hover {
+      transform: none; }
   .section-4__img3 {
     justify-self: center;
     grid-column: 1/2;
     grid-row: 3/4; }
+    .section-4__img3:hover {
+      transform: none; }
   .section-4__img4 {
     justify-self: center;
     grid-column: 1/2;
     grid-row: 4/5; }
+    .section-4__img4:hover {
+      transform: none; }
   .section-4__img5 {
     justify-self: center;
     grid-column: 1/2;
     grid-row: 5/6; }
+    .section-4__img5:hover {
+      transform: none; }
   .section-4__img6 {
     justify-self: center;
     grid-column: 1/2;
     grid-row: 6/7; }
+    .section-4__img6:hover {
+      transform: none; }
 
   .section-5 {
     height: 1400px;
@@ -1364,6 +1378,11 @@ a {
       display: flex;
       flex-direction: column;
       align-items: center; }
+
+  .section-6 .hidden-information {
+    visibility: visible;
+    transform: rotateY(0deg);
+    transition: none; }
 
   .section-7__title {
     font-size: 42px; } }
