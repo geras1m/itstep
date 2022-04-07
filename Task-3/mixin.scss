@@ -1,0 +1,101 @@
+@import "font-style";
+
+@mixin font-DM-Serif {
+  font-family: DM Serif Display;
+  font-style: normal;
+  font-weight: normal;
+  color: #1D1B1B;
+}
+
+@mixin font-lato {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  color: #1D1B1B;
+}
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FF492F;
+}
+
+@mixin logotip-black {
+  .wrapper-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 63px;
+    height: 44px;
+    max-width: 181px;
+    box-sizing: border-box;
+
+    &:hover .logo{
+      transform: rotateZ(360deg);
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  .logo {
+    display: block;
+    height: 44px;
+    transition: 0.5s ease-in-out;
+  }
+
+  .logo-name {
+    @include font-DM-Serif;
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 0 18px;
+
+    .orange-text {
+      color: $orange-color;
+    }
+  }
+}
+
+@mixin logotip-white {
+  .wrapper-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    height: 44px;
+    max-width: 181px;
+    box-sizing: border-box;
+
+    &:hover .logo{
+      transform: rotateZ(360deg);
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  .logo {
+    display: block;
+    height: 44px;
+    transition: 0.5s ease-in-out;
+  }
+
+  .logo-name {
+    @include font-DM-Serif;
+    color: #FFFFFF;
+    font-size: 32px;
+    line-height: 44px;
+    margin: 0 0 0 18px;
+
+    .orange-text {
+      color: $orange-color;
+    }
+  }
+}
+
+@mixin background-hover {
+  position: absolute;
+  text-align: center;
+  background: rgba(16, 100, 174, 0.6);
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+}
+
+
+
