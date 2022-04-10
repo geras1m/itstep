@@ -40,7 +40,7 @@
 // console.log(fibonacci(12))
 
 
-// Задача 3                                                  попробовать еще сделать через рекурсию!!!!!
+// Задача 3
 
 // function deleteSameNumbers(arr) {
 //     for (let i = 0; i < arr.length - 1; i++) {
@@ -142,22 +142,6 @@ function getSimilarElements(arr1, arr2, newArr = [], i = -1, j = 0) {
             }
         }
     })
-
-    // arr1.forEach(elem => {
-    //     if (elem === arr2[i] && j !== 1) {
-    //         j++;
-    //         if (j === 1) {
-    //             newArr.push(elem);
-    //         }
-    //     }
-    // })
-
-    // for (const elemArr1 of arr1) {
-    //     if(elemArr1 === arr2[i]){
-    //         newArr.push(elemArr1);
-    //         break;
-    //     }
-    // }
 
     getSimilarElements(arr1, arr2, newArr, i, j = 0)
     return newArr = [...new Set(newArr)];
