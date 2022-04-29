@@ -21,6 +21,16 @@
     overflow: revert;
     font-size: 28px;
     word-break: break-all;
+    position: relative;
+}
+
+.show-m{
+    color: blue;
+    display: inline-block;
+    position: absolute;
+    right: 4px;
+    bottom: 0;
+    visibility: hidden;
 }
 
 .btn-member{
@@ -56,3 +66,4 @@
 .ravno{
     background: #52d942;
 }
+
