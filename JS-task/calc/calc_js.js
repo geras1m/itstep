@@ -1,7 +1,9 @@
 const body1 = document.querySelector('body')
 let calcCod = `
     <div class="container">
-        <div class="tablo"></div>
+        <div class="tablo">
+            <div class="show-m">M</div>
+        </div>
         <div class="btn-member" data-member-add = "MS">MS</div>
         <div class="btn-member" data-member-get = "MR">MR</div>
         <div class="btn delete" data-delete = "C">C</div>
@@ -26,33 +28,71 @@ body1.insertAdjacentHTML('afterend', calcCod);
 
 const resaltArea = document.querySelector('.tablo');
 const allBtn = document.querySelector('.container');
+const saveInMemory = document.querySelector('.show-m')
 
 let res = '';
-let operation;
-let newNum = '';
-let formula = '';
+let firstNum = '';
+let operand;
+let secondNum = '';
+let doClear = false;
+let saveResultInMemory = '';
 
+// Для совершения математ. операций
 function oper(num = 0, symbol) {
     switch (symbol) {
         case "/":
-            return res / Number(num);
+            return firstNum / Number(num);
         case "*":
-            return res * Number(num);
+            return firstNum * Number(num);
         case "-":
-            return res - Number(num);
+            return firstNum - Number(num);
         case "+":
-            return Number(res) + Number(num);
+            return Number(firstNum) + Number(num);
         default:
-            return `= ${res}`
+            return `= ${firstNum}`
     }
 }
 
-function shouResultOnTablo(value) {
-    formula = '';
-    formula += value;
-    resaltArea.insertAdjacentText('beforeend', formula);
+// Для вывода данныч на экран
+let typingOnScreen = '';
+
+function shouResultOnScreen(value) {
+    typingOnScreen = '';
+    typingOnScreen += value;
+    resaltArea.insertAdjacentText('beforeend', typingOnScreen);
 }
 
+//Очищает экран для ввода новых данных на экран после нажатия на =
+function clearScreenAfterPressRavno() {
+    resaltArea.textContent = '';
+    doClear = false;
+}
+
+function addInMemoryNum() {
+    if (res !== '') {
+        saveResultInMemory = res;
+    }
+    else if(secondNum !== ''){
+        saveResultInMemory = secondNum;
+    }
+    else if(firstNum !== ''){
+        saveResultInMemory = firstNum;
+    }
+    saveInMemory.style.visibility = 'visible';
+}
+
+function getGetFromMemoryNum() {
+    if (firstNum === '') {
+        res = saveResultInMemory;
+    }
+    else if(secondNum === ''){
+        secondNum = saveResultInMemory;
+    }
+    else if(res === ''){
+        firstNum = saveResultInMemory;
+    }
+    saveInMemory.style.visibility = 'hidden';
+}
 
 allBtn.addEventListener('click', (e) => {
 
@@ -65,29 +105,43 @@ allBtn.addEventListener('click', (e) => {
     const getFromMemory = elem.dataset.memberGet;
 
     if (dataNum) {
-        if (operation) {
-            res = oper(dataNum, operation)
-            // shouResultOnTablo();
-            console.log()
+        if (operand) {
+            secondNum += dataNum;
+            shouResultOnScreen(dataNum);
         } else {
-            res += dataNum;
-            // shouResultOnTablo(dataNum);
-            console.log(dataNum)
+            if (doClear === true) {
+                clearScreenAfterPressRavno()
+            }
+            firstNum += dataNum;
+            shouResultOnScreen(dataNum);
         }
     } else if (dataSymbol) {
-        operation = dataSymbol;
-        // shouResultOnTablo(operation)
-        console.log(dataSymbol)
+        operand = dataSymbol;
+        shouResultOnScreen(operand);
     } else if (dataRavno) {
+        resaltArea.textContent = '';
+        res = oper(secondNum, operand)
+        shouResultOnScreen(res)
 
+        res = '';
+        firstNum = '';
+        operand = 0;
+        secondNum = '';
+        doClear = true;
     } else if (deleteAll) {
-
+        resaltArea.textContent = '';
+        res = '';
+        firstNum = 0;
+        operand = 0;
+        secondNum = '';
+    } else if (addInMemory) {
+        addInMemoryNum()
+    } else if (getFromMemory) {
+        getGetFromMemoryNum()
     }
-
-
-    shouResultOnTablo(value)
-
 })
 
-
+// При добавлении в память числа, отобразить М на экоане
+// сделать точку
+// чтобы при нажатии на делить выводился ноль
 
