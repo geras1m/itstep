@@ -55,7 +55,6 @@ function oper(num = 0, symbol) {
 
 // Для вывода данныч на экран
 let typingOnScreen = '';
-
 function shouResultOnScreen(value) {
     typingOnScreen = '';
     typingOnScreen += value;
@@ -72,9 +71,11 @@ function clearScreenAfterPressRavno() {
 function addInMemoryNum() {
     if (res !== '') {
         saveResultInMemory = res;
-    } else if (secondNum !== '') {
+    }
+    else if (secondNum !== '') {
         saveResultInMemory = secondNum;
-    } else if (firstNum !== '') {
+    }
+    else if (firstNum !== '') {
         saveResultInMemory = firstNum;
     }
     saveInMemory.style.visibility = 'visible';
@@ -82,13 +83,21 @@ function addInMemoryNum() {
 
 // Извлекает значения из памяти и подставляет в выражение
 function getGetFromMemoryNum() {
-    if (secondNum === '') {
-        secondNum = saveResultInMemory;
-        shouResultOnScreen(secondNum);
-    } else if (firstNum === '') {
+    if (firstNum === '') {
         firstNum = saveResultInMemory;
         shouResultOnScreen(firstNum);
     }
+    else if (secondNum === '') {
+        secondNum = saveResultInMemory;
+        shouResultOnScreen(secondNum);
+    }
+}
+// Удаляет последний элемент в строки (которая выводит значения на экран)
+function changeOperandOnScreen() {
+    let text = resultArea.innerText;
+    text = text.slice(0,text.length-1);
+    resultArea.textContent = '';
+    shouResultOnScreen(text);
 }
 
 allBtn.addEventListener('click', (e) => {
@@ -106,17 +115,28 @@ allBtn.addEventListener('click', (e) => {
         if (operand) {
             secondNum += dataNum;
             shouResultOnScreen(dataNum);
-        } else {
+        }
+        else {
             if (doClear === true) {
                 clearScreenAfterPressRavno();
             }
             firstNum += dataNum;
             shouResultOnScreen(dataNum);
         }
-    } else if (dataSymbol) {
-        operand = dataSymbol;
-        shouResultOnScreen(operand);
-    } else if (dataRavno) {
+    }
+    else if (dataSymbol) {
+        // Получаем последнее значение из уже введенных данных на экран и присваиваем его text
+        let text = resultArea.innerText;
+        // Получаем последний элемент
+        text = text.substring(text.length-1);
+
+        if(text === '-' || text === '+' || text === '*' || text === '/'){
+            changeOperandOnScreen();
+        }
+            operand = dataSymbol;
+            shouResultOnScreen(operand);
+    }
+    else if (dataRavno) {
         resultArea.textContent = '';
         res = oper(secondNum, operand);
         shouResultOnScreen(res);
@@ -124,23 +144,28 @@ allBtn.addEventListener('click', (e) => {
         operand = 0;
         secondNum = '';
         doClear = true;
-    } else if (deleteAll) {
+    }
+    else if (deleteAll) {
         resultArea.textContent = '';
         res = '';
         firstNum = '';
         operand = 0;
         secondNum = '';
-    } else if (addInMemory) {
+    }
+    else if (addInMemory) {
         addInMemoryNum();
-    } else if (getFromMemory) {
+    }
+    else if (getFromMemory) {
         getGetFromMemoryNum();
-    } else if (clearMemory) {
+    }
+    else if (clearMemory) {
         saveResultInMemory = '';
         saveInMemory.style.visibility = 'hidden';
     }
-})
+});
 
 // При добавлении в память числа, отобразить М на экране (DONE !!!)
+// Ограничить вывод знаков операторов на экран           (DONE !!!)
 // сделать точку
 // чтобы при нажатии на делить выводился ноль
 
