@@ -1,9 +1,9 @@
-const body1 = document.querySelector('body')
+const body1 = document.querySelector('body');
 let calcCod = `
     <div class="container">
-        <div class="tablo">
-            <div class="show-m">M</div>
-        </div>
+        <div class="tablo"></div>
+        <div class="show-m">M</div>
+        <div class="btn-member" data-member-clear = "MC">MC</div>
         <div class="btn-member" data-member-add = "MS">MS</div>
         <div class="btn-member" data-member-get = "MR">MR</div>
         <div class="btn delete" data-delete = "C">C</div>
@@ -26,9 +26,9 @@ let calcCod = `
     </div>`;
 body1.insertAdjacentHTML('afterend', calcCod);
 
-const resaltArea = document.querySelector('.tablo');
+const resultArea = document.querySelector('.tablo');
 const allBtn = document.querySelector('.container');
-const saveInMemory = document.querySelector('.show-m')
+const saveInMemory = document.querySelector('.show-m');
 
 let res = '';
 let firstNum = '';
@@ -49,7 +49,7 @@ function oper(num = 0, symbol) {
         case "+":
             return Number(firstNum) + Number(num);
         default:
-            return `= ${firstNum}`
+            return `= 0`
     }
 }
 
@@ -59,39 +59,36 @@ let typingOnScreen = '';
 function shouResultOnScreen(value) {
     typingOnScreen = '';
     typingOnScreen += value;
-    resaltArea.insertAdjacentText('beforeend', typingOnScreen);
+    resultArea.insertAdjacentText('beforeend', typingOnScreen);
 }
 
 //Очищает экран для ввода новых данных на экран после нажатия на =
 function clearScreenAfterPressRavno() {
-    resaltArea.textContent = '';
+    resultArea.textContent = '';
     doClear = false;
 }
 
+// Добавляет значения в память
 function addInMemoryNum() {
     if (res !== '') {
         saveResultInMemory = res;
-    }
-    else if(secondNum !== ''){
+    } else if (secondNum !== '') {
         saveResultInMemory = secondNum;
-    }
-    else if(firstNum !== ''){
+    } else if (firstNum !== '') {
         saveResultInMemory = firstNum;
     }
     saveInMemory.style.visibility = 'visible';
 }
 
+// Извлекает значения из памяти и подставляет в выражение
 function getGetFromMemoryNum() {
-    if (firstNum === '') {
-        res = saveResultInMemory;
-    }
-    else if(secondNum === ''){
+    if (secondNum === '') {
         secondNum = saveResultInMemory;
-    }
-    else if(res === ''){
+        shouResultOnScreen(secondNum);
+    } else if (firstNum === '') {
         firstNum = saveResultInMemory;
+        shouResultOnScreen(firstNum);
     }
-    saveInMemory.style.visibility = 'hidden';
 }
 
 allBtn.addEventListener('click', (e) => {
@@ -103,6 +100,7 @@ allBtn.addEventListener('click', (e) => {
     const deleteAll = elem.dataset.delete;
     const addInMemory = elem.dataset.memberAdd;
     const getFromMemory = elem.dataset.memberGet;
+    const clearMemory = elem.dataset.memberClear;
 
     if (dataNum) {
         if (operand) {
@@ -110,7 +108,7 @@ allBtn.addEventListener('click', (e) => {
             shouResultOnScreen(dataNum);
         } else {
             if (doClear === true) {
-                clearScreenAfterPressRavno()
+                clearScreenAfterPressRavno();
             }
             firstNum += dataNum;
             shouResultOnScreen(dataNum);
@@ -119,29 +117,30 @@ allBtn.addEventListener('click', (e) => {
         operand = dataSymbol;
         shouResultOnScreen(operand);
     } else if (dataRavno) {
-        resaltArea.textContent = '';
-        res = oper(secondNum, operand)
-        shouResultOnScreen(res)
-
-        res = '';
+        resultArea.textContent = '';
+        res = oper(secondNum, operand);
+        shouResultOnScreen(res);
         firstNum = '';
         operand = 0;
         secondNum = '';
         doClear = true;
     } else if (deleteAll) {
-        resaltArea.textContent = '';
+        resultArea.textContent = '';
         res = '';
-        firstNum = 0;
+        firstNum = '';
         operand = 0;
         secondNum = '';
     } else if (addInMemory) {
-        addInMemoryNum()
+        addInMemoryNum();
     } else if (getFromMemory) {
-        getGetFromMemoryNum()
+        getGetFromMemoryNum();
+    } else if (clearMemory) {
+        saveResultInMemory = '';
+        saveInMemory.style.visibility = 'hidden';
     }
 })
 
-// При добавлении в память числа, отобразить М на экоане
+// При добавлении в память числа, отобразить М на экране (DONE !!!)
 // сделать точку
 // чтобы при нажатии на делить выводился ноль
 
