@@ -2,6 +2,7 @@
     max-width: 400px;
     border: 2px solid black;
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2px;
@@ -28,13 +29,13 @@
     color: blue;
     display: inline-block;
     position: absolute;
-    right: 4px;
-    bottom: 0;
+    right: 7px;
+    top: 83px;
     visibility: hidden;
 }
 
 .btn-member{
-    width: 145px;
+    width: 95px;
     height: 100px;
     border: 1px solid black;
     display: flex;
