@@ -3,9 +3,9 @@ let calcCod = `
     <div class="container">
         <div class="tablo"></div>
         <div class="show-m">M</div>
-        <div class="btn-member" data-member-clear = "MC">MC</div>
-        <div class="btn-member" data-member-add = "MS">MS</div>
-        <div class="btn-member" data-member-get = "MR">MR</div>
+        <div class="btn btn-member" data-member-clear = "MC">MC</div>
+        <div class="btn btn-member" data-member-add = "MS">MS</div>
+        <div class="btn btn-member" data-member-get = "MR">MR</div>
         <div class="btn delete" data-delete = "C">C</div>
         <div class="btn" data-num = "7">7</div>
         <div class="btn" data-num = "8">8</div>
@@ -100,6 +100,20 @@ function changeOperandOnScreen() {
     shouResultOnScreen(text);
 }
 
+// Функция отвечающая за одинарное выведение десятичной точки
+let isPoint = true;
+/*function addDecimalPoint(num, accum) {
+    if (num === '.' && isPoint === true){
+        isPoint = false;
+        shouResultOnScreen(num)
+        accum += num;
+    }
+    else if(num !== '.'){
+        accum += num;
+        shouResultOnScreen(num)
+    }
+}*/
+
 allBtn.addEventListener('click', (e) => {
 
     let elem = e.target;
@@ -122,6 +136,7 @@ allBtn.addEventListener('click', (e) => {
             }
             firstNum += dataNum;
             shouResultOnScreen(dataNum);
+            // addDecimalPoint(dataNum, firstNum)
         }
     }
     else if (dataSymbol) {
@@ -133,8 +148,8 @@ allBtn.addEventListener('click', (e) => {
         if(text === '-' || text === '+' || text === '*' || text === '/'){
             changeOperandOnScreen();
         }
-            operand = dataSymbol;
-            shouResultOnScreen(operand);
+        operand = dataSymbol;
+        shouResultOnScreen(operand);
     }
     else if (dataRavno) {
         resultArea.textContent = '';
@@ -166,6 +181,6 @@ allBtn.addEventListener('click', (e) => {
 
 // При добавлении в память числа, отобразить М на экране (DONE !!!)
 // Ограничить вывод знаков операторов на экран           (DONE !!!)
-// сделать точку
+// сделать точку                                         
 // чтобы при нажатии на делить выводился ноль
 
