@@ -54,7 +54,7 @@ function oper(num = 0, symbol) {
 
 function decimal(num, accum) {
     if(num === '.' && accum ===''){
-        num = '0.'                   // <-- не доработана до конца
+        num = '0.';                   // <-- не доработана до конца
         resaltArea.insertAdjacentText('beforeend', num);
     }
     else if (num === '.' && isPoint === true) {
@@ -133,5 +133,5 @@ allBtn.addEventListener('click', (e) => {
 // добавить точку
 
 // добавить функцию отвечающую за вывлд данных на консоль
-// тобы при нажатии на делит выводился ноль
+// тобы при нажатии на делить выводился ноль
 
