@@ -1,0 +1,42 @@
+.window{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border: 2px solid purple;
+    border-radius: 5px;
+    align-items: center;
+    margin: 20px auto;
+    padding-bottom: 10px;
+}
+
+.answer{
+    margin: 5px;
+}
+
+.question{
+    margin: 5px;
+    height: 30px;
+}
+
+.input{
+    margin-top: 10px;
+    width: 157px;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 250px;
+    height: 50px;
+    border: 2px solid #008024;
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+.btn{
+    background: #8843bb;
+    display: flex;
+    margin: 20px auto;
+}
