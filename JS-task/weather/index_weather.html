@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style_weather.css">
+    <script src="weather.js" defer></script>
 </head>
-<body>
-
+<body class="weather">
+<div class="menu"></div>
+<div class="wrapper-input">
+    <p class="input-text">ПОГОДА</p>
+    <input type="text" name="city" class="input-city" placeholder="Поиск города">
+</div>
+<div class="wrapper-yellow"></div>
+<div class="wrapper-weather">
+    <div class="weather-head">
+    <p class="place">Прогноз погоды</p>
+    </div>
+    <div class="wrapper-gif-value">
+        <div class="gif"></div>
+        <div class="value"></div>
+    </div>
+    <div class="wrapper-description">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 </body>
 </html>
