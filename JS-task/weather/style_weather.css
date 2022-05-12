@@ -1,5 +1,5 @@
 .weather{
-    background-image: url("oblaka-nebo-tuchi-1.jpg");
+    background: url("oblaka-nebo-tuchi-1.jpg") no-repeat;
     margin: 0;
     background-size:cover;
 }
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 25px;
+    padding: 0 25px;
 }
 
 .input-text{
@@ -31,15 +31,24 @@
 .input-text:before{
     content: url("logotype-@mail.ru.svg");
     margin-right: 10px;
+    margin-left: 25px;
 }
 
 .input-city{
     width: 100%;
     max-width: 900px;
     height: 20px;
-    border-radius: 5px;
     margin-left: 20px;
-    margin-right: 50px;
+    margin-right: 0;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    margin-right: 25px;
+    border: none;
 }
 
 .wrapper-yellow{
@@ -52,7 +61,7 @@
 
 .wrapper-weather{
     width: 90%;
-    height: 300px;
+    height: 185px;
     border: 1px solid black;
     background: black;
     opacity: 0.8;
@@ -63,28 +72,49 @@
     height: 44px;
     font-size: 22px;
     border: 1px solid white;
-}
-
-.place{
     color: white;
 }
 
+.weather-city{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 22px;
+    color: white;
+    height: 27px;
+    margin: 0;
+}
+
+.data-now{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+    height: 19px;
+    margin: 0;
+}
+
 .wrapper-gif-value{
-    width: 30%;
+    min-width: 20%;
     height: 200px;
     border: 1px solid black;
     display: flex;
 }
 
 .gif{
-    height: 100%;
-    width: 50%;
+    max-height: 100px;
+    width: 100%;
+    max-width: 100px;
     border: 1px solid #ffffff;
+    border-radius: 50%;
 }
 
 .value{
-    height: 100%;
-    width: 50%;
+    color: white;
+    font-size: 100px;
+    height: 100px;
+    width: 100%;
     border: 1px solid #ffffff;
+    font-family: Roboto, Arial, sans-serif;
+    white-space: nowrap;
+    font-weight: 400;
+    max-width: 210px;
 }
 
