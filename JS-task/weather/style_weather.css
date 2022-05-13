@@ -1,16 +1,16 @@
-.weather{
+.weather {
     background: url("oblaka-nebo-tuchi-1.jpg") no-repeat;
     margin: 0;
-    background-size:cover;
+    background-size: cover;
 }
 
-.menu{
+.menu {
     width: 100%;
     height: 35px;
     background: #ffffff;
 }
 
-.wrapper-input{
+.wrapper-input {
     width: 100%;
     height: 55px;
     border: 1px solid black;
@@ -21,20 +21,20 @@
     padding: 0 25px;
 }
 
-.input-text{
+.input-text {
     font-weight: 900;
     color: white;
     margin-right: 15px;
     display: contents;
 }
 
-.input-text:before{
+.input-text:before {
     content: url("logotype-@mail.ru.svg");
     margin-right: 10px;
     margin-left: 25px;
 }
 
-.input-city{
+.input-city {
     width: 100%;
     max-width: 900px;
     height: 20px;
@@ -42,7 +42,7 @@
     margin-right: 0;
 }
 
-.btn{
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +51,7 @@
     border: none;
 }
 
-.wrapper-yellow{
+.wrapper-yellow {
     width: 100%;
     height: 40px;
     border: 1px solid black;
@@ -59,23 +59,22 @@
     margin-bottom: 50px;
 }
 
-.wrapper-weather{
+.wrapper-weather {
     width: 90%;
     height: 185px;
     border: 1px solid black;
-    background: black;
-    opacity: 0.8;
+    background: #00000091;
     margin: 0 auto;
 }
 
-.weather-head{
+.weather-head {
     height: 44px;
     font-size: 22px;
     border: 1px solid white;
     color: white;
 }
 
-.weather-city{
+.weather-city {
     font-family: Roboto, Arial, sans-serif;
     font-size: 22px;
     color: white;
@@ -83,7 +82,7 @@
     margin: 0;
 }
 
-.data-now{
+.data-now {
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
     color: white;
@@ -91,30 +90,61 @@
     margin: 0;
 }
 
-.wrapper-gif-value{
+.wrapper-gif-value {
     min-width: 20%;
-    height: 200px;
-    border: 1px solid black;
     display: flex;
 }
 
-.gif{
+.gif {
     max-height: 100px;
     width: 100%;
     max-width: 100px;
-    border: 1px solid #ffffff;
     border-radius: 50%;
+    overflow: hidden;
 }
 
-.value{
+.gif img {
+    width: 100px;
+}
+
+.value {
     color: white;
     font-size: 100px;
     height: 100px;
     width: 100%;
-    border: 1px solid #ffffff;
     font-family: Roboto, Arial, sans-serif;
     white-space: nowrap;
     font-weight: 400;
     max-width: 210px;
 }
 
+.feeling {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+.feeling span{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: #e8e3eb;
+}
+
+.wrapper-weather-5-days{
+    height: 300px;
+    width: 100%;
+    max-width: 980px;
+    border: 1px solid black;
+    background: #00000091;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+.day{
+    height: 260px;
+    width: 180px;
+    border: 1px solid white;
+}
