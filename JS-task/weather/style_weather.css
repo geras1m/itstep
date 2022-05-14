@@ -65,12 +65,13 @@
     border: 1px solid black;
     background: #00000091;
     margin: 0 auto;
+    padding: 15px;
+    display: flex;
 }
 
 .weather-head {
     height: 44px;
     font-size: 22px;
-    border: 1px solid white;
     color: white;
 }
 
@@ -91,7 +92,6 @@
 }
 
 .wrapper-gif-value {
-    min-width: 20%;
     display: flex;
 }
 
@@ -111,11 +111,19 @@
     color: white;
     font-size: 100px;
     height: 100px;
-    width: 100%;
     font-family: Roboto, Arial, sans-serif;
     white-space: nowrap;
     font-weight: 400;
     max-width: 210px;
+}
+
+.description{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+    margin-top: 15px;
+    margin-left: 10px;
+    max-width: 120px;
 }
 
 .feeling {
@@ -130,13 +138,32 @@
     color: #e8e3eb;
 }
 
+.wrapper-second{
+    font-family: Roboto, Arial, sans-serif;
+    color: white;
+    font-size: 15px;
+    width: 150px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.additional-description-pressure::before{
+    content: '';
+    background-image: url("pressure.png");
+    background-size: 100%;
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+}
+
 .wrapper-weather-5-days{
     height: 300px;
-    width: 100%;
     max-width: 980px;
     border: 1px solid black;
     background: #00000091;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     align-items: center;
