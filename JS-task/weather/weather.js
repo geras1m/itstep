@@ -6,29 +6,49 @@ function renderHtml(weatherObj) {
     let html = `
 <div class="menu"></div>
 <div class="wrapper-input">
-    <p class="input-text">ПОГОДА</p>
+    <a class="input-text" href="https://mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=mail.ru&mt_click_id=mt-ds8xq6-1652626776-1984622503&mt_sub1=pogoda.mail.ru">
+        ПОГОДА
+    </a>
     <input type="text" name="city" class="input-city" placeholder="Поиск города">
-    <button class="btn"><img src="lupa16.jpg" alt="l"></button>
+    <button class="btn">
+        <img src="lupa-svg.svg" alt="">
+    </button>
 </div>
-<div class="wrapper-yellow"></div>
-    <div class="wrapper-weather">
-        <div class="wrapper-first">
+<div class="wrapper-black">
+    <a class="news-of-weather" href="https://pogoda.mail.ru/news/">
+    Новости погоды
+    </a>
+</div>
+<div class="wrapper-weather">
+     <div class="wrapper-first">
         <div class="weather-head">
-            <p class="weather-city"> Прогноз погоды в ${weatherObj.name}, ${weatherObj.sys.country}</p>
-            <p class="data-now">сегодня ${dataNow}</p>
+            <p class="weather-city"> 
+                Прогноз погоды в ${weatherObj.name}, ${weatherObj.sys.country}
+            </p>
+            <p class="data-now">
+                сегодня ${dataNow}
+            </p>
         </div>
         <div class="wrapper-gif-value">
             <div class="gif">
                 <img src="${changeGif(weatherObj.weather[0].icon)}" alt="">
             </div>
-             <div class="value">
-            ${symbol}${Math.round(weatherObj.main.temp - 273.15)}<split>&#176;</split>
+            <div class="value">
+                ${symbol}${Math.round(weatherObj.main.temp - 273.15)}<split>&#176;</split>
             </div>
             <div class="description">
-            ${weatherObj.weather[0].description}
+                ${weatherObj.weather[0].description}
             </div>
         </div>
-        <p class="feeling"><span>ощущается как</span> ${symbol}${Math.round(weatherObj.main.feels_like - 273.15)}<split>&#176;</split>C </p>
+        <p class="feeling">
+            <span>
+                ощущается как
+            </span> 
+            ${symbol}${Math.round(weatherObj.main.feels_like - 273.15)}
+            <split>
+                &#176;
+            </split>C 
+        </p>
     </div>
     <div class="wrapper-second">
         <div class="additional-description-pressure">
@@ -77,34 +97,38 @@ function renderHtml(weatherObj) {
     weather.insertAdjacentHTML('beforeend', html);
 }
 
-const request = new XMLHttpRequest();
-let cityDefault = 'Mogilev';
-request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityDefault}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
-request.send();
-request.onload = function () {
-    let data = JSON.parse(request.responseText);
-    symbol = getPlusOrMinus(data);
+function showWeather() {
+    let data;
+    // let dataFiveDays;
 
-    /*const request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
     let cityDefault = 'Mogilev';
     request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityDefault}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
-    request.send();*/
+    request.send();
+    request.addEventListener('load', () => {
+        data = JSON.parse(request.responseText);
+        symbol = getPlusOrMinus(data);
+        renderHtml(data);
 
-    renderHtml(data);
+        const inputValue = document.querySelector('.input-city');
+        const btnSearch = document.querySelector('.btn');
 
-    const inputValue = document.querySelector('.input-city');
-    const btnSearch = document.querySelector('.btn');
-    btnSearch.addEventListener('click', () => {
-        weather.textContent = '';
+        btnSearch.addEventListener('click', () => {
+            let newCity = inputValue.value;
+            if(newCity !==''){
+            weather.textContent = '';
 
-        let newCity = inputValue.value;
-        request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
-        request.send();
-        let data1 = JSON.parse(request.responseText);
-        symbol = getPlusOrMinus(data1);
-        renderHtml(data1);
-    });
+            request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
+            request.send();
+            let dataNew = JSON.parse(request.responseText);
+
+            renderHtml(dataNew);
+            }
+        });
+    })
 }
+
+showWeather()
 
 function changeGif(codeOfIcon) {                                   // Изменение GIF/img у погоды
     if (codeOfIcon === '01d') {

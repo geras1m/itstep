@@ -18,7 +18,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 25px;
 }
 
 .input-text {
@@ -26,9 +25,10 @@
     color: white;
     margin-right: 15px;
     display: contents;
+    font-size: 20px;
 }
 
-.input-text:before {
+.input-text::before {
     content: url("logotype-@mail.ru.svg");
     margin-right: 10px;
     margin-left: 25px;
@@ -37,36 +37,64 @@
 .input-city {
     width: 100%;
     max-width: 900px;
-    height: 20px;
+    height: 25px;
     margin-left: 20px;
     margin-right: 0;
+    font-size: 18px;
+    outline:none;
+    border: none;
 }
 
 .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 25px;
+    height: 26px;
     margin-right: 25px;
     border: none;
+    color: #ffffff;
 }
 
-.wrapper-yellow {
+.btn img{
+    width: 16px;
+}
+
+.btn:hover{
+    background: #ffc115;
+}
+
+.wrapper-black {
     width: 100%;
     height: 40px;
     border: 1px solid black;
     background: #333333;
     margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.news-of-weather{
+    color: white;
+    margin-left: 235px;
+    text-decoration: none;
+}
+
+.news-of-weather:hover{
+    color: rgba(246, 145, 67, 0.81);
 }
 
 .wrapper-weather {
     width: 90%;
     height: 185px;
     border: 1px solid black;
-    background: #00000091;
+    background: #0000006b;
     margin: 0 auto;
     padding: 15px;
     display: flex;
+}
+
+.wrapper-first{
+    max-width: 450px;
 }
 
 .weather-head {
@@ -123,7 +151,6 @@
     color: white;
     margin-top: 15px;
     margin-left: 10px;
-    max-width: 120px;
 }
 
 .feeling {
@@ -151,7 +178,7 @@
 
 .additional-description-pressure::before{
     content: '';
-    background-image: url("pressure.png");
+    /*background-image: url("pressure.png");*/
     background-size: 100%;
     width: 15px;
     height: 15px;
@@ -160,14 +187,15 @@
 
 .wrapper-weather-5-days{
     height: 300px;
-    max-width: 980px;
+    width: 64%;
     border: 1px solid black;
-    background: #00000091;
+    background: #0000006b;
     margin: 10px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 13px;
+    padding: 0 13px;
 }
 
 .day{
