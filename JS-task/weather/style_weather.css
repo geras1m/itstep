@@ -8,6 +8,46 @@
     width: 100%;
     height: 35px;
     background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-item{
+    margin-left: 15px;
+}
+
+.item{
+    text-decoration: none;
+    color: #333333;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.item-mail::after{
+    width: 10px;
+    height: 10px;
+    background: #333333;
+}
+
+.item:hover{
+    background: #e8e8e8;
+}
+
+.menu-login{
+    text-decoration: none;
+    color: #333333;
+    padding: 5px;
+    margin-right: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.menu-login:hover{
+    background: #e8e8e8;
 }
 
 .wrapper-input {

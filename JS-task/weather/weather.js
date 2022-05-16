@@ -4,7 +4,43 @@ let symbol = '+';
 
 function renderHtml(weatherObj) {
     let html = `
-<div class="menu"></div>
+<div class="menu">
+    <div class="menu-item">
+        <a class="item item-mail" target="_blank" href="https://mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=mail.ru&mt_sub5=36&mt_sub1=pogoda.mail.ru&mt_click_id=mt-ds8xq6-1652728923-110852269">
+            Mail.ru
+        </a>
+        <a class="item" target="_blank" href="https://account.mail.ru/login?page=https%3A%2F%2Fe.mail.ru%2Fmessages%2Finbox%3Futm_source%3Dportal%26utm_medium%3Dnew_portal_navigation%26utm_campaign%3De.mail.ru%26mt_sub5%3D36%26mt_sub1%3Dmail.ru%26mt_click_id%3Dmt-y7s979-1652728966-2391393454&allow_external=1&from=octavius">
+            Почта
+        </a>
+        <a class="item" target="_blank" href="https://cloud.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=cloud.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-pqaft6-1652728979-84093317">
+            Облако
+        </a>
+        <a class="item" target="_blank" href="https://ok.ru/?mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-koydy6-1652728990-3724490173">
+            Однаклассники
+        </a>
+        <a class="item" target="_blank" href="https://vk.com/">
+            Вконтакте 
+        </a>
+        <a class="item" target="_blank" href="https://news.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=news.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-curxh8-1652729053-954414224">
+            Новости
+        </a>
+        <a class="item" target="_blank" href="https://go.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=go.mail.ru&mt_sub5=36&mt_sub1=news.mail.ru&mt_click_id=mt-h0c140-1652729065-3553585952">
+            Поиск
+        </a>
+        <a class="item" target="_blank" href="https://love.mail.ru/ru?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=love.mail.ru&mt_sub5=36&mt_sub1=go.mail.ru&mt_click_id=mt-k9iu14-1652729079-1096571841">
+            Знакомства
+        </a>
+        <a class="item" target="_blank" href="https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-v6h9q7-1652729092-1463186944">
+            Мой мир
+        </a>
+        <a class="item" target="_blank" href="https://games.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=games.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-pllim0-1652729102-4133023122">
+            Игры
+        </a>
+    </div>
+    <a class="menu-login" target="_blank" href="https://account.mail.ru/signup?from=navi&lang=ru_RU&siteid=169&app_id_mytracker=58519" >
+           Login
+    </a>
+</div>
 <div class="wrapper-input">
     <a class="input-text" href="https://mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=mail.ru&mt_click_id=mt-ds8xq6-1652626776-1984622503&mt_sub1=pogoda.mail.ru">
         ПОГОДА
