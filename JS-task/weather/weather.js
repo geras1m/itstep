@@ -1,4 +1,15 @@
 let weather = document.querySelector('.weather');
+let options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long',
+    hour: 'numeric',
+    minute: 'numeric',
+};
+let dataNow = (new Date()).toLocaleString('ru', options);     //Вывод даты
+let inputValue;
+let btnSearch;
 
 let symbol = '+';
 
@@ -131,9 +142,52 @@ function renderHtml(weatherObj) {
     </div>
 `;
     weather.insertAdjacentHTML('beforeend', html);
+
+    inputValue = document.querySelector('.input-city');
+    btnSearch = document.querySelector('.btn');
+    btnSearch.addEventListener('click', () => {
+        let newCity = inputValue.value;
+        if (!newCity) return;
+        weather.textContent = '';
+        (async function () {
+            await getCity(newCity);
+        })();
+    });
 }
 
-function showWeather() {
+async function getCity(city = 'Mogilev') {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
+    const data = await response.json();
+    symbol = getPlusOrMinus(data);
+    renderHtml(data);
+}
+
+/*function getCityNew(city = 'Mogilev') {
+    let data1;
+    let data2;
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
+        .then((response)=>response.json())
+        .then((data)=>{
+            data1=data;
+            return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
+        })
+        .then((response)=>response.json())
+        .then((data)=> {
+            data2=data;
+        })
+        .then(()=>{
+            let result = data1+data2;
+        })
+
+}*/
+
+
+(async function(){
+    await getCity();
+})();
+
+
+/*function showWeather() {
     let data;
     // let dataFiveDays;
 
@@ -146,66 +200,33 @@ function showWeather() {
         symbol = getPlusOrMinus(data);
         renderHtml(data);
 
-        const inputValue = document.querySelector('.input-city');
-        const btnSearch = document.querySelector('.btn');
+        // const inputValue = document.querySelector('.input-city');
+        // const btnSearch = document.querySelector('.btn');
 
-        btnSearch.addEventListener('click', () => {
+        /!*btnSearch.addEventListener('click', (e) => {
+            console.log(e.target);
             let newCity = inputValue.value;
             if(newCity !==''){
             weather.textContent = '';
 
             request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
             request.send();
-            let dataNew = JSON.parse(request.responseText);
+            request.addEventListener('load',()=>{
+                let dataNew = JSON.parse(request.responseText);
+                renderHtml(dataNew);
+            })
 
-            renderHtml(dataNew);
             }
-        });
+        });*!/
     })
-}
+}*/
 
-showWeather()
+// showWeather()
 
 function changeGif(codeOfIcon) {                                   // Изменение GIF/img у погоды
-    if (codeOfIcon === '01d') {
-        return 'http://openweathermap.org/img/wn/01d@2x.png';
-    } else if (codeOfIcon === '01n') {
-        return 'http://openweathermap.org/img/wn/01n@2x.png';
-    } else if (codeOfIcon === '02d') {
-        return 'http://openweathermap.org/img/wn/02d@2x.png';
-    } else if (codeOfIcon === '02n') {
-        return 'http://openweathermap.org/img/wn/08n@2x.png';
-    } else if (codeOfIcon === '03d' || codeOfIcon === '03n') {
-        return 'http://openweathermap.org/img/wn/03d@2x.png';
-    } else if (codeOfIcon === '04d' || codeOfIcon === '04n') {
-        return 'http://openweathermap.org/img/wn/04d@2x.png';
-    } else if (codeOfIcon === '09d' || codeOfIcon === '09n') {
-        return 'http://openweathermap.org/img/wn/09d@2x.png';
-    } else if (codeOfIcon === '10d') {
-        return 'http://openweathermap.org/img/wn/10d@2x.png';
-    } else if (codeOfIcon === '10n') {
-        return 'http://openweathermap.org/img/wn/10n@2x.png';
-    } else if (codeOfIcon === '11d' || codeOfIcon === '11n') {
-        return 'http://openweathermap.org/img/wn/11d@2x.png';
-    } else if (codeOfIcon === '13d' || codeOfIcon === '13n') {
-        return 'http://openweathermap.org/img/wn/13d@2x.png';
-    } else if (codeOfIcon === '50d' || codeOfIcon === '50n') {
-        return 'http://openweathermap.org/img/wn/50d@2x.png';
-    }
+    return `http://openweathermap.org/img/wn/${codeOfIcon}@2x.png`;
 }
 
-let dataNow = new Date();                                             //Вывод даты
-
-let options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-    hour: 'numeric',
-    minute: 'numeric',
-};
-
-dataNow = dataNow.toLocaleString('ru', options);
 
 function getPlusOrMinus(data) {                            // Изменение знака у значения температуры
     let temp = data.main.temp - 273.15;
