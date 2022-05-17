@@ -189,8 +189,7 @@
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
     color: white;
-    margin-top: 15px;
-    margin-left: 10px;
+    margin: 15px
 }
 
 .feeling {
@@ -216,7 +215,7 @@
     justify-content: end;
 }
 
-.additional-description-pressure::before{
+.pressure::before{
     content: '';
     /*background-image: url("pressure.png");*/
     background-size: 100%;

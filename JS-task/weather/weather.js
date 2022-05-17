@@ -1,4 +1,23 @@
 let weather = document.querySelector('.weather');
+
+let linkMainPageMail = 'https://mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=mail.ru&mt_click_id=mt-ds8xq6-1652626776-1984622503&mt_sub1=pogoda.mail.ru';
+let linkMail = 'https://account.mail.ru/login?page=https%3A%2F%2Fe.mail.ru%2Fmessages%2Finbox%3Futm_source%3Dportal%26utm_medium%3Dnew_portal_navigation%26utm_campaign%3De.mail.ru%26mt_sub5%3D36%26mt_sub1%3Dmail.ru%26mt_click_id%3Dmt-y7s979-1652728966-2391393454&allow_external=1&from=octavius';
+let linkCloud = 'https://cloud.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=cloud.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-pqaft6-1652728979-84093317';
+let linkSocialNetworkClassmates = 'https://ok.ru/?mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-koydy6-1652728990-3724490173';
+let linkSocialNetworkVK = 'https://vk.com/';
+let linkNews = 'https://news.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=news.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-curxh8-1652729053-954414224';
+let linkSearch = 'https://go.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=go.mail.ru&mt_sub5=36&mt_sub1=news.mail.ru&mt_click_id=mt-h0c140-1652729065-3553585952';
+let linkAcquaintances = 'https://love.mail.ru/ru?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=love.mail.ru&mt_sub5=36&mt_sub1=go.mail.ru&mt_click_id=mt-k9iu14-1652729079-1096571841';
+let linkMyWorld = 'https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-v6h9q7-1652729092-1463186944';
+let linkGames = 'https://games.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=games.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-pllim0-1652729102-4133023122';
+let linkLogin = 'https://account.mail.ru/signup?from=navi&lang=ru_RU&siteid=169&app_id_mytracker=58519';
+let linkNewsOfWeather = 'https://pogoda.mail.ru/news/';
+let inputValue;
+let btnSearch;
+let symbol = '+';
+let longitude;
+let latitude;
+
 let options = {
     year: 'numeric',
     month: 'long',
@@ -8,52 +27,49 @@ let options = {
     minute: 'numeric',
 };
 let dataNow = (new Date()).toLocaleString('ru', options);     //Вывод даты
-let inputValue;
-let btnSearch;
 
-let symbol = '+';
 
-function renderHtml(weatherObj) {
+function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
     let html = `
 <div class="menu">
     <div class="menu-item">
-        <a class="item item-mail" target="_blank" href="https://mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=mail.ru&mt_sub5=36&mt_sub1=pogoda.mail.ru&mt_click_id=mt-ds8xq6-1652728923-110852269">
+        <a class="item item-mail" target="_blank" href="${linkMainPageMail}">
             Mail.ru
         </a>
-        <a class="item" target="_blank" href="https://account.mail.ru/login?page=https%3A%2F%2Fe.mail.ru%2Fmessages%2Finbox%3Futm_source%3Dportal%26utm_medium%3Dnew_portal_navigation%26utm_campaign%3De.mail.ru%26mt_sub5%3D36%26mt_sub1%3Dmail.ru%26mt_click_id%3Dmt-y7s979-1652728966-2391393454&allow_external=1&from=octavius">
+        <a class="item" target="_blank" href="${linkMail}">
             Почта
         </a>
-        <a class="item" target="_blank" href="https://cloud.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=cloud.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-pqaft6-1652728979-84093317">
+        <a class="item" target="_blank" href="${linkCloud}">
             Облако
         </a>
-        <a class="item" target="_blank" href="https://ok.ru/?mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-koydy6-1652728990-3724490173">
+        <a class="item" target="_blank" href="${linkSocialNetworkClassmates}">
             Однаклассники
         </a>
-        <a class="item" target="_blank" href="https://vk.com/">
+        <a class="item" target="_blank" href="${linkSocialNetworkVK}">
             Вконтакте 
         </a>
-        <a class="item" target="_blank" href="https://news.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=news.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-curxh8-1652729053-954414224">
+        <a class="item" target="_blank" href="${linkNews}">
             Новости
         </a>
-        <a class="item" target="_blank" href="https://go.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=go.mail.ru&mt_sub5=36&mt_sub1=news.mail.ru&mt_click_id=mt-h0c140-1652729065-3553585952">
+        <a class="item" target="_blank" href="${linkSearch}">
             Поиск
         </a>
-        <a class="item" target="_blank" href="https://love.mail.ru/ru?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=love.mail.ru&mt_sub5=36&mt_sub1=go.mail.ru&mt_click_id=mt-k9iu14-1652729079-1096571841">
+        <a class="item" target="_blank" href="${linkAcquaintances}">
             Знакомства
         </a>
-        <a class="item" target="_blank" href="https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-v6h9q7-1652729092-1463186944">
+        <a class="item" target="_blank" href="${linkMyWorld}">
             Мой мир
         </a>
-        <a class="item" target="_blank" href="https://games.mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=games.mail.ru&mt_sub5=36&mt_sub1=mail.ru&mt_click_id=mt-pllim0-1652729102-4133023122">
+        <a class="item" target="_blank" href="${linkGames}">
             Игры
         </a>
     </div>
-    <a class="menu-login" target="_blank" href="https://account.mail.ru/signup?from=navi&lang=ru_RU&siteid=169&app_id_mytracker=58519" >
+    <a class="menu-login" target="_blank" href="${linkLogin}" >
            Login
     </a>
 </div>
 <div class="wrapper-input">
-    <a class="input-text" href="https://mail.ru/?utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=mail.ru&mt_click_id=mt-ds8xq6-1652626776-1984622503&mt_sub1=pogoda.mail.ru">
+    <a class="input-text" href="${linkMainPageMail}" target="_blank">
         ПОГОДА
     </a>
     <input type="text" name="city" class="input-city" placeholder="Поиск города">
@@ -62,7 +78,7 @@ function renderHtml(weatherObj) {
     </button>
 </div>
 <div class="wrapper-black">
-    <a class="news-of-weather" href="https://pogoda.mail.ru/news/">
+    <a class="news-of-weather" href="${linkNewsOfWeather}" target="_blank">
     Новости погоды
     </a>
 </div>
@@ -98,19 +114,19 @@ function renderHtml(weatherObj) {
         </p>
     </div>
     <div class="wrapper-second">
-        <div class="additional-description-pressure">
+        <div class="additional-description pressure">
             ${Math.round(weatherObj.main.pressure * 0.75)} мм.рт.ст
         </div>
-        <div class="additional-description-humidity">
+        <div class="additional-description humidity">
             ${weatherObj.main.humidity} %
         </div>
-        <div class="additional-description-weather">
+        <div class="additional-description wind-speed">
             ${weatherObj.wind.speed} м/с
         </div>
-        <div class="additional-description-weather">
-        
+        <div class="additional-description uvi">
+            ${weatherObjAdditionalData.current.uvi}
         </div>
-        <div class="additional-description-weather">
+        <div class="additional-description sunrise-sunset">
         
         </div>
     </div>
@@ -119,7 +135,7 @@ function renderHtml(weatherObj) {
 <div class="wrapper-weather-5-days">
         <div class="day">
             <div class="day-titl"></div>
-            <div class="day-img"></div>
+            <div class="day-img">${weatherObjFiveDays.message}</div>
             <div class="day-temperatura"></div>
             <div class="day-description"></div>
             <div class="day-pressure"></div>
@@ -158,36 +174,41 @@ function renderHtml(weatherObj) {
 async function getCity(city = 'Mogilev') {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
     const data = await response.json();
+    longitude = data.coord.lon;
+    latitude = data.coord.lat;
+    const responseAdditionalData = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
+    const dataAdditionalData = await responseAdditionalData.json();
+    const responseFiveDays = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
+    const dataFiveDays = await responseFiveDays.json();
     symbol = getPlusOrMinus(data);
-    renderHtml(data);
+    renderHtml(data, dataAdditionalData,dataFiveDays);
 }
 
-/*function getCityNew(city = 'Mogilev') {
+/*function getCityNew(city = 'Mogilev') {             // Zhenya 's code
     let data1;
     let data2;
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
-        .then((response)=>response.json())
-        .then((data)=>{
-            data1=data;
+        .then((response) => response.json())
+        .then((data) => {
+            data1 = data;
             return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
         })
-        .then((response)=>response.json())
-        .then((data)=> {
-            data2=data;
+        .then((response) => response.json())
+        .then((data) => {
+            data2 = data;
         })
-        .then(()=>{
-            let result = data1+data2;
+        .then(() => {
+            let result = data1 + data2;
         })
-
 }*/
 
 
-(async function(){
+(async function () {
     await getCity();
 })();
 
 
-/*function showWeather() {
+/*function showWeather() {                                // My code
     let data;
     // let dataFiveDays;
 
@@ -215,7 +236,6 @@ async function getCity(city = 'Mogilev') {
                 let dataNew = JSON.parse(request.responseText);
                 renderHtml(dataNew);
             })
-
             }
         });*!/
     })
@@ -232,7 +252,7 @@ function getPlusOrMinus(data) {                            // Изменение
     let temp = data.main.temp - 273.15;
     if (temp > 0) {
         return '+';
-    } else if (temp < 0) {
+    } else if (temp <= 0) {
         return ''
     }
 }
