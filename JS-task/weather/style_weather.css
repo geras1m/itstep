@@ -201,7 +201,7 @@
 .feeling span{
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
-    color: #e8e3eb;
+    color: #aba7ad;
 }
 
 .wrapper-second{
@@ -213,11 +213,11 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
+    padding-bottom: 5px;
 }
 
 .pressure::before{
     content: '';
-    /*background-image: url("pressure.png");*/
     background-size: 100%;
     width: 15px;
     height: 15px;
@@ -240,5 +240,14 @@
 .day{
     height: 260px;
     width: 180px;
-    border: 1px solid white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding: 5px;
+    background: #ffffff5e;
 }
