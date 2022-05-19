@@ -53,7 +53,6 @@
 .wrapper-input {
     width: 100%;
     height: 55px;
-    border: 1px solid black;
     background: #005FF9;
     display: flex;
     justify-content: center;
@@ -77,12 +76,15 @@
 .input-city {
     width: 100%;
     max-width: 900px;
-    height: 25px;
+    height: 24px;
     margin-left: 20px;
     margin-right: 0;
     font-size: 18px;
     outline:none;
     border: none;
+    padding-left: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .btn {
@@ -93,6 +95,8 @@
     margin-right: 25px;
     border: none;
     color: #ffffff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .btn img{
@@ -106,7 +110,6 @@
 .wrapper-black {
     width: 100%;
     height: 40px;
-    border: 1px solid black;
     background: #333333;
     margin-bottom: 50px;
     display: flex;
@@ -126,11 +129,11 @@
 .wrapper-weather {
     width: 90%;
     height: 185px;
-    border: 1px solid black;
     background: #0000006b;
     margin: 0 auto;
     padding: 15px;
     display: flex;
+    border-radius: 20px;
 }
 
 .wrapper-first{
@@ -216,18 +219,27 @@
     padding-bottom: 5px;
 }
 
-.pressure::before{
-    content: '';
-    background-size: 100%;
+.additional-description{
+    display: flex;
+}
+
+.additional-description img{
     width: 15px;
-    height: 15px;
-    margin: 0 auto;
+    margin-right: 5px;
+}
+
+.uv{
+    color: #dc8f73;
+    margin-right: 5px;
+}
+
+.sunrise{
+    margin-right: 5px;
 }
 
 .wrapper-weather-5-days{
     height: 300px;
     width: 64%;
-    border: 1px solid black;
     background: #0000006b;
     margin: 10px auto;
     display: flex;
@@ -235,10 +247,11 @@
     align-items: center;
     gap: 13px;
     padding: 0 13px;
+    border-radius: 20px;
 }
 
 .day{
-    height: 260px;
+    height: 270px;
     width: 180px;
     border-radius: 20px;
     display: flex;
@@ -249,5 +262,52 @@
     font-size: 15px;
     box-sizing: border-box;
     padding: 5px;
-    background: #ffffff5e;
+    background: #ffffff36;
+}
+
+.day-titl{
+    font-weight: 700;
+    color: coral;
+}
+
+.day-temperatura{
+    margin-top: -15px;
+    font-size: 25px;
+}
+
+.day-description{
+    text-align: center;
+    margin-top: 8px;
+    min-height: 35px;
+}
+
+.day-pressure{
+    text-align: left;
+    margin-top: 8px;
+    display: flex;
+}
+
+.day-pressure img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.day-humidity{
+    text-align: left;
+    margin-top: 8px;
+}
+
+.day-humidity img{
+    width: 15px;
+    margin-right: 2px;
+}
+
+.day-wind{
+    text-align: left;
+    margin-top: 8px;
+}
+
+.day-wind img{
+    width: 15px;
+    margin-right: 2px;
 }

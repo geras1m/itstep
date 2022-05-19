@@ -31,6 +31,11 @@ let dayOfWeekDateSecond;
 let dayOfWeekDateThird;
 let dayOfWeekDateFourth;
 let dayOfWeekDateFifth;
+let addImgPressure = '<img src="pressure-meter-svgrepo-com.svg" alt="">';
+let addImgHumidity = '<img src="humidity.svg" alt="">';
+let addImgWind = '<img src="wind.svg" alt="">';
+let addImgSunrise = '<img src="sunrise.svg" alt="">';
+let addImgSunset = '<img src="sunset.svg" alt="">';
 
 
 let options = {
@@ -131,22 +136,27 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
     </div>
     <div class="wrapper-second">
         <div class="additional-description pressure">
+            ${addImgPressure}
             ${Math.round(weatherObj.main.pressure * 0.75)} мм.рт.ст
         </div>
         <div class="additional-description humidity">
+            ${addImgHumidity}
             ${weatherObj.main.humidity} %
         </div>
         <div class="additional-description wind-speed">
+            ${addImgWind}
             ${weatherObj.wind.speed} м/с
         </div>
         <div class="additional-description uvi">
-            ${weatherObjAdditionalData.current.uvi}
+            <span class="uv">uv </span>  ${weatherObjAdditionalData.current.uvi}
         </div>
         <div class="additional-description sunrise-sunset">
             <span class="sunrise">
+                ${addImgSunrise}
                 ${dataRise}
-            </span>
+            </span> 
             <span class="sunset">
+                ${addImgSunset}
                 ${dataSet}
             </span>
         </div>
@@ -168,14 +178,19 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
             <div class="day-description">
                 ${weatherObjFiveDays.list[1].weather[0].description}
             </div>
-            <div class="day-pressure">
-                ${Math.round(weatherObjFiveDays.list[1].main.pressure * 0.75)} мм.рт.ст
-            </div>
-            <div class="day-humidity">
-                ${weatherObjFiveDays.list[1].main.humidity} %
-            </div>
-            <div class="day-wind">
-                ${weatherObjFiveDays.list[1].wind.speed} м/с
+            <div>
+                <div class="day-pressure">
+                    ${addImgPressure}
+                    ${Math.round(weatherObjFiveDays.list[1].main.pressure * 0.75)} мм.рт.ст
+                </div>
+                <div class="day-humidity">
+                    ${addImgHumidity}
+                    ${weatherObjFiveDays.list[1].main.humidity} %
+                </div>
+                <div class="day-wind">
+                    ${addImgWind}
+                    ${weatherObjFiveDays.list[1].wind.speed} м/с
+                </div>
             </div>
         </div>
         <div class="day">
@@ -192,14 +207,19 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
             <div class="day-description">
                 ${weatherObjFiveDays.list[2].weather[0].description}
             </div>
-            <div class="day-pressure">
-                ${Math.round(weatherObjFiveDays.list[2].main.pressure * 0.75)} мм.рт.ст    
-            </div>
-            <div class="day-humidity">
-                ${weatherObjFiveDays.list[2].main.humidity} %
-            </div>
-            <div class="day-wind">
-                ${weatherObjFiveDays.list[2].wind.speed} м/с
+            <div>
+                <div class="day-pressure">
+                    ${addImgPressure}
+                    ${Math.round(weatherObjFiveDays.list[2].main.pressure * 0.75)} мм.рт.ст    
+                </div>
+                <div class="day-humidity">
+                    ${addImgHumidity}
+                    ${weatherObjFiveDays.list[2].main.humidity} %
+                </div>
+                <div class="day-wind">
+                    ${addImgWind}
+                    ${weatherObjFiveDays.list[2].wind.speed} м/с
+                </div>
             </div>
         </div>
         <div class="day">
@@ -216,14 +236,19 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
             <div class="day-description">
                 ${weatherObjFiveDays.list[3].weather[0].description}
             </div>
-            <div class="day-pressure">
-                ${Math.round(weatherObjFiveDays.list[3].main.pressure * 0.75)} мм.рт.ст
-            </div>
-            <div class="day-humidity">
-                ${weatherObjFiveDays.list[3].main.humidity} %
-            </div>
-            <div class="day-wind">
-                ${weatherObjFiveDays.list[3].wind.speed} м/с
+            <div>
+                <div class="day-pressure">
+                    ${addImgPressure}
+                    ${Math.round(weatherObjFiveDays.list[3].main.pressure * 0.75)} мм.рт.ст
+                </div>
+                <div class="day-humidity">
+                    ${addImgHumidity}
+                    ${weatherObjFiveDays.list[3].main.humidity} %
+                </div>
+                <div class="day-wind">
+                    ${addImgWind}
+                    ${weatherObjFiveDays.list[3].wind.speed} м/с
+                </div>
             </div>
         </div>
         <div class="day">
@@ -240,14 +265,19 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
             <div class="day-description">
                 ${weatherObjFiveDays.list[4].weather[0].description}
             </div>
-            <div class="day-pressure">
-                ${Math.round(weatherObjFiveDays.list[4].main.pressure * 0.75)} мм.рт.ст
-            </div>
-            <div class="day-humidity">
-                ${weatherObjFiveDays.list[4].main.humidity} %
-            </div>
-            <div class="day-wind">
-                ${weatherObjFiveDays.list[4].wind.speed} м/с
+            <div>
+                <div class="day-pressure">
+                    ${addImgPressure}
+                    ${Math.round(weatherObjFiveDays.list[4].main.pressure * 0.75)} мм.рт.ст
+                </div>
+                <div class="day-humidity">
+                    ${addImgHumidity}
+                    ${weatherObjFiveDays.list[4].main.humidity} %
+                </div>
+                <div class="day-wind">
+                    ${addImgWind}
+                    ${weatherObjFiveDays.list[4].wind.speed} м/с
+                </div>
             </div>
         </div>
         <div class="day">
@@ -264,14 +294,19 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
             <div class="day-description">
                 ${weatherObjFiveDays.list[5].weather[0].description}
             </div>
-            <div class="day-pressure">
-                ${Math.round(weatherObjFiveDays.list[5].main.pressure * 0.75)} мм.рт.ст
-            </div>
-            <div class="day-humidity">
-                ${weatherObjFiveDays.list[5].main.humidity} %
-            </div>
-            <div class="day-wind">
-                ${weatherObjFiveDays.list[5].wind.speed} м/с
+            <div>
+                <div class="day-pressure">
+                    ${addImgPressure}
+                    ${Math.round(weatherObjFiveDays.list[5].main.pressure * 0.75)} мм.рт.ст
+                </div>
+                <div class="day-humidity">
+                    ${addImgHumidity}
+                    ${weatherObjFiveDays.list[5].main.humidity} %
+                </div>
+                <div class="day-wind">
+                    ${addImgWind}
+                    ${weatherObjFiveDays.list[5].wind.speed} м/с
+                </div>
             </div>
         </div>
     </div>
