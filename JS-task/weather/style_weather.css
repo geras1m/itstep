@@ -118,7 +118,7 @@
 
 .news-of-weather{
     color: white;
-    margin-left: 235px;
+    margin-left: 225px;
     text-decoration: none;
 }
 
@@ -251,7 +251,7 @@
 }
 
 .day{
-    height: 270px;
+    min-height: 270px;
     width: 180px;
     border-radius: 20px;
     display: flex;
@@ -260,9 +260,9 @@
     color: white;
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
-    box-sizing: border-box;
     padding: 5px;
-    background: #ffffff36;
+    box-sizing: border-box;
+    background: #ffffff14;
 }
 
 .day-titl{

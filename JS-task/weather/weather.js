@@ -21,12 +21,6 @@ let msSunrise;
 let msSunset;
 let dataSet;
 let dataRise;
-let dayOfWeekFirst;
-let dayOfWeekSecond;
-let dayOfWeekThird;
-let dayOfWeekFourth;
-let dayOfWeekFifth;
-let dayOfWeekDateFirst;
 let dayOfWeekDateSecond;
 let dayOfWeekDateThird;
 let dayOfWeekDateFourth;
@@ -36,7 +30,10 @@ let addImgHumidity = '<img src="humidity.svg" alt="">';
 let addImgWind = '<img src="wind.svg" alt="">';
 let addImgSunrise = '<img src="sunrise.svg" alt="">';
 let addImgSunset = '<img src="sunset.svg" alt="">';
-
+let arrAllValue = [];
+let arrHasDateForWeatherFiveDays = [];
+let indexInArr = [];
+let text;
 
 let options = {
     year: 'numeric',
@@ -46,9 +43,7 @@ let options = {
     hour: 'numeric',
     minute: 'numeric',
 };
-let dataNow = (new Date()).toLocaleString('ru', options);     //Вывод даты
-
-
+let dataNow = (new Date()).toLocaleString('ru', options);     //Вывод даты на сегодняшний день
 
 function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
     let html = `
@@ -166,146 +161,141 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
 <div class="wrapper-weather-5-days">
         <div class="day">
             <div class="day-titl">
-                ${dayOfWeekFirst}, 
-                ${dayOfWeekDateFirst}
+                Завтра 
             </div>
             <div class="day-img">
-                <img src="${changeGif(weatherObjFiveDays.list[1].weather[0].icon)}" alt="">
+                <img src="${changeGif(weatherObjFiveDays.list[indexInArr[0]].weather[0].icon)}" alt="">
             </div>
             <div class="day-temperatura">
-                ${symbol}${Math.round(weatherObjFiveDays.list[1].main.temp - 273.15)}<split>&#176;</split>
+                ${symbol}${Math.round(weatherObjFiveDays.list[indexInArr[0]].main.temp - 273.15)}<split>&#176;</split>
             </div>
             <div class="day-description">
-                ${weatherObjFiveDays.list[1].weather[0].description}
+                ${weatherObjFiveDays.list[indexInArr[0]].weather[0].description}
             </div>
             <div>
                 <div class="day-pressure">
                     ${addImgPressure}
-                    ${Math.round(weatherObjFiveDays.list[1].main.pressure * 0.75)} мм.рт.ст
+                    ${Math.round(weatherObjFiveDays.list[indexInArr[0]].main.pressure * 0.75)} мм.рт.ст
                 </div>
                 <div class="day-humidity">
                     ${addImgHumidity}
-                    ${weatherObjFiveDays.list[1].main.humidity} %
+                    ${weatherObjFiveDays.list[indexInArr[0]].main.humidity} %
                 </div>
                 <div class="day-wind">
                     ${addImgWind}
-                    ${weatherObjFiveDays.list[1].wind.speed} м/с
+                    ${weatherObjFiveDays.list[indexInArr[0]].wind.speed} м/с
                 </div>
             </div>
         </div>
         <div class="day">
             <div class="day-titl">
-                ${dayOfWeekSecond}, 
                 ${dayOfWeekDateSecond}
             </div>
             <div class="day-img">
-                <img src="${changeGif(weatherObjFiveDays.list[2].weather[0].icon)}" alt="">
+                <img src="${changeGif(weatherObjFiveDays.list[indexInArr[1]].weather[0].icon)}" alt="">
             </div>
             <div class="day-temperatura">
-                ${symbol}${Math.round(weatherObjFiveDays.list[2].main.temp - 273.15)}<split>&#176;</split>
+                ${symbol}${Math.round(weatherObjFiveDays.list[indexInArr[1]].main.temp - 273.15)}<split>&#176;</split>
             </div>
             <div class="day-description">
-                ${weatherObjFiveDays.list[2].weather[0].description}
+                ${weatherObjFiveDays.list[indexInArr[1]].weather[0].description}
             </div>
             <div>
                 <div class="day-pressure">
                     ${addImgPressure}
-                    ${Math.round(weatherObjFiveDays.list[2].main.pressure * 0.75)} мм.рт.ст    
+                    ${Math.round(weatherObjFiveDays.list[indexInArr[1]].main.pressure * 0.75)} мм.рт.ст    
                 </div>
                 <div class="day-humidity">
                     ${addImgHumidity}
-                    ${weatherObjFiveDays.list[2].main.humidity} %
+                    ${weatherObjFiveDays.list[indexInArr[1]].main.humidity} %
                 </div>
                 <div class="day-wind">
                     ${addImgWind}
-                    ${weatherObjFiveDays.list[2].wind.speed} м/с
+                    ${weatherObjFiveDays.list[indexInArr[1]].wind.speed} м/с
                 </div>
             </div>
         </div>
         <div class="day">
             <div class="day-titl">
-                ${dayOfWeekThird}, 
                 ${dayOfWeekDateThird}
             </div>
             <div class="day-img">
-                <img src="${changeGif(weatherObjFiveDays.list[3].weather[0].icon)}" alt="">
+                <img src="${changeGif(weatherObjFiveDays.list[indexInArr[2]].weather[0].icon)}" alt="">
             </div>
             <div class="day-temperatura">
-                ${symbol}${Math.round(weatherObjFiveDays.list[3].main.temp - 273.15)}<split>&#176;</split>
+                ${symbol}${Math.round(weatherObjFiveDays.list[indexInArr[2]].main.temp - 273.15)}<split>&#176;</split>
             </div>
             <div class="day-description">
-                ${weatherObjFiveDays.list[3].weather[0].description}
+                ${weatherObjFiveDays.list[indexInArr[2]].weather[0].description}
             </div>
             <div>
                 <div class="day-pressure">
                     ${addImgPressure}
-                    ${Math.round(weatherObjFiveDays.list[3].main.pressure * 0.75)} мм.рт.ст
+                    ${Math.round(weatherObjFiveDays.list[indexInArr[2]].main.pressure * 0.75)} мм.рт.ст
                 </div>
                 <div class="day-humidity">
                     ${addImgHumidity}
-                    ${weatherObjFiveDays.list[3].main.humidity} %
+                    ${weatherObjFiveDays.list[indexInArr[2]].main.humidity} %
                 </div>
                 <div class="day-wind">
                     ${addImgWind}
-                    ${weatherObjFiveDays.list[3].wind.speed} м/с
+                    ${weatherObjFiveDays.list[indexInArr[2]].wind.speed} м/с
                 </div>
             </div>
         </div>
         <div class="day">
             <div class="day-titl">
-                ${dayOfWeekFourth}, 
                 ${dayOfWeekDateFourth}
             </div>
             <div class="day-img">
-                <img src="${changeGif(weatherObjFiveDays.list[4].weather[0].icon)}" alt="">
+                <img src="${changeGif(weatherObjFiveDays.list[indexInArr[3]].weather[0].icon)}" alt="">
             </div>
             <div class="day-temperatura">
-                ${symbol}${Math.round(weatherObjFiveDays.list[4].main.temp - 273.15)}<split>&#176;</split>
+                ${symbol}${Math.round(weatherObjFiveDays.list[indexInArr[3]].main.temp - 273.15)}<split>&#176;</split>
             </div>
             <div class="day-description">
-                ${weatherObjFiveDays.list[4].weather[0].description}
+                ${weatherObjFiveDays.list[indexInArr[3]].weather[0].description}
             </div>
             <div>
                 <div class="day-pressure">
                     ${addImgPressure}
-                    ${Math.round(weatherObjFiveDays.list[4].main.pressure * 0.75)} мм.рт.ст
+                    ${Math.round(weatherObjFiveDays.list[indexInArr[3]].main.pressure * 0.75)} мм.рт.ст
                 </div>
                 <div class="day-humidity">
                     ${addImgHumidity}
-                    ${weatherObjFiveDays.list[4].main.humidity} %
+                    ${weatherObjFiveDays.list[indexInArr[3]].main.humidity} %
                 </div>
                 <div class="day-wind">
                     ${addImgWind}
-                    ${weatherObjFiveDays.list[4].wind.speed} м/с
+                    ${weatherObjFiveDays.list[indexInArr[3]].wind.speed} м/с
                 </div>
             </div>
         </div>
         <div class="day">
             <div class="day-titl">
-                ${dayOfWeekFifth}, 
                 ${dayOfWeekDateFifth}
             </div>
             <div class="day-img">
-                <img src="${changeGif(weatherObjFiveDays.list[5].weather[0].icon)}" alt="">
+                <img src="${changeGif(weatherObjFiveDays.list[indexInArr[4]].weather[0].icon)}" alt="">
             </div>
             <div class="day-temperatura">
-                ${symbol}${Math.round(weatherObjFiveDays.list[5].main.temp - 273.15)}<split>&#176;</split>
+                ${symbol}${Math.round(weatherObjFiveDays.list[indexInArr[4]].main.temp - 273.15)}<split>&#176;</split>
             </div>
             <div class="day-description">
-                ${weatherObjFiveDays.list[5].weather[0].description}
+                ${weatherObjFiveDays.list[indexInArr[4]].weather[0].description}
             </div>
             <div>
                 <div class="day-pressure">
                     ${addImgPressure}
-                    ${Math.round(weatherObjFiveDays.list[5].main.pressure * 0.75)} мм.рт.ст
+                    ${Math.round(weatherObjFiveDays.list[indexInArr[4]].main.pressure * 0.75)} мм.рт.ст
                 </div>
                 <div class="day-humidity">
                     ${addImgHumidity}
-                    ${weatherObjFiveDays.list[5].main.humidity} %
+                    ${weatherObjFiveDays.list[indexInArr[4]].main.humidity} %
                 </div>
                 <div class="day-wind">
                     ${addImgWind}
-                    ${weatherObjFiveDays.list[5].wind.speed} м/с
+                    ${weatherObjFiveDays.list[indexInArr[4]].wind.speed} м/с
                 </div>
             </div>
         </div>
@@ -318,12 +308,176 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
     btnSearch.addEventListener('click', () => {
         let newCity = inputValue.value;
         if (!newCity) return;
-        weather.textContent = '';
         (async function () {
-            await getCity(newCity);
+            await getCityNew(newCity);
         })();
     });
 }
+
+async function getCityNew(city = 'Mogilev') {
+    let data1;
+    let data2;
+    let data3;
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
+        .then((response) => response.json())
+        .then((data) => {
+            data1 = data;
+            longitude = data1.coord.lon;   // Долгота
+            latitude = data1.coord.lat;    // Широта
+            msSunrise = data1.sys.sunrise;
+            msSunset = data1.sys.sunset;
+            getSunriseAndSunset(msSunrise, msSunset);
+            return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru\``)
+        })
+        .catch( () => {
+            alert('Упс! Что-то пошло не так. Возможно, был введен несуществующий город :)')
+            // Обработка неправильно введенных данных
+
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            data2 = data;
+            return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            data3 = data;
+
+            getInformationForWeatherFiveDays(data3)
+            getDateForWeatherFiveDays(arrHasDateForWeatherFiveDays)
+
+            console.log(indexInArr);
+            console.log(arrHasDateForWeatherFiveDays);
+
+        })
+        .then(() => {
+
+            symbol = getPlusOrMinus(data1);
+            weather.textContent = '';             // Обновляет в самом конце, чтобы в случае некорректного
+            renderHtml(data1, data2, data3)       // ввода данных в input он не удалял содержимое из страницы
+        })
+}
+
+(async function () {
+    await getCityNew();
+})();
+
+function getDateForWeatherFiveDays(date){
+    // Вывод даты для прогноза на пять дней
+
+    let options = {
+        month: 'long',
+        day: 'numeric',
+        weekday: 'short',
+    };
+    dayOfWeekDateSecond = (new Date(date[1])).toLocaleString('ru', options);
+    dayOfWeekDateThird = (new Date(date[2])).toLocaleString('ru', options);
+    dayOfWeekDateFourth = (new Date(date[3])).toLocaleString('ru', options);
+    dayOfWeekDateFifth = (new Date(date[4])).toLocaleString('ru', options);
+}
+
+function getInformationForWeatherFiveDays(obj){
+    // Учитывает обновление времени в промисе т.е. объекты внутри соответствующие
+    // определенному вермени при обновлении погоды находятся в рвзных позициях этого промиса
+
+    for (let i = 0; i < obj.list.length; i++){
+        arrAllValue.push(obj?.list[i]?.dt_txt)
+    }
+    console.log(arrAllValue)
+
+    for (let j = 0; j < arrAllValue.length; j++){
+        text = arrAllValue[j];
+        let isText = text.indexOf('15:00:00');
+        if(isText >= 0){
+            indexInArr.push(arrAllValue.indexOf(arrAllValue[j]));
+            arrHasDateForWeatherFiveDays.push(arrAllValue[j]);
+        }
+    }
+}
+
+function getSunriseAndSunset(sunrise, sunset) {
+    let optionsSunriseSunset = {
+        hour: 'numeric',
+        minute: 'numeric',
+    };
+    dataRise = (new Date(sunrise * 1000)).toLocaleString('ru', optionsSunriseSunset);    //Вывод времени восхода солнца
+    dataSet = (new Date(sunset * 1000)).toLocaleString('ru', optionsSunriseSunset);     //Вывод времени захода солнца
+}
+
+function changeGif(codeOfIcon) {
+    // Изменение GIF/img у погоды
+
+    return `http://openweathermap.org/img/wn/${codeOfIcon}@2x.png`;
+}
+
+function getPlusOrMinus(data) {
+    // Изменение знака у значения температуры
+
+    let temp = data.main.temp - 273.15;
+    if (temp > 0) {
+        return '+';
+    } else if (temp <= 0) {
+        return ''
+    }
+}
+
+
+
+
+
+/*function getDayOfWeek(dayMS) {//Вывод даты и дня недели (среда,18.05)
+    let optionsDayOfWeek = {
+        weekday: 'short',
+    };
+    let optionsDayOfWeekDate = {
+        day: 'numeric',
+        month: 'numeric',
+    };                                          // Скорей всего карявенько, но додумался только до такого :)
+                                                // Вывод даты для прогноза на несколько дней
+
+    dayOfWeekFirst = (new Date(dayMS * 1000)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateFirst = (new Date(dayMS * 1000)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekSecond = (new Date(dayMS * 1000 + 864 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateSecond = (new Date(dayMS * 1000 + 864 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekThird = (new Date(dayMS * 1000 + 1728 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateThird = (new Date(dayMS * 1000 + 1728 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekFourth = (new Date(dayMS * 1000 + 2592 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateFourth = (new Date(dayMS * 1000 + 2592 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekFifth = (new Date(dayMS * 1000 + 3456 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateFifth = (new Date(dayMS * 1000 + 3456 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+}*/
+
+/*function getDayOfWeek(dayMS) {
+
+// Даты работают не правильно в прогнозе на 5 дней
+// и соответственно погода т.к. в получаемом промисе
+// позиции с данными динамически обновляются
+//
+// Часовой пояс не учитывает
+
+
+    let optionsDayOfWeek = {
+        weekday: 'short',
+    };
+    let optionsDayOfWeekDate = {
+        day: 'numeric',
+        month: 'numeric',
+    };
+
+    dayOfWeekFirst = (new Date(dayMS * 1000)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateFirst = (new Date(dayMS * 1000)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekSecond = (new Date(dayMS * 1000 + 864 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateSecond = (new Date(dayMS * 1000 + 864 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekThird = (new Date(dayMS * 1000 + 1728 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateThird = (new Date(dayMS * 1000 + 1728 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekFourth = (new Date(dayMS * 1000 + 2592 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateFourth = (new Date(dayMS * 1000 + 2592 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+    dayOfWeekFifth = (new Date(dayMS * 1000 + 3456 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeek);
+    dayOfWeekDateFifth = (new Date(dayMS * 1000 + 3456 * 10 ** 5)).toLocaleString('ru', optionsDayOfWeekDate);
+}*/
+
+/*
+// Рабочий код, только выше написан код через цепочку промисов
 
 async function getCity(city = 'Mogilev') {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
@@ -337,19 +491,23 @@ async function getCity(city = 'Mogilev') {
 
     const responseAdditionalData = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`);
     const dataAdditionalData = await responseAdditionalData.json();
+
     const responseFiveDays = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
     const dataFiveDays = await responseFiveDays.json();
     dayOfWeekFirst = dataFiveDays.list[1].dt;
     dayOfWeekSecond = dataFiveDays.list[2].dt;
 
     getDayOfWeek(dayOfWeekFirst);
-
     symbol = getPlusOrMinus(data);
-
     renderHtml(data, dataAdditionalData, dataFiveDays);
 }
 
-/*function getCityNew(city = 'Mogilev') {             // Zhenya 's code
+(async function () {
+    await getCity();
+})();
+*/
+
+/*function getCityNew(city = 'Mogilev') {             // Zhenya's code
     let data1;
     let data2;
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
@@ -365,13 +523,9 @@ async function getCity(city = 'Mogilev') {
         .then(() => {
             let result = data1 + data2;
         })
-}*/
+}
 
-
-(async function () {
-    await getCity();
-})();
-
+*/
 
 /*function showWeather() {                                // My code
     let data;
@@ -406,53 +560,6 @@ async function getCity(city = 'Mogilev') {
     })
 }*/
 // showWeather()
-
-function getDayOfWeek(dayMS) {//Вывод даты и дня недели (среда,18.05)
-    let optionsDayOfWeek = {
-        weekday: 'short',
-    };
-    let optionsDayOfWeekDate = {
-        day: 'numeric',
-        month: 'numeric',
-    };                                          // Скорей всего карявенько, но додумался только до такого :)
-
-    dayOfWeekFirst = (new Date(dayMS*1000)).toLocaleString('ru', optionsDayOfWeek);
-    dayOfWeekDateFirst = (new Date(dayMS*1000)).toLocaleString('ru', optionsDayOfWeekDate);
-    dayOfWeekSecond = (new Date(dayMS*1000 + 864 * 10**5)).toLocaleString('ru', optionsDayOfWeek);
-    dayOfWeekDateSecond = (new Date(dayMS*1000 + 864 * 10**5)).toLocaleString('ru', optionsDayOfWeekDate);
-    dayOfWeekThird = (new Date(dayMS*1000 + 1728 * 10**5)).toLocaleString('ru', optionsDayOfWeek);
-    dayOfWeekDateThird = (new Date(dayMS*1000 + 1728 * 10**5)).toLocaleString('ru', optionsDayOfWeekDate);
-    dayOfWeekFourth = (new Date(dayMS*1000 + 2592 * 10**5)).toLocaleString('ru', optionsDayOfWeek);
-    dayOfWeekDateFourth = (new Date(dayMS*1000 + 2592 * 10**5)).toLocaleString('ru', optionsDayOfWeekDate);
-    dayOfWeekFifth = (new Date(dayMS*1000 + 3456 * 10**5)).toLocaleString('ru', optionsDayOfWeek);
-    dayOfWeekDateFifth = (new Date(dayMS*1000 + 3456 * 10**5)).toLocaleString('ru', optionsDayOfWeekDate);
-}
-
-
-function getSunriseAndSunset(sunrise,sunset) {
-    let optionsSunriseSunset = {
-        hour: 'numeric',
-        minute: 'numeric',
-    };
-    dataRise = (new Date(sunrise*1000)).toLocaleString('ru', optionsSunriseSunset);    //Вывод времени восхода солнца
-    dataSet = (new Date(sunset*1000)).toLocaleString('ru', optionsSunriseSunset);     //Вывод времени захода солнца
-}
-
-function changeGif(codeOfIcon) {                                   // Изменение GIF/img у погоды
-    return `http://openweathermap.org/img/wn/${codeOfIcon}@2x.png`;
-}
-
-
-function getPlusOrMinus(data) {                            // Изменение знака у значения температуры
-    let temp = data.main.temp - 273.15;
-    if (temp > 0) {
-        return '+';
-    } else if (temp <= 0) {
-        return ''
-    }
-}
-
-
 
 
 
