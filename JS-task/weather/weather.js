@@ -21,6 +21,7 @@ let msSunrise;
 let msSunset;
 let dataSet;
 let dataRise;
+let dayOfWeekDateFirst;
 let dayOfWeekDateSecond;
 let dayOfWeekDateThird;
 let dayOfWeekDateFourth;
@@ -36,6 +37,7 @@ let indexInArr = [];
 let text;
 
 let options = {
+    // timeZone:                // доделать часовой пояс
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -43,7 +45,7 @@ let options = {
     hour: 'numeric',
     minute: 'numeric',
 };
-let dataNow = (new Date()).toLocaleString('ru', options);     //Вывод даты на сегодняшний день
+let dataNow = (new Date()).toLocaleString('ru-RU', options);     //Вывод даты на сегодняшний день
 
 function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
     let html = `
@@ -161,7 +163,8 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
 <div class="wrapper-weather-5-days">
         <div class="day">
             <div class="day-titl">
-                Завтра 
+                
+                ${dayOfWeekDateFirst}
             </div>
             <div class="day-img">
                 <img src="${changeGif(weatherObjFiveDays.list[indexInArr[0]].weather[0].icon)}" alt="">
@@ -189,6 +192,7 @@ function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
         </div>
         <div class="day">
             <div class="day-titl">
+                
                 ${dayOfWeekDateSecond}
             </div>
             <div class="day-img">
@@ -342,8 +346,11 @@ async function getCityNew(city = 'Mogilev') {
         .then((response) => response.json())
         .then((data) => {
             data3 = data;
-
+            arrAllValue = [];
+            indexInArr = [];
+            arrHasDateForWeatherFiveDays = [];
             getInformationForWeatherFiveDays(data3)
+
             getDateForWeatherFiveDays(arrHasDateForWeatherFiveDays)
 
             console.log(indexInArr);
@@ -370,6 +377,7 @@ function getDateForWeatherFiveDays(date){
         day: 'numeric',
         weekday: 'short',
     };
+    dayOfWeekDateFirst = (new Date(date[0])).toLocaleString('ru', options);
     dayOfWeekDateSecond = (new Date(date[1])).toLocaleString('ru', options);
     dayOfWeekDateThird = (new Date(date[2])).toLocaleString('ru', options);
     dayOfWeekDateFourth = (new Date(date[3])).toLocaleString('ru', options);
