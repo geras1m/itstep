@@ -35,9 +35,12 @@ let arrAllValue = [];
 let arrHasDateForWeatherFiveDays = [];
 let indexInArr = [];
 let text;
+let timeZone;
+let dataNow;
 
+function dateNow(){
 let options = {
-    // timeZone:                // доделать часовой пояс
+    timeZone: `Etc/GMT-${String(timeZone)}`,                 // доделать часовой пояс
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -45,7 +48,8 @@ let options = {
     hour: 'numeric',
     minute: 'numeric',
 };
-let dataNow = (new Date()).toLocaleString('ru-RU', options);     //Вывод даты на сегодняшний день
+dataNow = (new Date()).toLocaleString('ru-RU', options);     //Вывод даты на сегодняшний день
+}
 
 function renderHtml(weatherObj, weatherObjAdditionalData, weatherObjFiveDays) {
     let html = `
@@ -330,6 +334,8 @@ async function getCityNew(city = 'Mogilev') {
             latitude = data1.coord.lat;    // Широта
             msSunrise = data1.sys.sunrise;
             msSunset = data1.sys.sunset;
+            timeZone = data1.timezone / 3600;
+            dateNow();
             getSunriseAndSunset(msSunrise, msSunset);
             return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru\``)
         })
@@ -355,7 +361,6 @@ async function getCityNew(city = 'Mogilev') {
 
             console.log(indexInArr);
             console.log(arrHasDateForWeatherFiveDays);
-
         })
         .then(() => {
 
@@ -372,16 +377,17 @@ async function getCityNew(city = 'Mogilev') {
 function getDateForWeatherFiveDays(date){
     // Вывод даты для прогноза на пять дней
 
-    let options = {
+    let optionsFiveDays = {
+        timeZone: `Etc/GMT-${String(timeZone)}`,
         month: 'long',
         day: 'numeric',
         weekday: 'short',
     };
-    dayOfWeekDateFirst = (new Date(date[0])).toLocaleString('ru', options);
-    dayOfWeekDateSecond = (new Date(date[1])).toLocaleString('ru', options);
-    dayOfWeekDateThird = (new Date(date[2])).toLocaleString('ru', options);
-    dayOfWeekDateFourth = (new Date(date[3])).toLocaleString('ru', options);
-    dayOfWeekDateFifth = (new Date(date[4])).toLocaleString('ru', options);
+    dayOfWeekDateFirst = (new Date(date[0])).toLocaleString('ru', optionsFiveDays);
+    dayOfWeekDateSecond = (new Date(date[1])).toLocaleString('ru', optionsFiveDays);
+    dayOfWeekDateThird = (new Date(date[2])).toLocaleString('ru', optionsFiveDays);
+    dayOfWeekDateFourth = (new Date(date[3])).toLocaleString('ru', optionsFiveDays);
+    dayOfWeekDateFifth = (new Date(date[4])).toLocaleString('ru', optionsFiveDays);
 }
 
 function getInformationForWeatherFiveDays(obj){
