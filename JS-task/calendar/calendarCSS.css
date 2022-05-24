@@ -1,0 +1,22 @@
+.wrapper-calendar{
+    border: 1px solid black;
+    display: flex;
+    width: 434px;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.day{
+    border: 1px solid black;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-date{
+    border: 1px solid purple;
+    width: 60px;
+    height: 50px;
+}
