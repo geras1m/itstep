@@ -21,19 +21,20 @@ function getFirstDayOfWeek(yearNow, monthNow) {
 }
 
 function addColorForWeekends() {
+    // Меняет стиль для блоков календаря соответствующих выходным дням месяца
+
     const blocksAll = document.querySelectorAll('.block-date');
     for (let i = 5; i < blocksAll.length; i+=7){
-
             blocksAll[i].classList.add('color-text');
             blocksAll[i+1].classList.add('color-text');
-
     }
 }
 
 function createBlocksWithDates() {
+    // Функция для отрисовки блоков (пустых и с числами) для одного месяца
 
+    // Добавляет пустые блоки в календарь если месяц начинается не с понедельника
     let blockWithDate = '<div class="block-date"></div>';
-
     if (firstDayOfWeek === 0 && firstDayOfWeek !== 1) {
         for (let j = firstDayOfWeek; j < 6; j++) {
             calendarWrapper.insertAdjacentHTML('beforeend', blockWithDate);
@@ -44,6 +45,7 @@ function createBlocksWithDates() {
         }
     }
 
+    // Добавляет нужное количество блоков с числами для данного месяца в календарь
     for (let i = 1; i <= countOfDaysInActualMonth; i++) {
         blockWithDate = `
             <div class="block-date">
@@ -54,9 +56,6 @@ function createBlocksWithDates() {
 
     addColorForWeekends()
 }
-
-
-
 
 getFirstDayOfWeek(yearNow, monthNow);
 
