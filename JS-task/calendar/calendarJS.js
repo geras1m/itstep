@@ -1,41 +1,66 @@
 const calendarWrapper = document.querySelector('.wrapper-calendar');
 
 let countOfDaysInActualMonth;
-let arr = [];
+let firstDayOfWeek;
 let dateNow = new Date();
 let yearNow = dateNow.getFullYear();
 let monthNow = dateNow.getMonth() + 1;
-let firstDayOfWeekInMonth = dateNow.getDay();
-console.log(firstDayOfWeekInMonth)
 
-function getDate(year, month) {
+function getCountOfDaysInActualMonth(year, month) {
+    // Определяет количество дней в месяце (последний день месяца)
+
     countOfDaysInActualMonth = new Date(year, month, 0);
     return countOfDaysInActualMonth = countOfDaysInActualMonth.getDate();
 }
 
-getDate(yearNow, monthNow);
+function getFirstDayOfWeek(yearNow, monthNow) {
+    // Определяет день недели (пн, вт и тд.) у первого дня месяца
 
-for (let i = 1; i <= countOfDaysInActualMonth; i++) {
-    arr.push(i);
+    firstDayOfWeek = new Date(yearNow, monthNow - 1, 1);
+    firstDayOfWeek = firstDayOfWeek.getDay();
 }
 
-function createBlocksWithDates(arr) {
+function addColorForWeekends() {
+    const blocksAll = document.querySelectorAll('.block-date');
+    for (let i = 5; i < blocksAll.length; i+=7){
+
+            blocksAll[i].classList.add('color-text');
+            blocksAll[i+1].classList.add('color-text');
+
+    }
+}
+
+function createBlocksWithDates() {
+
     let blockWithDate = '<div class="block-date"></div>';
 
-    if(firstDayOfWeekInMonth !== 1){
-        for(let j = firstDayOfWeekInMonth - 1; j < 7; j++){
+    if (firstDayOfWeek === 0 && firstDayOfWeek !== 1) {
+        for (let j = firstDayOfWeek; j < 6; j++) {
+            calendarWrapper.insertAdjacentHTML('beforeend', blockWithDate);
+        }
+    }else if(firstDayOfWeek !== 1){
+        for (let k = firstDayOfWeek - 1; k > 0; k--) {
             calendarWrapper.insertAdjacentHTML('beforeend', blockWithDate);
         }
     }
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 1; i <= countOfDaysInActualMonth; i++) {
         blockWithDate = `
             <div class="block-date">
-                ${arr[i]}
+                ${i}
             </div>`;
         calendarWrapper.insertAdjacentHTML('beforeend', blockWithDate);
     }
 
+    addColorForWeekends()
 }
 
-createBlocksWithDates(arr);
+
+
+
+getFirstDayOfWeek(yearNow, monthNow);
+
+getCountOfDaysInActualMonth(yearNow, monthNow);
+
+createBlocksWithDates();
+
