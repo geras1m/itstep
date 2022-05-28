@@ -1,3 +1,28 @@
+.wrapper-arrow{
+    display: flex;
+    gap: 15px;
+}
+
+.btn-arrow{
+    border: none;
+    padding: 0;
+    display: flex;
+}
+
+.arrow{
+    width: 25px;
+}
+
+.calendar-date{
+    box-sizing: border-box;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 446px;
+    border: 1px solid black;
+}
+
 .wrapper-calendar{
     border: 1px solid black;
     display: flex;
@@ -22,5 +47,9 @@
 }
 
 .color-text{
+    color: #b11f1f;
+}
+
+.weekend{
     color: #b11f1f;
 }
