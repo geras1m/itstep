@@ -1,22 +1,31 @@
-const calendarWrapper = document.querySelector('.wrapper-calendar');
+const calendarWrapper = document.querySelector('.wrapper-with-dates-of-calendar');
+let dateYearAndMonth = document.querySelector('.calendar-date');
 
 let countOfDaysInActualMonth;
 let firstDayOfWeek;
+
+let yearSelectedInCalendar;
+let monthSelectedInCalendar;
 
 // Определяем текущую дату и достаем из нее год и месяц
 let dateNow = new Date();
 let yearNow = dateNow.getFullYear();
 let monthNow = dateNow.getMonth() + 1;
 
-function showYearAndMonthInCalendar() {
-    let dateYearAndMonth = document.querySelector('.calendar-date');
+function showYearAndMonthInCalendar(year, month) {
+// Показывает в календаре месяц и год для отображаемого месяца
 
     let options = {
         year: 'numeric',
         month: 'long',
     };
-    let showDate = (new Date()).toLocaleString('ru-RU', options);
-    dateYearAndMonth.insertAdjacentHTML('afterbegin', showDate);
+    let showDate = (new Date(year, month - 1));
+
+    yearSelectedInCalendar = showDate.getFullYear();
+    monthSelectedInCalendar = showDate.getMonth();
+
+    let newShowDate = showDate.toLocaleString('ru-RU', options);
+    dateYearAndMonth.insertAdjacentHTML('afterbegin', newShowDate);
 }
 
 function getCountOfDaysInActualMonth(year, month) {
@@ -37,9 +46,9 @@ function addColorForWeekends() {
     // Меняет стиль для блоков календаря соответствующих выходным дням месяца
 
     const blocksAll = document.querySelectorAll('.block-date');
-    for (let i = 5; i < blocksAll.length; i+=7){
-            blocksAll[i].classList.add('color-text');
-            blocksAll[i+1].classList.add('color-text');
+    for (let i = 5; i < blocksAll.length; i += 7) {
+        blocksAll[i].classList.add('color-text');
+        blocksAll[i + 1].classList.add('color-text');
     }
 }
 
@@ -51,7 +60,7 @@ function addEmptyBlocksBeforeDate() {
         for (let j = firstDayOfWeek; j < 6; j++) {
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockBefore);
         }
-    }else if(firstDayOfWeek !== 1){
+    } else if (firstDayOfWeek !== 1) {
         for (let k = firstDayOfWeek - 1; k > 0; k--) {
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockBefore);
         }
@@ -63,16 +72,15 @@ function addEmptyBlocksAfterDate() {
 
     let emptyBlockAfter = '<div class="block-date"></div>';
 
-    const blocksAll = document.querySelectorAll('.block-date')
-    if (blocksAll.length > 28 && blocksAll.length < 35){
+    const blocksAll = document.querySelectorAll('.block-date');
+    if (blocksAll.length > 28 && blocksAll.length < 35) {
         let countOfEmptyBlocksAfter = 35 - (blocksAll.length + 1)
-        for (let i = 0; i <= countOfEmptyBlocksAfter; i++){
+        for (let i = 0; i <= countOfEmptyBlocksAfter; i++) {
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockAfter);
         }
-    }
-    else if (blocksAll.length > 35 && blocksAll.length < 42){
+    } else if (blocksAll.length > 35 && blocksAll.length < 42) {
         let countOfEmptyBlocksAfter = 42 - (blocksAll.length + 1)
-        for (let i = 0; i <= countOfEmptyBlocksAfter; i++){
+        for (let i = 0; i <= countOfEmptyBlocksAfter; i++) {
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockAfter);
         }
     }
@@ -91,26 +99,68 @@ function createBlocksWithDates() {
     }
 }
 
-/*function changeMonth(month) {
+function changeMonth(month) {
     const arrowBefore = document.querySelector('.before');
     const arrowAfter = document.querySelector('.after');
 
+    arrowBefore.addEventListener('click', () => {
+        month--;
+        calendarWrapper.textContent = '';
+        dateYearAndMonth.textContent = '';
 
+        createCalendar(yearNow, month);
 
-    showYearAndMonthInCalendar();
-}*/
+    })
 
-showYearAndMonthInCalendar(yearNow, monthNow)
+    arrowAfter.addEventListener('click', () => {
+        month++;
+        console.log(month)
+        calendarWrapper.textContent = '';
+        dateYearAndMonth.textContent = '';
 
-getFirstDayOfWeek(yearNow, monthNow);
+        createCalendar(yearNow, month);
 
-getCountOfDaysInActualMonth(yearNow, monthNow);
+    })
+}
 
-addEmptyBlocksBeforeDate();
+function createCalendar(year, month) {
 
-createBlocksWithDates();
+    showYearAndMonthInCalendar(year, month);
 
-addEmptyBlocksAfterDate();
+    getFirstDayOfWeek(year, month);
 
-addColorForWeekends();
-//
+    getCountOfDaysInActualMonth(year, month);
+
+    addEmptyBlocksBeforeDate();
+
+    createBlocksWithDates();
+
+    addEmptyBlocksAfterDate();
+
+    addColorForWeekends();
+
+    markTodayDate();
+}
+
+function markTodayDate() {
+//Помечает сегодняшнюю дату в месяце
+
+    if (yearNow === yearSelectedInCalendar && monthNow - 1 === monthSelectedInCalendar) {
+        // Сравнивает год и месяц из значений переменной полученных при первоночальном
+        // отображении месяца из dateNow и значений получаемых при перключении месяцев в
+        // календаре из функции showYearAndMonthInCalendar()
+
+        let ActualNumberOfDayInMonth = dateNow.getDate();
+        const blocksAll = document.querySelectorAll('.block-date');
+        for (const blocksAllElement of blocksAll) {
+            if (Number(blocksAllElement.textContent) === ActualNumberOfDayInMonth) {
+                blocksAllElement.classList.add('actual-day-in-month');
+            }
+        }
+    }
+
+}
+
+createCalendar(yearNow, monthNow);
+
+changeMonth(monthNow);

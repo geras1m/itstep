@@ -13,18 +13,29 @@
     width: 25px;
 }
 
-.calendar-date{
+.wrapper-calendar{
+    border: 1px solid black;
+    width: 446px;
+
+}
+
+.wrapper-days-of-week{
+    display: flex;
+    width: 446px;
+    padding: 5px 5px 0;
+    box-sizing: border-box;
+}
+
+.calendar-date-and-btn-arrows{
     box-sizing: border-box;
     padding: 5px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 446px;
-    border: 1px solid black;
 }
 
-.wrapper-calendar{
-    border: 1px solid black;
+.wrapper-with-dates-of-calendar{
     display: flex;
     width: 434px;
     flex-wrap: wrap;
@@ -52,4 +63,8 @@
 
 .weekend{
     color: #b11f1f;
+}
+
+.actual-day-in-month{
+    background: green;
 }
