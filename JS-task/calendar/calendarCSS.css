@@ -72,3 +72,11 @@
 .epmty{
     color: #b6b6ef;
 }
+
+.popup{
+    width: 150px;
+    height: 300px;
+    border: 1px solid purple;
+    background: #8843bb;
+    visibility: hidden;
+}
