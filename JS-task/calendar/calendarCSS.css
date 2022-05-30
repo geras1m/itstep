@@ -69,14 +69,41 @@
     background: green;
 }
 
-.epmty{
+.epmty-after{
     color: #b6b6ef;
 }
 
 .popup{
-    width: 150px;
+    width: 155px;
     height: 300px;
-    border: 1px solid purple;
-    background: #8843bb;
+    border-radius: 10px;
+    border: 1px solid white;
+    background: #00000040;
     visibility: hidden;
+}
+
+.date-weather{
+    font-weight: 600;
+    text-align: center;
+}
+
+.img-weather{
+    text-align: center;
+}
+
+.img-weather img{
+    margin:-25px 0 ;
+    width: 115px;
+}
+
+.temperature-weather{
+    text-align: center;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.temperature-feels-like-weather{
+    text-align: center;
+    margin: 5px 0;
+
 }

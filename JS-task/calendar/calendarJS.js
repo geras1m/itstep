@@ -12,6 +12,12 @@ let dateNow = new Date();
 let yearNow = dateNow.getFullYear();
 let monthNow = dateNow.getMonth();
 
+let iconCurrentWeather;
+let temperatureCurrentWeather;
+let temperatureFeelsLikeWeather;
+
+let symbolDegreesCelsius = ' C<split>&#176;</split>';
+
 // let countOfDaysInMonthBefore = new Date(2022, monthNow, 0).getDate();
 
 function showYearAndMonthInCalendar(year, month) {
@@ -89,13 +95,13 @@ function addEmptyBlocksAfterDate() {
     if (blocksAll.length > 28 && blocksAll.length < 35) {
         let countOfEmptyBlocksAfter = 35 - (blocksAll.length + 1)
         for (let i = 0; i <= countOfEmptyBlocksAfter; i++) {
-            emptyBlockAfter = `<div class="block-date epmty">${i + 1}</div>`
+            emptyBlockAfter = `<div class="block-date epmty-after">${i + 1}</div>`
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockAfter);
         }
     } else if (blocksAll.length > 35 && blocksAll.length < 42) {
         let countOfEmptyBlocksAfter = 42 - (blocksAll.length + 1)
         for (let i = 0; i <= countOfEmptyBlocksAfter; i++) {
-            emptyBlockAfter = `<div class="block-date epmty">${i + 1}</div>`
+            emptyBlockAfter = `<div class="block-date epmty-after">${i + 1}</div>`
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockAfter);
         }
     }
@@ -195,6 +201,51 @@ function hoverWeather() {
         })
     }
 }
+
+function changeImgWeather(codeOfIcon) {
+    return `<img src="http://openweathermap.org/img/wn/${codeOfIcon}@2x.png" alt="">`;
+}
+
+function getDate() {
+    let options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
+    return (new Date()).toLocaleString('ru-RU', options);
+}
+
+async function showWeather(city = 'Mogilev') {
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
+        .then((response) => response.json())
+        .then((data) => {
+            let latitudeOfCity = data.coord.lat;
+            let longitudeOfCity = data.coord.lon;
+            return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitudeOfCity}&lon=${longitudeOfCity}&units=metric&exclude=minutely,hourly,daily&appid=d2d35b6f5f8da4f517968aa7540b713d`)
+        })
+        .then((response) => response.json())
+        .then((dataActual) => {
+            iconCurrentWeather = dataActual.current.weather[0].icon;
+            temperatureCurrentWeather = Math.round(dataActual.current.temp);
+            temperatureFeelsLikeWeather = Math.round(dataActual.current.feels_like);
+
+            const dateWeatherHtml = document.querySelector('.date-weather');
+            dateWeatherHtml.insertAdjacentHTML('beforeend', getDate())
+
+            const iconWeatherHtml = document.querySelector('.img-weather');
+            iconWeatherHtml.insertAdjacentHTML('beforeend', changeImgWeather(iconCurrentWeather));
+
+            const temperatureWeatherHtml = document.querySelector('.temperature-weather');
+            temperatureWeatherHtml.insertAdjacentHTML('beforeend', temperatureCurrentWeather + symbolDegreesCelsius)
+
+            const temperatureFeelsLikeWeatherHtml = document.querySelector('.temperature-feels-like-weather');
+            temperatureFeelsLikeWeatherHtml.insertAdjacentHTML('beforeend', temperatureFeelsLikeWeather + symbolDegreesCelsius)
+
+        })
+}
+
+showWeather()
+
 
 createCalendar(yearNow, monthNow);
 // hoverWeather()
