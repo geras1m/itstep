@@ -1,4 +1,4 @@
-const calendarWrapper = document.querySelector('.wrapper-with-dates-of-calendar');
+/*const calendarWrapper = document.querySelector('.wrapper-with-dates-of-calendar');
 let dateYearAndMonth = document.querySelector('.calendar-date');
 
 let countOfDaysInActualMonth;
@@ -24,38 +24,38 @@ let fourthValueOfDay;
 
 let iconCurrentWeather;
 let temperatureCurrentWeather;
-let temperatureFeelsLikeWeather;
+let temperatureFeelsLikeWeather;*/
 
 let trackDateOnCalendar = monthNow;
 
-let symbolDegreesCelsius = ' C<split>&#176;</split>';
+// let symbolDegreesCelsius = ' C<split>&#176;</split>';
 
 // let countOfDaysInMonthBefore = new Date(2022, monthNow, 0).getDate();
 
-function showYearAndMonthInCalendar(year, month) {
-// Показывает в календаре месяц и год для отображаемого месяца
+// function showYearAndMonthInCalendar(year, month) {
+// // Показывает в календаре месяц и год для отображаемого месяца
+//
+//     let options = {
+//         year: 'numeric',
+//         month: 'long',
+//     };
+//     let showDate = (new Date(year, month));
+//
+//     yearSelectedInCalendar = showDate.getFullYear();
+//     monthSelectedInCalendar = showDate.getMonth();
+//
+//     let newShowDate = showDate.toLocaleString('ru-RU', options);
+//     dateYearAndMonth.insertAdjacentHTML('afterbegin', newShowDate);
+// }
 
-    let options = {
-        year: 'numeric',
-        month: 'long',
-    };
-    let showDate = (new Date(year, month));
+// function getCountOfDaysInActualMonth(year, month) {
+//     // Определяет количество дней в месяце (последний день месяца)
+//
+//     countOfDaysInActualMonth = new Date(year, month + 1, 0);
+//     return countOfDaysInActualMonth = countOfDaysInActualMonth.getDate();
+// }
 
-    yearSelectedInCalendar = showDate.getFullYear();
-    monthSelectedInCalendar = showDate.getMonth();
-
-    let newShowDate = showDate.toLocaleString('ru-RU', options);
-    dateYearAndMonth.insertAdjacentHTML('afterbegin', newShowDate);
-}
-
-function getCountOfDaysInActualMonth(year, month) {
-    // Определяет количество дней в месяце (последний день месяца)
-
-    countOfDaysInActualMonth = new Date(year, month + 1, 0);
-    return countOfDaysInActualMonth = countOfDaysInActualMonth.getDate();
-}
-
-function getFirstDayOfWeek(yearNow, monthNow) {
+/*function getFirstDayOfWeek(yearNow, monthNow) {
     // Определяет день недели (пн, вт и тд.) у первого дня месяца
 
     firstDayOfWeek = new Date(yearNow, monthNow, 1);
@@ -158,28 +158,28 @@ function changeMonth(month) {
         console.log(month)
     })
 
-}
+}*/
 
-function createCalendar(year, month) {
-
-    showYearAndMonthInCalendar(year, month);
-
-    getFirstDayOfWeek(year, month);
-
-    getCountOfDaysInActualMonth(year, month);
-
-    addEmptyBlocksBeforeDate();
-
-    createBlocksWithDates();
-
-    addEmptyBlocksAfterDate();
-
-    addColorForWeekends();
-
-    markTodayDate();
-
-
-}
+// function createCalendar(year, month) {
+//
+//     showYearAndMonthInCalendar(year, month);
+//
+//     getFirstDayOfWeek(year, month);
+//
+//     getCountOfDaysInActualMonth(year, month);
+//
+//     addEmptyBlocksBeforeDate();
+//
+//     createBlocksWithDates();
+//
+//     addEmptyBlocksAfterDate();
+//
+//     addColorForWeekends();
+//
+//     markTodayDate();
+//
+//
+// }
 
 function markTodayDate() {
 //Помечает сегодняшнюю дату в месяце
