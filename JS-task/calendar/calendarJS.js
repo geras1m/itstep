@@ -16,12 +16,11 @@ let dateOfMonthNow = dateNow.getDate();
 let monthBefore = monthNow - 1;
 
 
-
 let dateForWeatherFirst;
 /*let dateForWeatherSecond;
 let dateForWeatherThird;
 let dateForWeatherFourth;*/
-let objDateAPI;
+// let objDateAPI;
 let firstValueOfDay;
 /*let secondValueOfDay;
 let thirdValueOfDay;
@@ -30,6 +29,7 @@ let fourthValueOfDay;*/
 let iconCurrentWeather;
 let temperatureCurrentWeather;
 let temperatureFeelsLikeWeather;
+let windyCurrentWeather;
 
 let symbolDegreesCelsius = ' C<split>&#176;</split>';
 
@@ -71,7 +71,6 @@ function addColorForWeekends() {
     }
 }
 
-//Доделать вывод чисел из прошлого месяца
 function addEmptyBlocksBeforeDate() {
     // Добавляет пустые блоки (в начале каледаря) в календарь если месяц начинается не с понедельника
 
@@ -82,7 +81,6 @@ function addEmptyBlocksBeforeDate() {
 
         for (let j = firstDayOfWeek; j < 6; j++, dateOfMonthBefore++) {
 
-            console.log(dateOfMonthBefore);
             emptyBlockBefore = `<div class="block-date epmty">${dateOfMonthBefore}</div>`;
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockBefore);
         }
@@ -91,7 +89,6 @@ function addEmptyBlocksBeforeDate() {
         let newDateOfMonthBefore = dateOfMonthBefore - firstDayOfWeek + 2;
         for (let k = firstDayOfWeek - 1; k > 0; k--, newDateOfMonthBefore++) {
 
-            console.log(newDateOfMonthBefore);
             emptyBlockBefore = `<div class="block-date epmty">${newDateOfMonthBefore}</div>`;
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockBefore);
         }
@@ -155,7 +152,7 @@ function changeMonth(month) {
     })
 }
 
-function createCalendar(year, month){
+function createCalendar(year, month) {
 
     showYearAndMonthInCalendar(year, month);
 
@@ -193,30 +190,79 @@ function markTodayDate() {
 
 ///////////////////////////////////////// Работа с блоком погоды /////////////////////////////////////////
 
-function hoverWeather() {
-    if(yearNow === trackYearOnCalendar && monthNow === trackMonthOnCalendar){
+function changeImgWeather(codeOfIcon) {
+    // Подкидывает ссылку с картинкой погоды
 
-        const popupWeather = document.querySelector('.popup');
-        calendarWrapper.addEventListener('mouseover', (e) => {
-            let elem = e.target;
-
-            if(Number(elem.textContent) === firstValueOfDay){
-                console.log(elem.textContent);
-                addDataToBlockWeather(0)
-                popupWeather.style.visibility = 'visible';
-                // onmousemove = event.clientX
-            }
-        })
-    }
-    (async function () {
-        await showWeather();
-    })();
+    return `<img src="http://openweathermap.org/img/wn/${codeOfIcon}@2x.png" alt="">`;
 }
 
-function addDataToBlockWeather(index) {
-    iconCurrentWeather = objDateAPI.daily[index].weather[0].icon;
-    temperatureCurrentWeather = Math.round(objDateAPI.daily[index].temp.day);
-    temperatureFeelsLikeWeather = Math.round(objDateAPI.daily[index].feels_like.day);
+function getDateWeather(dateMS) {
+    // Выводит дату для погоды
+    let options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
+    return (new Date(dateMS)).toLocaleString('ru-RU', options);
+}
+
+function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, windy) {
+    // Отрисовывает данные в блоке погоды для выбранного дня
+
+    const dateWeatherHtml = document.querySelector('.date-weather');
+    dateWeatherHtml.insertAdjacentHTML('beforeend', getDateWeather(date))
+
+    const iconWeatherHtml = document.querySelector('.img-weather');
+    iconWeatherHtml.insertAdjacentHTML('beforeend', changeImgWeather(icon));
+
+    const temperatureWeatherHtml = document.querySelector('.temperature-weather');
+    temperatureWeatherHtml.insertAdjacentHTML('beforeend', tepm + symbolDegreesCelsius)
+
+    const temperatureFeelsLikeWeatherHtml = document.querySelector('.temperature-feels-like-weather');
+    temperatureFeelsLikeWeatherHtml.insertAdjacentHTML('beforeend', tempFeelsLike + symbolDegreesCelsius)
+
+    const windyWeatherHtml = document.querySelector('.windy-weather');
+    windyWeatherHtml.insertAdjacentHTML('beforeend', windy)
+}
+
+function hoverWeather() {
+
+    const popupWeather = document.querySelector('.popup');
+
+    calendarWrapper.addEventListener('mouseover', (e) => {
+        let elem = e.target;
+        if (yearNow === trackYearOnCalendar && monthNow === trackMonthOnCalendar && elem.classList.contains('actual-day-in-month')) {
+
+            if (Number(elem.textContent) === firstValueOfDay) {
+                console.log(elem.textContent);
+                popupWeather.style.top = '0';
+                popupWeather.style.right = '-20px';
+                popupWeather.style.transition = '1s';
+
+                // popupWeather.style.visibility = 'visible';
+
+                // onmousemove = event.clientX
+            }
+            elem.addEventListener('mouseleave', () => {
+                popupWeather.style.right = '170px';
+                popupWeather.style.transition = '.3s';
+                // popupWeather.style.visibility = 'hidden';
+            })
+        }
+    })
+
+}
+
+function addDataToBlockWeather(api, index) {
+
+    dateForWeatherFirst = new Date((api.daily[index].dt * 1000));
+    firstValueOfDay = dateForWeatherFirst.getDate();
+
+    iconCurrentWeather = api.daily[index].weather[0].icon;
+    temperatureCurrentWeather = Math.round(api.daily[index].temp.day);
+    temperatureFeelsLikeWeather = Math.round(api.daily[index].feels_like.day);
+    windyCurrentWeather = Math.round(api.daily[index].wind_speed);
+    renderElementsInWrapperWeatherHtml(dateForWeatherFirst, iconCurrentWeather, temperatureCurrentWeather, temperatureFeelsLikeWeather, windyCurrentWeather)
 }
 
 async function showWeather(city = 'Mogilev') {
@@ -229,14 +275,23 @@ async function showWeather(city = 'Mogilev') {
         })
         .then((response) => response.json())
         .then((dataActual) => {
-            objDateAPI = dataActual;
 
-            dateForWeatherFirst = new Date((dataActual.daily[0].dt * 1000));
-            firstValueOfDay = dateForWeatherFirst.getDate();
+            addDataToBlockWeather(dataActual, 0)
 
         })
 }
 
+createCalendar(yearNow, monthNow);
+
+(async function () {
+    await showWeather();
+})();
+
+hoverWeather()
+
+changeMonth(monthNow);
+
+// Старые, иногда полезные, наработки
 /*
 function hoverWeather() {
         const allBlocksFromCalendar = document.querySelectorAll('.block-date');
@@ -335,13 +390,3 @@ function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike) {
     temperatureFeelsLikeWeatherHtml.insertAdjacentHTML('beforeend', tempFeelsLike + symbolDegreesCelsius)
 }
 */
-
-
-
-
-createCalendar(yearNow, monthNow);
-hoverWeather()
-
-changeMonth(monthNow);
-// hoverWeather();
-// Доделать функцию вывода чисел из прошлого месяца!!!!!!!!!!!!!

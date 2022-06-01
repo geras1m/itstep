@@ -14,14 +14,19 @@
 }
 
 .wrapper-calendar{
+    display: flex;
+    margin: 50px auto;
     border: 1px solid black;
-    width: 446px;
-
+    width: 456px;
+    position: relative;
+    background: #070707d9;
+    z-index: 3;
 }
 
 .wrapper-days-of-week{
     display: flex;
-    width: 446px;
+    gap: 2px;
+    width: 456px;
     padding: 5px 5px 0;
     box-sizing: border-box;
 }
@@ -32,29 +37,49 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 446px;
 }
 
 .wrapper-with-dates-of-calendar{
     display: flex;
-    width: 434px;
+    gap: 2px;
+    width: 446px;
     flex-wrap: wrap;
     padding: 5px;
 }
 
+.calendar-date{
+    color: white;
+}
+
 .day{
-    border: 1px solid black;
+    border: 1px solid #f7f7f75c;
     width: 60px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .block-date{
-    border: 1px solid purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f7f7f75c;
     width: 60px;
     height: 50px;
+    font-size: 26px;
+}
+
+.block-date:hover{
+    transition: .15s;
+    border: 1px solid white;
+    background: #bdbdbd38;
+}
+
+.numbers-of-date{
+    color: white;
+    font-weight: 600;
 }
 
 .color-text{
@@ -66,24 +91,30 @@
 }
 
 .actual-day-in-month{
-    background: green;
+    background: #01f70161;
 }
 
 .epmty{
-    color: #b6b6ef;
+    color: #b6b6efa1;
 }
 
 .epmty-after{
-    color: #b6b6ef;
+    color: #b6b6efa1;
 }
 
 .popup{
+    transition: 1s;
     width: 155px;
     height: 300px;
-    border-radius: 10px;
-    border: 1px solid white;
     background: #00000040;
-    visibility: hidden;
+    position: relative;
+    z-index: -1;
+    top:0;
+    right: 0;
+    /*right: 170px;*/
+
+    padding: 0 20px;
+    /*visibility: hidden;*/
 }
 
 .date-weather{
@@ -109,5 +140,10 @@
 .temperature-feels-like-weather{
     text-align: center;
     margin: 5px 0;
+    min-width: 125px;
+}
 
+.windy-weather{
+    margin: 5px 0;
+    text-align: center;
 }
