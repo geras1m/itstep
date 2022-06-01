@@ -13,6 +13,10 @@ let yearNow = dateNow.getFullYear();
 let monthNow = dateNow.getMonth();
 let dateOfMonthNow = dateNow.getDate();
 
+let monthBefore = monthNow - 1;
+
+
+
 let dateForWeatherFirst;
 /*let dateForWeatherSecond;
 let dateForWeatherThird;
@@ -71,23 +75,24 @@ function addColorForWeekends() {
 function addEmptyBlocksBeforeDate() {
     // Добавляет пустые блоки (в начале каледаря) в календарь если месяц начинается не с понедельника
 
-    // console.log(countOfDaysInMonthBefore)
-
+    let dateOfMonthBefore = new Date(yearNow, monthBefore + 1, 0).getDate();
     let emptyBlockBefore;
     if (firstDayOfWeek === 0) {
-        // countOfDaysInMonthBefore -= 5;
+        dateOfMonthBefore -= 5;
 
-        for (let j = firstDayOfWeek; j < 6; j++) {
-            // countOfDaysInMonthBefore++
-            emptyBlockBefore = `<div class="block-date epmty"></div>`;
+        for (let j = firstDayOfWeek; j < 6; j++, dateOfMonthBefore++) {
+
+            console.log(dateOfMonthBefore);
+            emptyBlockBefore = `<div class="block-date epmty">${dateOfMonthBefore}</div>`;
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockBefore);
         }
-    } else if (firstDayOfWeek !== 0) {
-        // countOfDaysInMonthBefore -= firstDayOfWeek;
+    } else if (firstDayOfWeek !== 0 && firstDayOfWeek !== 1) {
 
-        for (let k = firstDayOfWeek - 1; k > 0; k--) {
-            // countOfDaysInMonthBefore++
-            emptyBlockBefore = `<div class="block-date epmty"></div>`;
+        let newDateOfMonthBefore = dateOfMonthBefore - firstDayOfWeek + 2;
+        for (let k = firstDayOfWeek - 1; k > 0; k--, newDateOfMonthBefore++) {
+
+            console.log(newDateOfMonthBefore);
+            emptyBlockBefore = `<div class="block-date epmty">${newDateOfMonthBefore}</div>`;
             calendarWrapper.insertAdjacentHTML('beforeend', emptyBlockBefore);
         }
     }
@@ -135,6 +140,7 @@ function changeMonth(month) {
 
     arrowBefore.addEventListener('click', () => {
         month--;
+        monthBefore--;
         calendarWrapper.textContent = '';
         dateYearAndMonth.textContent = '';
         createCalendar(yearNow, month);
@@ -142,6 +148,7 @@ function changeMonth(month) {
 
     arrowAfter.addEventListener('click', () => {
         month++;
+        monthBefore++;
         calendarWrapper.textContent = '';
         dateYearAndMonth.textContent = '';
         createCalendar(yearNow, month);
