@@ -1,6 +1,7 @@
 const calendarWrapper = document.querySelector('.wrapper-with-dates-of-calendar');
 const dateYearAndMonth = document.querySelector('.calendar-date');
 const popupWeather = document.querySelector('.popup');
+// const inputValue = document.querySelector('.input-city');
 
 const iconWeatherInHtml = `<img class="clouds-icon" src="img/clouds-icon.svg" alt="">`;
 
@@ -25,22 +26,19 @@ let secondNumberOfNextDay;
 let classesForSecondNumberOfNextDay;
 let thirdNumberOfNextDay;
 let classesForThirdNumberOfNextDay;
-
+let fourthNumberOfNextDay;
+let classesForFourthNumberOfNextDay;
 
 let dateForWeatherFirst;
-/*let dateForWeatherSecond;
-let dateForWeatherThird;
-let dateForWeatherFourth;*/
-// let objDateAPI;
 let firstValueOfDay;
-/*let secondValueOfDay;
-let thirdValueOfDay;
-let fourthValueOfDay;*/
 
 let iconCurrentWeather;
 let temperatureCurrentWeather;
 let temperatureFeelsLikeWeather;
 let windyCurrentWeather;
+let humidityCurrentWeather;
+let pressureCurrentWeather;
+let popCurrentWeather;
 
 let symbolDegreesCelsius = ' C<split>&#176;</split>';
 
@@ -152,6 +150,7 @@ function changeMonth(month) {
         calendarWrapper.textContent = '';
         dateYearAndMonth.textContent = '';
         createCalendar(yearNow, month);
+        findNextDays();
     })
 
     arrowAfter.addEventListener('click', () => {
@@ -160,6 +159,7 @@ function changeMonth(month) {
         calendarWrapper.textContent = '';
         dateYearAndMonth.textContent = '';
         createCalendar(yearNow, month);
+        findNextDays();
     })
 }
 
@@ -180,6 +180,10 @@ function createCalendar(year, month) {
     addColorForWeekends();
 
     markTodayDate();
+
+    (async function () {
+        await showWeather();
+    })();
 }
 
 function markTodayDate() {
@@ -217,12 +221,12 @@ function getDateWeather(dateMS) {
     return (new Date(dateMS)).toLocaleString('ru-RU', options);
 }
 
-function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, windy) {
+function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, windy, humidity, pressure, pop) {
     // Отрисовывает данные в блоке погоды для выбранного дня
 
     const dateWeatherHtml = document.querySelector('.date-weather');
     dateWeatherHtml.textContent = '';
-    dateWeatherHtml.insertAdjacentHTML('beforeend', getDateWeather(date))
+    dateWeatherHtml.insertAdjacentHTML('beforeend', getDateWeather(date));
 
     const iconWeatherHtml = document.querySelector('.img-weather');
     iconWeatherHtml.textContent = '';
@@ -230,19 +234,31 @@ function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, win
 
     const temperatureWeatherHtml = document.querySelector('.value-of-temperature');
     temperatureWeatherHtml.textContent = '';
-    temperatureWeatherHtml.insertAdjacentHTML('beforeend', tepm + symbolDegreesCelsius)
+    temperatureWeatherHtml.insertAdjacentHTML('beforeend', tepm + symbolDegreesCelsius);
 
     const temperatureFeelsLikeWeatherHtml = document.querySelector('.value-of-temperature-feels-like');
     temperatureFeelsLikeWeatherHtml.textContent = '';
-    temperatureFeelsLikeWeatherHtml.insertAdjacentHTML('beforeend', tempFeelsLike + symbolDegreesCelsius)
+    temperatureFeelsLikeWeatherHtml.insertAdjacentHTML('beforeend', tempFeelsLike + symbolDegreesCelsius);
 
     const windyWeatherHtml = document.querySelector('.value-of-windy');
     windyWeatherHtml.textContent = '';
-    windyWeatherHtml.insertAdjacentHTML('beforeend', windy)
+    windyWeatherHtml.insertAdjacentHTML('beforeend', windy);
+
+    const humidityWeatherHtml = document.querySelector('.value-of-humidity');
+    humidityWeatherHtml.textContent = '';
+    humidityWeatherHtml.insertAdjacentHTML('beforeend', humidity);
+
+    const pressureWeatherHtml = document.querySelector('.value-of-pressure');
+    pressureWeatherHtml.textContent = '';
+    pressureWeatherHtml.insertAdjacentHTML('beforeend', pressure);
+
+    const popWeatherHtml = document.querySelector('.value-of-pop');
+    popWeatherHtml.textContent = '';
+    popWeatherHtml.insertAdjacentHTML('beforeend', pop);
 }
 
 function findNextDays() {
-    const allBlocksFromCalendar = document.querySelectorAll('.block-date')
+    const allBlocksFromCalendar = document.querySelectorAll('.block-date');
     // Переменная для добавления иконки облочка в календарь
 
     allBlocksFromCalendar.forEach((elem, index) => {
@@ -253,6 +269,7 @@ function findNextDays() {
             allBlocksFromCalendar[index + 1].insertAdjacentHTML('beforeend', iconWeatherInHtml);
             allBlocksFromCalendar[index + 2].insertAdjacentHTML('beforeend', iconWeatherInHtml);
             allBlocksFromCalendar[index + 3].insertAdjacentHTML('beforeend', iconWeatherInHtml);
+            allBlocksFromCalendar[index + 4].insertAdjacentHTML('beforeend', iconWeatherInHtml);
 
             firstNumberOfNextDay = allBlocksFromCalendar[index + 1].textContent;
             classesForFirstNumberOfNextDay = allBlocksFromCalendar[index + 1].className;
@@ -262,24 +279,25 @@ function findNextDays() {
 
             thirdNumberOfNextDay = allBlocksFromCalendar[index + 3].textContent;
             classesForThirdNumberOfNextDay = allBlocksFromCalendar[index + 3].className;
+
+            fourthNumberOfNextDay = allBlocksFromCalendar[index + 4].textContent;
+            classesForFourthNumberOfNextDay = allBlocksFromCalendar[index + 4].className;
         }
     })
 }
 
 function appearanceAndDisappearancePopUp(e) {
 
-    popupWeather.style.top = '0';
-    popupWeather.style.right = '-20px';
+    popupWeather.style.right = '-5px';
     popupWeather.style.transition = '1s';
-
-    // popupWeather.style.visibility = 'visible';
-
+    popupWeather.style.visibility = 'visible';
     // onmousemove = event.clientX
 
     e.addEventListener('mouseleave', () => {
-        popupWeather.style.right = '170px';
-        popupWeather.style.transition = '.3s';
-        // popupWeather.style.visibility = 'hidden';
+
+        popupWeather.style.transition = 'all .3s ease .5s';
+        popupWeather.style.right = '195px';
+        popupWeather.style.visibility = 'hidden';
     })
 }
 
@@ -292,25 +310,24 @@ function hoverWeather() {
             if (elem.classList.contains('actual-day-in-month')) {
                 appearanceAndDisappearancePopUp(elem);
                 addDataToBlockWeather(dataApi, 0);
-            }
-            else if (elem.textContent === firstNumberOfNextDay && elem.className === classesForFirstNumberOfNextDay ) {
+            } else if (elem.textContent === firstNumberOfNextDay && elem.className === classesForFirstNumberOfNextDay) {
                 appearanceAndDisappearancePopUp(elem);
                 addDataToBlockWeather(dataApi, 1);
-            }
-            else if (elem.textContent === secondNumberOfNextDay && elem.className === classesForSecondNumberOfNextDay) {
+            } else if (elem.textContent === secondNumberOfNextDay && elem.className === classesForSecondNumberOfNextDay) {
                 appearanceAndDisappearancePopUp(elem);
                 addDataToBlockWeather(dataApi, 2);
-            }
-            else if (elem.textContent === thirdNumberOfNextDay && elem.className === classesForThirdNumberOfNextDay) {
+            } else if (elem.textContent === thirdNumberOfNextDay && elem.className === classesForThirdNumberOfNextDay) {
                 appearanceAndDisappearancePopUp(elem);
                 addDataToBlockWeather(dataApi, 3);
+            } else if (elem.textContent === fourthNumberOfNextDay && elem.className === classesForFourthNumberOfNextDay) {
+                appearanceAndDisappearancePopUp(elem);
+                addDataToBlockWeather(dataApi, 4);
             }
         }
     })
-
 }
 
-function addDataToBlockWeather(api, index) {
+function addDataToBlockWeather(api, index = 0) {
 
     dateForWeatherFirst = new Date((api.daily[index].dt * 1000));
     firstValueOfDay = dateForWeatherFirst.getDate();
@@ -319,7 +336,19 @@ function addDataToBlockWeather(api, index) {
     temperatureCurrentWeather = Math.round(api.daily[index].temp.day);
     temperatureFeelsLikeWeather = Math.round(api.daily[index].feels_like.day);
     windyCurrentWeather = Math.round(api.daily[index].wind_speed);
-    renderElementsInWrapperWeatherHtml(dateForWeatherFirst, iconCurrentWeather, temperatureCurrentWeather, temperatureFeelsLikeWeather, windyCurrentWeather)
+    humidityCurrentWeather = api.daily[index].humidity;
+    pressureCurrentWeather = Math.round(api.daily[index].pressure * 0.75);
+    popCurrentWeather = Math.round(api.daily[index].pop * 100);
+
+    renderElementsInWrapperWeatherHtml(
+        dateForWeatherFirst,
+        iconCurrentWeather,
+        temperatureCurrentWeather,
+        temperatureFeelsLikeWeather,
+        windyCurrentWeather,
+        humidityCurrentWeather,
+        pressureCurrentWeather,
+        popCurrentWeather)
 }
 
 async function showWeather(city = 'Mogilev') {
@@ -334,19 +363,36 @@ async function showWeather(city = 'Mogilev') {
         .then((dataActual) => {
             dataApi = dataActual;
         })
+        .catch(() => {
+            alert('Упс! Что-то пошло не так.')
+            // Обработка неправильно введенных данных
+        })
 }
 
 createCalendar(yearNow, monthNow);
 
-(async function () {
-    await showWeather();
-})();
-findNextDays()
-hoverWeather()
+findNextDays();
+
+hoverWeather();
 
 changeMonth(monthNow);
 
 
+function stopVideo() {
+    const btnVideo = document.querySelector('#my-btn');
+    const videoBackground = document.querySelector('#myVideo');
+
+    btnVideo.addEventListener('click', ()=>{
+        if (videoBackground.paused) {
+            videoBackground.play();
+            btnVideo.innerHTML = "Остановить видео";
+        } else {
+            videoBackground.pause();
+            btnVideo.innerHTML = "Запустить видео";
+        }
+    })
+}
+stopVideo()
 // Старые, иногда полезные, наработки
 /*
 function hoverWeather() {
