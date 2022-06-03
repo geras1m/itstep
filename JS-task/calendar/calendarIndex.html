@@ -7,6 +7,9 @@
     <script src="calendarJS.js" defer></script>
 </head>
 <body class="calendar">
+<div class="maska_video">
+    <video id="myVideo" autoplay muted loop src="video/Videos.mp4"></video>
+</div>
 
 <div class="wrapper-calendar">
     <div class="wrapper-calendar-inside">
@@ -44,16 +47,25 @@
 
         </div>
         <p class="temperature-weather">
-            t = <span class="value-of-temperature"></span>
+            <span class="value-of-temperature"></span>
         </p>
         <p class="temperature-feels-like-weather">
-            ощущается: <span class="value-of-temperature-feels-like"></span>
+            Ощущается: <span class="value-of-temperature-feels-like"></span>
         </p>
-        <p class="windy-weather">
-            м/c <span class="value-of-windy"></span>
+        <p class="boxes-of-weather windy-weather">
+            <img class="weather-icon" src="img/windy.svg" alt=""> <span class="value value-of-windy"></span> м/c
+        </p>
+        <p class="boxes-of-weather humidity-weather">
+            <img class="weather-icon" src="img/drop.svg" alt=""> <span class="value value-of-humidity"></span> %
+        </p>
+        <p class="boxes-of-weather pressure-weather">
+            <img class="weather-icon" src="img/pressure.svg" alt=""> <span class="value value-of-pressure"></span> мм.рт.ст
+        </p>
+        <p class="boxes-of-weather pop-weather">
+            <img class="weather-icon" src="img/umbrella.svg" alt=""> <span class="value value-of-pop"></span> %
         </p>
     </div>
 </div>
-
+<button id="my-btn">Остановить видео</button>
 </body>
 </html>
