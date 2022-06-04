@@ -1,6 +1,9 @@
 const calendarWrapper = document.querySelector('.wrapper-with-dates-of-calendar');
 const dateYearAndMonth = document.querySelector('.calendar-date');
 const popupWeather = document.querySelector('.popup');
+const hintBox = document.querySelector('.hint-box');
+const hintBoxImgCloud = document.querySelector('.hint-box img');
+const hintBoxDescriptionText = document.querySelector('.hint-box p');
 // const inputValue = document.querySelector('.input-city');
 
 const iconWeatherInHtml = `<img class="clouds-icon" src="img/clouds-icon.svg" alt="">`;
@@ -165,6 +168,10 @@ function changeMonth(month) {
 
 function createCalendar(year, month) {
 
+    hintHover()
+
+    closeHintDescription()
+
     showYearAndMonthInCalendar(year, month);
 
     getFirstDayOfWeek(year, month);
@@ -258,6 +265,8 @@ function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, win
 }
 
 function findNextDays() {
+    // Функция для определения следующих дней идущих после блока с актуальным днем
+
     const allBlocksFromCalendar = document.querySelectorAll('.block-date');
     // Переменная для добавления иконки облочка в календарь
 
@@ -266,6 +275,10 @@ function findNextDays() {
 
             // Добавлет иконку облачка для конкретных блоков с погодой
             allBlocksFromCalendar[index].insertAdjacentHTML('beforeend', iconWeatherInHtml);
+
+            /*// Подкидывает блок подсказки к облаку
+            allBlocksFromCalendar[index].insertAdjacentHTML('beforeend', hintBoxWeatherInHtml);*/
+
             allBlocksFromCalendar[index + 1].insertAdjacentHTML('beforeend', iconWeatherInHtml);
             allBlocksFromCalendar[index + 2].insertAdjacentHTML('beforeend', iconWeatherInHtml);
             allBlocksFromCalendar[index + 3].insertAdjacentHTML('beforeend', iconWeatherInHtml);
@@ -287,6 +300,7 @@ function findNextDays() {
 }
 
 function appearanceAndDisappearancePopUp(e) {
+//Стили для появления окна с погодой
 
     popupWeather.style.right = '-5px';
     popupWeather.style.transition = '1s';
@@ -301,7 +315,26 @@ function appearanceAndDisappearancePopUp(e) {
     })
 }
 
+function hintHover() {
+    hintBox.addEventListener('mouseover', ()=>{
+        hintBox.style.clipPath =  'polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%)';
+        hintBox.style.width = '170px';
+        hintBox.style.height = '100px';
+        hintBoxImgCloud.style.display = 'none';
+        hintBoxDescriptionText.style.display = 'block';
+        hintBoxDescriptionText.style.transition = 'display 1s linear 2s';
+    })
+    hintBox.addEventListener('mouseleave', ()=>{
+        hintBoxImgCloud.style.display = 'block';
+        hintBox.style.width = '40px';
+        hintBox.style.height = '50px';
+        hintBoxDescriptionText.style.display = 'none';
+        hintBox.style.clipPath =  'polygon(0 0, 100% 0, 100% 100%, 50% 77%, 0 100%)';
+    })
+}
+
 function hoverWeather() {
+// Функция отрабатывающая при наведение на блоки с погодой
 
     calendarWrapper.addEventListener('mouseover', (e) => {
         let elem = e.target;
@@ -328,6 +361,7 @@ function hoverWeather() {
 }
 
 function addDataToBlockWeather(api, index = 0) {
+// Собираем данные из API и отрисовываем на странице
 
     dateForWeatherFirst = new Date((api.daily[index].dt * 1000));
     firstValueOfDay = dateForWeatherFirst.getDate();
@@ -369,6 +403,34 @@ async function showWeather(city = 'Mogilev') {
         })
 }
 
+function stopVideo() {
+    // Кнопка play/stop фонового видео
+
+    const btnVideo = document.querySelector('#my-btn');
+    const videoBackground = document.querySelector('#myVideo');
+
+    btnVideo.addEventListener('click', ()=>{
+        if (videoBackground.paused) {
+            videoBackground.play();
+            btnVideo.innerHTML = "Stop video";
+        } else {
+            videoBackground.pause();
+            btnVideo.innerHTML = "Play video";
+        }
+    })
+}
+
+function closeHintDescription() {
+    // Кнопка закрывающая описания
+
+    const btnCloseDescription = document.querySelector('.close-hint-box');
+    const hintDescription = document.querySelector('.hint-box');
+
+    btnCloseDescription.addEventListener('click', ()=>{
+        hintDescription.style.display = 'none';
+    })
+}
+
 createCalendar(yearNow, monthNow);
 
 findNextDays();
@@ -377,22 +439,9 @@ hoverWeather();
 
 changeMonth(monthNow);
 
-
-function stopVideo() {
-    const btnVideo = document.querySelector('#my-btn');
-    const videoBackground = document.querySelector('#myVideo');
-
-    btnVideo.addEventListener('click', ()=>{
-        if (videoBackground.paused) {
-            videoBackground.play();
-            btnVideo.innerHTML = "Остановить видео";
-        } else {
-            videoBackground.pause();
-            btnVideo.innerHTML = "Запустить видео";
-        }
-    })
-}
 stopVideo()
+
+
 // Старые, иногда полезные, наработки
 /*
 function hoverWeather() {

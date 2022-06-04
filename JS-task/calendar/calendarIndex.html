@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="calendarCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="calendarJS.js" defer></script>
 </head>
 <body class="calendar">
+
+<div class="hint-box animate__animated animate__tada animate__delay-3s">
+    <img src="img/clouds-icon.svg" alt="">
+    <p>
+        <button class="close-hint-box">X</button>
+        Наведите на иконку с изображением <img src="img/clouds-icon.svg" alt=""> и узнайте погоду на этот день!
+    </p>
+</div>
+
 <div class="maska_video">
-    <video id="myVideo" autoplay muted loop src="video/Videos.mp4"></video>
+    <video id="myVideo" autoplay muted loop src="video/production.mp4"></video>
+    <button id="my-btn">Stop video</button>
 </div>
 
 <div class="wrapper-calendar">
@@ -66,6 +77,5 @@
         </p>
     </div>
 </div>
-<button id="my-btn">Остановить видео</button>
 </body>
 </html>
