@@ -1,3 +1,4 @@
+'use strict'
 const calendarWrapper = document.querySelector('.wrapper-with-dates-of-calendar');
 const dateYearAndMonth = document.querySelector('.calendar-date');
 const popupWeather = document.querySelector('.popup');
@@ -5,6 +6,7 @@ const hintBox = document.querySelector('.hint-box');
 const hintBoxImgCloud = document.querySelector('.hint-box img');
 const hintBoxDescriptionText = document.querySelector('.hint-box p');
 // const inputValue = document.querySelector('.input-city');
+let timerID;
 
 const iconWeatherInHtml = `<img class="clouds-icon" src="img/clouds-icon.svg" alt="">`;
 
@@ -316,20 +318,26 @@ function appearanceAndDisappearancePopUp(e) {
 }
 
 function hintHover() {
-    hintBox.addEventListener('mouseover', ()=>{
-        hintBox.style.clipPath =  'polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%)';
+    hintBox.addEventListener('mouseenter', () => {
+        timerID = setTimeout(() => {
+            hintBoxImgCloud.style.display = 'none';
+            hintBoxDescriptionText.style.display = 'block';
+        }, 1000);
+        hintBox.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%)';
         hintBox.style.width = '170px';
         hintBox.style.height = '100px';
-        hintBoxImgCloud.style.display = 'none';
-        hintBoxDescriptionText.style.display = 'block';
         hintBoxDescriptionText.style.transition = 'display 1s linear 2s';
+
     })
-    hintBox.addEventListener('mouseleave', ()=>{
-        hintBoxImgCloud.style.display = 'block';
+    hintBox.addEventListener('mouseleave', () => {
+        clearInterval(timerID);
         hintBox.style.width = '40px';
         hintBox.style.height = '50px';
-        hintBoxDescriptionText.style.display = 'none';
-        hintBox.style.clipPath =  'polygon(0 0, 100% 0, 100% 100%, 50% 77%, 0 100%)';
+        hintBox.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 50% 77%, 0 100%)';
+        setTimeout(() => {
+            hintBoxDescriptionText.style.display = 'none';
+            hintBoxImgCloud.style.display = 'block';
+        },0)
     })
 }
 
@@ -409,7 +417,7 @@ function stopVideo() {
     const btnVideo = document.querySelector('#my-btn');
     const videoBackground = document.querySelector('#myVideo');
 
-    btnVideo.addEventListener('click', ()=>{
+    btnVideo.addEventListener('click', () => {
         if (videoBackground.paused) {
             videoBackground.play();
             btnVideo.innerHTML = "Stop video";
@@ -426,7 +434,7 @@ function closeHintDescription() {
     const btnCloseDescription = document.querySelector('.close-hint-box');
     const hintDescription = document.querySelector('.hint-box');
 
-    btnCloseDescription.addEventListener('click', ()=>{
+    btnCloseDescription.addEventListener('click', () => {
         hintDescription.style.display = 'none';
     })
 }

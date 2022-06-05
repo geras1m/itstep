@@ -25,7 +25,7 @@
 #my-btn{
     cursor: pointer;
     position: fixed;
-    bottom: 50px;
+    top: 30px;
     right: 40px;
     width: 90px;
     height: 45px;
@@ -257,6 +257,7 @@
 }
 
 .close-hint-box{
+    cursor: pointer;
     position: absolute;
     top: 5px;
     right: 5px;
