@@ -312,7 +312,7 @@ function appearanceAndDisappearancePopUp(e) {
     e.addEventListener('mouseleave', () => {
 
         popupWeather.style.transition = 'all .3s ease .5s';
-        popupWeather.style.right = '195px';
+        popupWeather.style.right = '210px';
         popupWeather.style.visibility = 'hidden';
     })
 }
