@@ -5,10 +5,10 @@ const popupWeather = document.querySelector('.popup');
 const hintBox = document.querySelector('.hint-box');
 const hintBoxImgCloud = document.querySelector('.hint-box img');
 const hintBoxDescriptionText = document.querySelector('.hint-box p');
-// const inputValue = document.querySelector('.input-city');
-let timerID;
-
+const inputValue = document.querySelector('.input');
 const iconWeatherInHtml = `<img class="clouds-icon" src="img/clouds-icon.svg" alt="">`;
+
+let timerID;
 
 let countOfDaysInActualMonth;
 let firstDayOfWeek;
@@ -37,6 +37,7 @@ let classesForFourthNumberOfNextDay;
 let dateForWeatherFirst;
 let firstValueOfDay;
 
+let nameOfCityWeather;
 let iconCurrentWeather;
 let temperatureCurrentWeather;
 let temperatureFeelsLikeWeather;
@@ -44,6 +45,10 @@ let windyCurrentWeather;
 let humidityCurrentWeather;
 let pressureCurrentWeather;
 let popCurrentWeather;
+
+
+let positionOfMouseX;
+let positionOfMouseY;
 
 let symbolDegreesCelsius = ' C<split>&#176;</split>';
 
@@ -212,7 +217,22 @@ function markTodayDate() {
     }
 }
 
-///////////////////////////////////////// Работа с блоком погоды /////////////////////////////////////////
+///////////////////////////////////////// Работа с погодой /////////////////////////////////////////
+
+function searchCity() {
+    // Ввод города по нажатию 'Enter'
+    inputValue.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+            let newCity = inputValue.value;
+            inputValue.value = '';
+            console.log(newCity)
+            if (!newCity) return;
+            (async function () {
+                await showWeather(newCity);
+            })();
+        }
+    })
+}
 
 function changeImgWeather(codeOfIcon) {
     // Подкидывает ссылку с картинкой погоды
@@ -230,8 +250,12 @@ function getDateWeather(dateMS) {
     return (new Date(dateMS)).toLocaleString('ru-RU', options);
 }
 
-function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, windy, humidity, pressure, pop) {
+function renderElementsInWrapperWeatherHtml(date, icon, tepm, tempFeelsLike, windy, humidity, pressure, pop, nameOfCity) {
     // Отрисовывает данные в блоке погоды для выбранного дня
+
+    const nameOfCityWeatherHtml = document.querySelector('.name-of-city');
+    nameOfCityWeatherHtml.textContent = '';
+    nameOfCityWeatherHtml.insertAdjacentHTML('beforeend', nameOfCity)
 
     const dateWeatherHtml = document.querySelector('.date-weather');
     dateWeatherHtml.textContent = '';
@@ -301,19 +325,20 @@ function findNextDays() {
     })
 }
 
-function appearanceAndDisappearancePopUp(e) {
+function appearanceAndDisappearancePopUp() {
 //Стили для появления окна с погодой
-
-    popupWeather.style.right = '-5px';
+    popupWeather.style.display = 'block';
+    popupWeather.style.top = `${positionOfMouseY - 125}px`;
+    popupWeather.style.left = `${positionOfMouseX - 77}px`;
     popupWeather.style.transition = '1s';
-    popupWeather.style.visibility = 'visible';
-    // onmousemove = event.clientX
+    // popupWeather.style.visibility = 'visible';
 
-    e.addEventListener('mouseleave', () => {
+    popupWeather.addEventListener('mouseleave', () => {
+        popupWeather.style.display = 'none';
 
-        popupWeather.style.transition = 'all .3s ease .5s';
-        popupWeather.style.right = '210px';
-        popupWeather.style.visibility = 'hidden';
+        // popupWeather.style.transition = 'all .3s ease .5s';
+        // popupWeather.style.right = '210px';
+        // popupWeather.style.visibility = 'hidden';
     })
 }
 
@@ -346,22 +371,31 @@ function hoverWeather() {
 
     calendarWrapper.addEventListener('mouseover', (e) => {
         let elem = e.target;
+
         if (yearNow === trackYearOnCalendar && monthNow === trackMonthOnCalendar) {
 
+            positionOfMouseX = e.pageX;
+            positionOfMouseY = e.pageY;
+
             if (elem.classList.contains('actual-day-in-month')) {
-                appearanceAndDisappearancePopUp(elem);
+                // appearanceAndDisappearancePopUp(elem);
+                appearanceAndDisappearancePopUp();
                 addDataToBlockWeather(dataApi, 0);
             } else if (elem.textContent === firstNumberOfNextDay && elem.className === classesForFirstNumberOfNextDay) {
-                appearanceAndDisappearancePopUp(elem);
+                // appearanceAndDisappearancePopUp(elem);
+                appearanceAndDisappearancePopUp();
                 addDataToBlockWeather(dataApi, 1);
             } else if (elem.textContent === secondNumberOfNextDay && elem.className === classesForSecondNumberOfNextDay) {
-                appearanceAndDisappearancePopUp(elem);
+                // appearanceAndDisappearancePopUp(elem);
+                appearanceAndDisappearancePopUp();
                 addDataToBlockWeather(dataApi, 2);
             } else if (elem.textContent === thirdNumberOfNextDay && elem.className === classesForThirdNumberOfNextDay) {
-                appearanceAndDisappearancePopUp(elem);
+                // appearanceAndDisappearancePopUp(elem);
+                appearanceAndDisappearancePopUp();
                 addDataToBlockWeather(dataApi, 3);
             } else if (elem.textContent === fourthNumberOfNextDay && elem.className === classesForFourthNumberOfNextDay) {
-                appearanceAndDisappearancePopUp(elem);
+                // appearanceAndDisappearancePopUp(elem);
+                appearanceAndDisappearancePopUp();
                 addDataToBlockWeather(dataApi, 4);
             }
         }
@@ -390,13 +424,15 @@ function addDataToBlockWeather(api, index = 0) {
         windyCurrentWeather,
         humidityCurrentWeather,
         pressureCurrentWeather,
-        popCurrentWeather)
+        popCurrentWeather,
+        nameOfCityWeather)
 }
 
 async function showWeather(city = 'Mogilev') {
     await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
         .then((response) => response.json())
         .then((data) => {
+            nameOfCityWeather = data.name;
             let latitudeOfCity = data.coord.lat;
             let longitudeOfCity = data.coord.lon;
             return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitudeOfCity}&lon=${longitudeOfCity}&units=metric&exclude=minutely,hourly,alerts&appid=d2d35b6f5f8da4f517968aa7540b713d`)
@@ -439,6 +475,11 @@ function closeHintDescription() {
     })
 }
 
+
+
+
+
+
 createCalendar(yearNow, monthNow);
 
 findNextDays();
@@ -449,7 +490,7 @@ changeMonth(monthNow);
 
 stopVideo()
 
-
+searchCity()
 // Старые, иногда полезные, наработки
 /*
 function hoverWeather() {

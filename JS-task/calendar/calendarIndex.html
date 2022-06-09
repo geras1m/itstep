@@ -22,12 +22,14 @@
     <button id="my-btn">Stop video</button>
 </div>
 
+
 <div class="wrapper-calendar">
     <div class="wrapper-calendar-inside">
         <div class="calendar-date-and-btn-arrows">
             <div class="calendar-date">
 
             </div>
+
             <div class="wrapper-arrow">
                 <div class="btn-arrow before">
                     <img class="arrow" src="img/arrow-green.svg" alt="">
@@ -35,6 +37,12 @@
                 <div class="btn-arrow after">
                     <img class="arrow" src="img/arrow-green-down.svg" alt="">
                 </div>
+            </div>
+        </div>
+        <div class="wrapper-input">
+            <div class="input-group">
+                <input id="name" type="text" required class="input">
+                <label for="name" class="input-label">Поиск города</label>
             </div>
         </div>
         <div class="wrapper-days-of-week">
@@ -49,33 +57,36 @@
         <div class="wrapper-with-dates-of-calendar">
         </div>
     </div>
+</div>
+<div class="popup">
+    <p class="name-of-city">
 
-    <div class="popup">
-        <p class="date-weather">
+    </p>
+    <p class="date-weather">
 
-        </p>
-        <div class="img-weather">
+    </p>
+    <div class="img-weather">
 
-        </div>
-        <p class="temperature-weather">
-            <span class="value-of-temperature"></span>
-        </p>
-        <p class="temperature-feels-like-weather">
-            Ощущается: <span class="value-of-temperature-feels-like"></span>
-        </p>
-        <p class="boxes-of-weather windy-weather">
-            <img class="weather-icon" src="img/windy.svg" alt=""> <span class="value value-of-windy"></span> м/c
-        </p>
-        <p class="boxes-of-weather humidity-weather">
-            <img class="weather-icon" src="img/drop.svg" alt=""> <span class="value value-of-humidity"></span> %
-        </p>
-        <p class="boxes-of-weather pressure-weather">
-            <img class="weather-icon" src="img/pressure.svg" alt=""> <span class="value value-of-pressure"></span> мм.рт.ст
-        </p>
-        <p class="boxes-of-weather pop-weather">
-            <img class="weather-icon" src="img/umbrella.svg" alt=""> <span class="value value-of-pop"></span> %
-        </p>
     </div>
+    <p class="temperature-weather">
+        <span class="value-of-temperature"></span>
+    </p>
+    <p class="temperature-feels-like-weather">
+        Ощущается: <span class="value-of-temperature-feels-like"></span>
+    </p>
+    <p class="boxes-of-weather windy-weather">
+        <img class="weather-icon" src="img/windy.svg" alt=""> <span class="value value-of-windy"></span> м/c
+    </p>
+    <p class="boxes-of-weather humidity-weather">
+        <img class="weather-icon" src="img/drop.svg" alt=""> <span class="value value-of-humidity"></span> %
+    </p>
+    <p class="boxes-of-weather pressure-weather">
+        <img class="weather-icon" src="img/pressure.svg" alt=""> <span class="value value-of-pressure"></span>
+        мм.рт.ст
+    </p>
+    <p class="boxes-of-weather pop-weather">
+        <img class="weather-icon" src="img/umbrella.svg" alt=""> <span class="value value-of-pop"></span> %
+    </p>
 </div>
 </body>
 </html>
