@@ -336,18 +336,14 @@ function appearanceAndDisappearancePopUp() {
     popupWeather.style.top = `${positionOfMouseY - 125}px`;
     popupWeather.style.left = `${positionOfMouseX - 100}px`;
     popupWeather.style.transition = '.2s';
-    // popupWeather.style.visibility = 'visible';
 
     popupWeather.addEventListener('mouseleave', () => {
         popupWeather.style.display = 'none';
-
-        // popupWeather.style.transition = 'all .3s ease .5s';
-        // popupWeather.style.right = '210px';
-        // popupWeather.style.visibility = 'hidden';
     })
 }
 
 function hintHover() {
+    // Раскрытие подсказки при наведении на нее
     hintBox.addEventListener('mouseenter', () => {
         timerID = setTimeout(() => {
             hintBoxImgCloud.style.display = 'none';
@@ -497,6 +493,10 @@ function closeHintDescription() {
         hintDescription.style.display = 'none';
     })
 }
+
+
+
+
 
 
 createCalendar(yearNow, monthNow);
