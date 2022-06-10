@@ -197,31 +197,33 @@
 .popup{
     width: 155px;
     height: 250px;
-    background: linear-gradient(45deg, #13547a, #80d0c7a8);
+    background: linear-gradient(45deg, #13547a, #80d0c7);
     position: absolute;
     z-index: 10;
-    display: block;
+    display: none;
+    box-sizing: border-box;
+    border-radius: 20px;
     /*top:-1px;*/
     /*clip-path: polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0 50%);*/
     /*right: 0;*/
     /*right: 210px;*/
-    padding: 0 20px 0 50px;
+    /*padding: 0 20px 0 50px;*/
 }
 
 .name-of-city{
     text-align: center;
-    color: #1f36b1ba;
+    color: #ec6e4cc4;
     font-weight: 600;
-    font-size: 27px;
+    font-size: 16px;
     margin: 5px auto;
 }
 
 .date-weather{
-    margin-top: 10px;
+    margin: 0 auto;
     width: 140px;
     font-weight: 600;
     text-align: center;
-    font-size: 20px;
+    font-size: 14px;
     color: #06547a;
 }
 
@@ -229,30 +231,35 @@
     text-align: center;
 }
 
+.wrapper-boxes-of-weather{
+    padding-left: 25px;
+}
+
 .boxes-of-weather{
+    font-size: 14px;
     display: flex;
-    margin: 12px 0 0;
+    margin: 5px 0 0;
     color: #d9b200d1;
 }
 
 .weather-icon{
-    width: 20px;
+    width: 13px;
 }
 
 .value{
-    font-size: 20px;
+    font-size: 16px;
     margin:0 5px 0 15px;
     font-weight: 600;
 }
 
 .img-weather img{
     margin:-25px 0 ;
-    width: 115px;
+    width: 100px;
 }
 
 .temperature-weather{
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     margin: 5px 0;
     color: #06547a;
@@ -263,6 +270,7 @@
     margin: 5px 0;
     min-width: 130px;
     color: #00496d;
+    font-size: 12px;
 }
 
 .windy-weather{
@@ -270,6 +278,7 @@
 }
 
 .clouds-icon{
+
     position: absolute;
     z-index: 2;
     width: 17px;

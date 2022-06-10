@@ -46,7 +46,6 @@ let humidityCurrentWeather;
 let pressureCurrentWeather;
 let popCurrentWeather;
 
-
 let positionOfMouseX;
 let positionOfMouseY;
 
@@ -195,8 +194,13 @@ function createCalendar(year, month) {
 
     markTodayDate();
 
-    (async function () {
-        await showWeather();
+    (async function () {                                         // Проверка на наличие города в localStorage
+        if(localStorage.hasOwnProperty('cityMemory')){
+            await showWeather(localStorage.getItem('cityMemory'));
+        }
+        else {
+            await showWeather();
+        }
     })();
 }
 
@@ -224,6 +228,7 @@ function searchCity() {
     inputValue.addEventListener('keydown', (e) => {
         if (e.keyCode === 13) {
             let newCity = inputValue.value;
+
             inputValue.value = '';
             console.log(newCity)
             if (!newCity) return;
@@ -329,8 +334,8 @@ function appearanceAndDisappearancePopUp() {
 //Стили для появления окна с погодой
     popupWeather.style.display = 'block';
     popupWeather.style.top = `${positionOfMouseY - 125}px`;
-    popupWeather.style.left = `${positionOfMouseX - 77}px`;
-    popupWeather.style.transition = '1s';
+    popupWeather.style.left = `${positionOfMouseX - 100}px`;
+    popupWeather.style.transition = '.2s';
     // popupWeather.style.visibility = 'visible';
 
     popupWeather.addEventListener('mouseleave', () => {
@@ -362,7 +367,7 @@ function hintHover() {
         setTimeout(() => {
             hintBoxDescriptionText.style.display = 'none';
             hintBoxImgCloud.style.display = 'block';
-        },0)
+        }, 0)
     })
 }
 
@@ -429,9 +434,13 @@ function addDataToBlockWeather(api, index = 0) {
 }
 
 async function showWeather(city = 'Mogilev') {
+
     await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d2d35b6f5f8da4f517968aa7540b713d&lang=ru`)
         .then((response) => response.json())
         .then((data) => {
+
+
+
             nameOfCityWeather = data.name;
             let latitudeOfCity = data.coord.lat;
             let longitudeOfCity = data.coord.lon;
@@ -441,10 +450,24 @@ async function showWeather(city = 'Mogilev') {
         .then((dataActual) => {
             dataApi = dataActual;
         })
-        .catch(() => {
-            alert('Упс! Что-то пошло не так.')
+        .catch((a) => {
+            console.log(a)
+            alert(`Упс! Что-то пошло не так. Возможно, Вы ввели несуществующий город :)`);
+
+            (async function () {                                        // Проверка на наличие города в localStorage
+                if(localStorage.hasOwnProperty('cityMemory')){
+                    await showWeather(localStorage.getItem('cityMemory'));
+                }
+                else {
+                    await showWeather();
+                }
+            })();
+
             // Обработка неправильно введенных данных
         })
+
+    localStorage.removeItem('cityMemory');
+    localStorage.setItem('cityMemory', city);                                // Добавление города в localStorage
 }
 
 function stopVideo() {
@@ -474,10 +497,6 @@ function closeHintDescription() {
         hintDescription.style.display = 'none';
     })
 }
-
-
-
-
 
 
 createCalendar(yearNow, monthNow);
