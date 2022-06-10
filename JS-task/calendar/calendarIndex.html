@@ -17,13 +17,19 @@
     </p>
 </div>
 
-<div class="maska_video">
-    <video id="myVideo" autoplay muted loop src="video/video-sea.mp4"></video>
-    <button id="my-btn">Stop video</button>
+<div class="wrapper-video-change">
+    <button class="btnVideo" data-left = "left"></button>
+    <button class="btnVideo" data-center = "center"></button>
+    <button class="btnVideo" data-right = "right"></button>
 </div>
 
-<button class="video-before">Лево</button>
-<button class="video-after">Право</button>
+<div class="maska_video">
+    <video id="myVideo" autoplay muted loop >
+        <source src="video/video-sea.mp4" type="video/mp4">
+    </video>
+</div>
+
+<button id="my-btn">Stop video</button>
 
 <div class="wrapper-calendar">
     <div class="wrapper-calendar-inside">

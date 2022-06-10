@@ -335,7 +335,7 @@ function appearanceAndDisappearancePopUp() {
     popupWeather.style.display = 'block';
     popupWeather.style.top = `${positionOfMouseY - 125}px`;
     popupWeather.style.left = `${positionOfMouseX - 100}px`;
-    popupWeather.style.transition = '.2s';
+    popupWeather.style.transition = '.05s';
 
     popupWeather.addEventListener('mouseleave', () => {
         popupWeather.style.display = 'none';
@@ -494,7 +494,29 @@ function closeHintDescription() {
     })
 }
 
+function changeBackgroundVideo(){
+    const video = document.querySelector('#myVideo');
+    const wrapperVideoChange = document.querySelector('.wrapper-video-change');
 
+    wrapperVideoChange.addEventListener('click', (e)=>{
+        let elem = e.target;
+
+        let leftBtn = elem.dataset.left;
+        let centerBtn = elem.dataset.center;
+        let rightBtn = elem.dataset.right;
+
+        if(leftBtn){
+            video.src = 'video/Videos.mp4';
+        }
+        if(centerBtn){
+            video.src = 'video/video-sea.mp4';
+        }
+        if(rightBtn){
+            video.src = 'video/production.mp4';
+        }
+    })
+
+}
 
 
 
@@ -510,6 +532,8 @@ changeMonth(monthNow);
 stopVideo()
 
 searchCity()
+
+changeBackgroundVideo()
 // Старые, иногда полезные, наработки
 /*
 function hoverWeather() {
