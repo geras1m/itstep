@@ -1,0 +1,316 @@
+.weather {
+    background: url("oblaka-nebo-tuchi-1.jpg") no-repeat;
+    margin: 0;
+    background-size: cover;
+}
+
+.menu {
+    width: 100%;
+    height: 35px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-item{
+    margin-left: 15px;
+}
+
+.item{
+    text-decoration: none;
+    color: #333333;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.item-mail::after{
+    width: 10px;
+    height: 10px;
+    background: #333333;
+}
+
+.item:hover{
+    background: #e8e8e8;
+}
+
+.menu-login{
+    text-decoration: none;
+    color: #333333;
+    padding: 5px;
+    margin-right: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.menu-login:hover{
+    background: #e8e8e8;
+}
+
+.wrapper-input {
+    width: 100%;
+    height: 55px;
+    background: #005FF9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-text {
+    font-weight: 900;
+    color: white;
+    margin-right: 15px;
+    display: contents;
+    font-size: 20px;
+}
+
+.input-text::before {
+    content: url("logotype-@mail.ru.svg");
+    margin-right: 10px;
+    margin-left: 25px;
+}
+
+.input-city {
+    width: 100%;
+    max-width: 900px;
+    height: 24px;
+    margin-left: 20px;
+    margin-right: 0;
+    font-size: 18px;
+    outline:none;
+    border: none;
+    padding-left: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    margin-right: 25px;
+    border: none;
+    color: #ffffff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btn img{
+    width: 16px;
+}
+
+.btn:hover{
+    background: #ffc115;
+}
+
+.wrapper-black {
+    width: 100%;
+    height: 40px;
+    background: #333333;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.news-of-weather{
+    color: white;
+    margin-left: 225px;
+    text-decoration: none;
+}
+
+.news-of-weather:hover{
+    color: rgba(246, 145, 67, 0.81);
+}
+
+.wrapper-weather {
+    width: 90%;
+    height: 185px;
+    background: #0000006b;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    border-radius: 20px;
+}
+
+.wrapper-first{
+    max-width: 450px;
+}
+
+.weather-head {
+    height: 44px;
+    font-size: 22px;
+    color: white;
+}
+
+.weather-city {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 22px;
+    color: white;
+    height: 27px;
+    margin: 0;
+}
+
+.data-now {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+    height: 19px;
+    margin: 0;
+}
+
+.wrapper-gif-value {
+    display: flex;
+}
+
+.gif {
+    max-height: 100px;
+    width: 100%;
+    max-width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.gif img {
+    width: 100px;
+}
+
+.value {
+    color: white;
+    font-size: 100px;
+    height: 100px;
+    font-family: Roboto, Arial, sans-serif;
+    white-space: nowrap;
+    font-weight: 400;
+    max-width: 210px;
+}
+
+.description{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+    margin: 15px
+}
+
+.feeling {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+.feeling span{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    color: #aba7ad;
+}
+
+.wrapper-second{
+    font-family: Roboto, Arial, sans-serif;
+    color: white;
+    font-size: 15px;
+    width: 150px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 5px;
+}
+
+.additional-description{
+    display: flex;
+}
+
+.additional-description img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.uv{
+    color: #dc8f73;
+    margin-right: 5px;
+}
+
+.sunrise{
+    margin-right: 5px;
+}
+
+.wrapper-weather-5-days{
+    height: 300px;
+    width: 64%;
+    background: #0000006b;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 0 13px;
+    border-radius: 20px;
+}
+
+.day{
+    min-height: 286px;
+    width: 180px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #ffffff14;
+}
+
+.day-titl{
+    font-weight: 700;
+    color: coral;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day-temperatura{
+    margin-top: -15px;
+    font-size: 25px;
+}
+
+.day-description{
+    text-align: center;
+    margin-top: 8px;
+    min-height: 35px;
+}
+
+.day-pressure{
+    text-align: left;
+    margin-top: 8px;
+    display: flex;
+}
+
+.day-pressure img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.day-humidity{
+    text-align: left;
+    margin-top: 8px;
+}
+
+.day-humidity img{
+    width: 15px;
+    margin-right: 2px;
+}
+
+.day-wind{
+    text-align: left;
+    margin-top: 8px;
+}
+
+.day-wind img{
+    width: 15px;
+    margin-right: 2px;
+}
