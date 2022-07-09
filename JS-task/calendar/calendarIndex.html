@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="calendarCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="calendarJS.js" defer></script>
+</head>
+<body class="calendar">
+
+<div class="hint-box animate__animated animate__tada animate__delay-3s">
+    <img src="img/clouds-icon.svg" alt="">
+    <p>
+        <button class="close-hint-box">X</button>
+        Наведите на иконку с изображением <img src="img/clouds-icon.svg" alt=""> и узнайте погоду на этот день!
+    </p>
+</div>
+
+<div class="wrapper-video-change">
+    <button class="btnVideo" data-left = "left"></button>
+    <button class="btnVideo" data-center = "center"></button>
+    <button class="btnVideo" data-right = "right"></button>
+</div>
+
+<div class="maska_video">
+    <video id="myVideo" autoplay muted loop >
+        <source src="video/video-sea.mp4" type="video/mp4">
+    </video>
+</div>
+
+<button id="my-btn">Stop video</button>
+
+<div class="wrapper-calendar">
+    <div class="wrapper-calendar-inside">
+        <div class="calendar-date-and-btn-arrows">
+            <div class="calendar-date">
+
+            </div>
+
+            <div class="wrapper-arrow">
+                <div class="btn-arrow before">
+                    <img class="arrow" src="img/arrow-green.svg" alt="">
+                </div>
+                <div class="btn-arrow after">
+                    <img class="arrow" src="img/arrow-green-down.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="wrapper-input">
+            <div class="input-group">
+                <input id="name" type="text" required class="input">
+                <label for="name" class="input-label">Поиск города</label>
+            </div>
+        </div>
+        <div class="wrapper-days-of-week">
+            <div class="day monday">Пн</div>
+            <div class="day tuesday ">Вт</div>
+            <div class="day wednesday ">Ср</div>
+            <div class="day thursday ">Чт</div>
+            <div class="day friday ">Пт</div>
+            <div class="day weekend ">Сб</div>
+            <div class="day weekend">Вс</div>
+        </div>
+        <div class="wrapper-with-dates-of-calendar">
+        </div>
+    </div>
+</div>
+<div class="popup">
+    <p class="name-of-city">
+
+    </p>
+    <p class="date-weather">
+
+    </p>
+    <div class="img-weather">
+
+    </div>
+    <p class="temperature-weather">
+        <span class="value-of-temperature"></span>
+    </p>
+    <p class="temperature-feels-like-weather">
+        Ощущается: <span class="value-of-temperature-feels-like"></span>
+    </p>
+    <div class="wrapper-boxes-of-weather">
+        <p class="boxes-of-weather windy-weather">
+            <img class="weather-icon" src="img/windy.svg" alt=""> <span class="value value-of-windy"></span> м/c
+        </p>
+        <p class="boxes-of-weather humidity-weather">
+            <img class="weather-icon" src="img/drop.svg" alt=""> <span class="value value-of-humidity"></span> %
+        </p>
+        <p class="boxes-of-weather pressure-weather">
+            <img class="weather-icon" src="img/pressure.svg" alt=""> <span class="value value-of-pressure"></span>
+            мм.рт.ст
+        </p>
+        <p class="boxes-of-weather pop-weather">
+            <img class="weather-icon" src="img/umbrella.svg" alt=""> <span class="value value-of-pop"></span> %
+        </p>
+    </div>
+</div>
+</body>
+</html>

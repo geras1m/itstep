@@ -1,0 +1,357 @@
+#myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -3;
+}
+
+.maska_video {
+    position: absolute;
+}
+
+.maska_video:after {
+    content: "";
+    display: block;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .15);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+
+#my-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 90px;
+    height: 45px;
+    color: azure;
+    background-color: rgb(0 3 3 / 48%);
+    border: none;
+    transition: all .6s ease;
+}
+
+#my-btn:hover {
+    background-color: rgb(0 3 3 / 90%);
+}
+
+.wrapper-video-change{
+    position: absolute;
+    bottom: 30px;
+    left: 47%;
+    right: 53%;
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnVideo {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.74);
+    border: none;
+    transition: all .4s ease;
+}
+
+.btnVideo:hover {
+    background-color: rgba(67, 187, 73, 0.78);
+}
+
+.wrapper-arrow {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-arrow {
+    border: none;
+    padding: 0;
+    display: flex;
+}
+
+.arrow {
+    cursor: pointer;
+    width: 25px;
+}
+
+.wrapper-calendar {
+    display: flex;
+    margin: 100px auto 0;
+    border: 1px solid black;
+    width: 456px;
+    position: relative;
+    background: #2f2f2f;
+    /*z-index: 3;*/
+}
+
+.wrapper-calendar-inside {
+    z-index: 2;
+}
+
+.wrapper-input {
+    display: flex;
+    justify-content: center;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input {
+    width: 421px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font: inherit;
+    color: #ffffff;
+    background-color: transparent;
+    outline: 2px solid white;
+}
+
+.input-label {
+    color: #ffffff82;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(10px, 10px);
+    transition: transform .25s;
+}
+
+.input:focus + .input-label,
+.input:valid + .input-label {
+    transform: translate(10px, -14px) scale(.8);
+    color: #d1c5fc;
+    padding-inline: 5px;
+    background-color: #2f2f2f;
+}
+
+.input:is(:focus, :valid) {
+    outline-color: #d1c5fc;
+}
+
+.wrapper-days-of-week {
+    margin-top: 5px;
+    display: flex;
+    gap: 2px;
+    width: 456px;
+    padding: 5px 5px 0;
+    box-sizing: border-box;
+}
+
+.calendar-date-and-btn-arrows {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+
+.wrapper-with-dates-of-calendar {
+    display: flex;
+    gap: 2px;
+    width: 446px;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.calendar-date {
+    color: white;
+    font-size: 21px;
+}
+
+.day {
+    border: 1px solid #f7f7f75c;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.block-date {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f7f7f75c;
+    width: 60px;
+    height: 50px;
+    font-size: 26px;
+}
+
+.block-date:hover {
+    transition: .15s;
+    border: 1px solid white;
+    background: #bdbdbd38;
+}
+
+.numbers-of-date {
+    color: white;
+    font-weight: 600;
+}
+
+.color-text {
+    color: #b11f1f;
+}
+
+.weekend {
+    color: #b11f1f;
+}
+
+.actual-day-in-month {
+    background: #01f70161;
+}
+
+.epmty {
+    color: #b6b6efa1;
+}
+
+.epmty-after {
+    color: #b6b6efa1;
+}
+
+.popup {
+    width: 155px;
+    height: 250px;
+    background: linear-gradient(45deg, #13547a, #80d0c7);
+    position: absolute;
+    z-index: 10;
+    display: none;
+    box-sizing: border-box;
+    border-radius: 20px;
+    /*top:-1px;*/
+    /*clip-path: polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0 50%);*/
+    /*right: 0;*/
+    /*right: 210px;*/
+    /*padding: 0 20px 0 50px;*/
+}
+
+.name-of-city {
+    text-align: center;
+    color: #ec6e4cc4;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 5px auto;
+}
+
+.date-weather {
+    margin: 0 auto;
+    width: 140px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+    color: #06547a;
+}
+
+.img-weather {
+    text-align: center;
+}
+
+.wrapper-boxes-of-weather {
+    padding-left: 25px;
+}
+
+.boxes-of-weather {
+    font-size: 14px;
+    display: flex;
+    margin: 5px 0 0;
+    color: #d9b200d1;
+}
+
+.weather-icon {
+    width: 13px;
+}
+
+.value {
+    font-size: 16px;
+    margin: 0 5px 0 15px;
+    font-weight: 600;
+}
+
+.img-weather img {
+    margin: -25px 0;
+    width: 100px;
+}
+
+.temperature-weather {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #06547a;
+}
+
+.temperature-feels-like-weather {
+    text-align: center;
+    margin: 5px 0;
+    min-width: 130px;
+    color: #00496d;
+    font-size: 12px;
+}
+
+.windy-weather {
+    margin: 5px 0;
+}
+
+.clouds-icon {
+
+    position: absolute;
+    z-index: 2;
+    width: 17px;
+    top: 2px;
+    right: 2px;
+}
+
+.hint-box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px 10px;
+    top: 0;
+    left: 50px;
+    background: rgb(0 3 3 / 48%);
+    width: 40px;
+    height: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 77%, 0 100%);
+    transition: all 1s ease;
+    --animation-duration: 2s;
+}
+
+.hint-box img {
+    width: 30px;
+}
+
+.hint-box p {
+    display: none;
+    text-align: center;
+    max-width: 150px;
+    min-width: 150px;
+    font-size: 14px;
+    color: #ffffff;
+    transition: all 1s ease 1s;
+}
+
+.hint-box p img {
+    width: 15px;
+}
+
+.close-hint-box {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 40%;
+    background: rgba(96, 119, 176, 0.41);
+}
+
